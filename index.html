@@ -3,109 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simplified Shop Layout</title>
+    <title>Mehek Candles</title>
     <style>
-        /* 
-           CSS STYLES
-           These control the look and feel of the page.
-        */
+        :root {
+            --bg-color: #fdfbf7;
+            --text-color: #333;
+            --accent-color: #b89f8a;
+            --header-bg: #ffffff;
+            --footer-bg: #f0ede8;
+            --dark-blue: #2c3e50;
+        }
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
-
         header {
-            background-color: #333;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: var(--header-bg);
+            border-bottom: 1px solid #ddd;
         }
-
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .dropdown { position: relative; cursor: pointer; padding: 10px 0; }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 10px;
+            width: 200px;
+            z-index: 10;
+        }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .brand-name { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
+        .hero {
+            padding: 150px 50px;
+            text-align: center;
+            background-image: url('IMAGE_REF_PLACEHOLDER');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .section { padding: 50px; text-align: center; max-width: 800px; margin: auto; }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px;
+            background-color: var(--footer-bg);
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        footer {
+            background-color: var(--dark-blue);
+            color: white;
             padding: 20px;
-            background: white;
-            border-radius: 8px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            border: 1px solid #ddd;
-            padding: 15px;
             text-align: center;
-            border-radius: 5px;
-        }
-
-        .product-card img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            color: #e44d26;
-            font-weight: bold;
-        }
-
-        /* CHANGE: Modify this button style to match your brand */
-        .buy-button {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
         }
     </style>
 </head>
 <body>
 
-    <!-- CHANGE: Update your store name here -->
-    <header>
-        <h1>My Simplified Store</h1>
-    </header>
-
-    <div class="container">
-        <h2>Our Products</h2>
-        
-        <div class="product-grid">
-            
-            <!-- PRODUCT START: Copy this block to add more products -->
-            <div class="product-card">
-                <!-- CHANGE: Replace with your product image URL -->
-                <img src="https://via.placeholder.com/200" alt="Product Image">
-                
-                <!-- CHANGE: Update product title -->
-                <h3>Product Name 1</h3>
-                
-                <!-- CHANGE: Update product price -->
-                <p class="price">$19.99</p>
-                
-                <!-- CHANGE: Update the link URL to your checkout or product page -->
-                <a href="#" class="buy-button">Buy Now</a>
+<header>
+    <div class="nav-links">
+        <div class="dropdown">
+            THE SHOP
+            <div class="dropdown-menu">
+                <p>Candles</p><p>Home Diffusers</p><p>Home Spray</p><p>Body Spray</p><p>Perfumes and Hair Mist</p>
             </div>
-            <!-- PRODUCT END -->
-
-            <!-- Example of a second product -->
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="Product Image">
-                <h3>Product Name 2</h3>
-                <p class="price">$29.99</p>
-                <a href="#" class="buy-button">Buy Now</a>
+        </div>
+        <div class="dropdown">
+            THE BRAND
+            <div class="dropdown-menu">
+                <p>Our History</p>
             </div>
-
         </div>
     </div>
+    
+    <div class="brand-name">MEHEK CANDLES</div>
+    
+    <div class="nav-links">
+        <div class="dropdown">
+            OUR COLLECTIONS
+            <div class="dropdown-menu">
+                <p>Marrakech</p><p>Oriental Luxe</p>
+            </div>
+        </div>
+        <p>CONTACT US</p>
+        <p>🛒 Cart</p>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Mehek Candles</h1>
+    <p>Handcrafted luxury for your home.</p>
+</section>
+
+<section class="section">
+    <h2>Our Story</h2>
+    <p>Mehek Candles was born from a passion for scent and tradition. Our story is one of artisanal mastery, blending rare ingredients to create sensory journeys that transform your living space into a sanctuary of elegance.</p>
+    <h3>Certifications</h3>
+    <p>We are committed to quality and sustainability, proudly holding certifications for ethical sourcing, organic integrity, and cruelty-free practices.</p>
+</section>
+
+<div class="features">
+    <div><strong>FREE SHIPPING</strong><br>On orders over $150</div>
+    <div><strong>SECURE CHECKOUT</strong><br>100% Guaranteed</div>
+    <div><strong>AUTHENTIC INGREDIENTS</strong><br>Handcrafted Quality</div>
+</div>
+
+<footer>
+    &copy; 2026 Mehek Candles - All Rights Reserved
+</footer>
 
 </body>
-</html>
 </html>
