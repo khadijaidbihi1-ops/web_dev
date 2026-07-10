@@ -1,0 +1,100 @@
+/*import google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cinzel', serif;
+}
+
+: root {...
+}
+
+/*stylings for whole webiste */
+ul {
+    list-style: none;
+}
+a {text-decoration: none;
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+img {
+    width: 100%;
+    /* colors */
+    /*main text and important elements*/
+    --Obsidian-Black:	#1A1A1A;
+    /* botttons and icons */
+    --Champagne-Gold:	#C5A073;
+    /* small test */
+    --Soft-Silver:	#B4B4B4
+    /*background color*/
+    --Alabaster-White:	#F8F7F4
+    /*subtitles or long text*/
+    --Charcoal	#333333;
+
+
+    /* Font sizes */
+    --font-size-s:0.9rem;
+    --font-size-n:1rem;
+    --font-size-m:1.12rem;
+    --font-size-l:1.5rem;
+    --font-size-xl:2rem;
+    --font-size-xxl:2.3rem;
+
+    /*font weight */
+    --font-weight-normal:400;
+    --font-weight-medium:500;
+    --font-weight-semibold:600;
+    --font-weight-bold:700;
+
+    /*border radius */
+    --border-radius-s:8px;
+    --border-radius-m:30px;
+    --border-radius-circle:50%;
+
+    /*Site max width */
+    --site-max-width:1300px;
+   
+}
+
+/*navigation bar stylings */
+header{
+    background: var(--Alabaster-White);
+}
+
+header .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+}
+.navbar . nav-logo .logo-text {
+    color: var(--Obsidian-Black);
+}
+
+
+.navbar .nav-menu {
+    display: flex;
+    gap: 10px;
+}
+
+
+.navbar .nav-menu .navlink {
+    color: var(--Obsidian-Black);
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-medium);
+    padding: 10px 18px;
+    border-radius: var(--border-radius-s);
+    transition: all 0.3s ease;
+}
+
+.navbar .nav-menu .navlink:hover {
+    background: var(--Champagne-Gold);
+    color: var(--Alabaster-White);
+}
