@@ -1,123 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mehek Candles</title>
-    <style>
-        :root {
-            --bg-color: #e5e0d7; /* Colore sfondo tipo sito riferimento */
-            --header-bg: #ffffff;
-            --text-color: #000000;
-            --dark-blue: #2c3e50;
-            --accent-color: #d1bfa8;
-        }
-        body {
-            margin: 0;
-            font-family: 'Times New Roman', serif; /* Font elegante stile sito */
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: var(--header-bg);
-            border-bottom: 1px solid #ccc;
-            gap: 40px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        .nav-item { position: relative; cursor: pointer; }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #fff;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            min-width: 150px;
-            z-index: 100;
-        }
-        .nav-item:hover .dropdown-menu { display: block; }
-        
-        .brand-logo { font-size: 1.8rem; font-weight: bold; }
-        
-        .hero {
-            padding: 200px 50px;
-            text-align: center;
-            background-image: url('IMAGE_REF_PLACEHOLDER');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-        }
-        .section { padding: 60px 20px; text-align: center; background-color: var(--bg-color); }
-        
-        .features {
-            display: flex;
-            justify-content: space-around;
-            padding: 50px;
-            background-color: #dcd7ce;
-            border-top: 1px solid #bbb;
-        }
-        
-        footer {
-            background-color: var(--dark-blue);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-    </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Luxury Store</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
 <header>
-    <div class="nav-item">THE SHOP
-        <div class="dropdown-menu">
-            <div>Candles</div><div>Home Diffusers</div><div>Home Spray</div><div>Body Spray</div><div>Perfumes and Hair Mist</div>
-        </div>
-    </div>
-    <div class="nav-item">THE BRAND
-        <div class="dropdown-menu">
-            <div>Our History</div>
-        </div>
-    </div>
-    
-    <div class="brand-logo">MEHEK CANDLES</div>
-    
-    <div class="nav-item">OUR COLLECTIONS
-        <div class="dropdown-menu">
-            <div>Marrakech</div><div>Oriental Luxe</div>
-        </div>
-    </div>
-    <div class="nav-item">CONTACT US</div>
-    <div class="nav-item">🛒</div>
-</header>
 
-<section class="hero">
-    <h1>MEHEK CANDLES</h1>
-    <p>MADE IN MARRAKECH</p>
-</section>
-
-<section class="section">
-    <h2>ABOUT MEHEK</h2>
-    <p>We craft premium candles blending tradition and luxury.</p>
-    <h3>Certifications</h3>
-    <p>USDA Organic | Eco Cert | Cruelty Free | Made in Morocco</p>
-</section>
-
-<div class="features">
-    <div><strong>FREE SHIPPING</strong><br>Orders over $150</div>
-    <div><strong>SECURE CHECKOUT</strong><br>100% Guaranteed</div>
-    <div><strong>AUTHENTIC INGREDIENTS</strong><br>Handmade in Morocco</div>
+<div class="logo">
+LUXURY
 </div>
 
-<footer>
-    &copy; 2026 Mehek Candles - Made in Morocco
-</footer>
+<nav>
+
+<a href="#">Home</a>
+<a href="#">Shop</a>
+
+</nav>
+
+<div class="search">
+
+<input type="text" placeholder="Cerca prodotti...">
+
+</div>
+
+</header>
+
+
+<div class="container">
+
+<!-- MENU -->
+
+<aside>
+
+<h3>UOMO</h3>
+
+<ul>
+
+<li><a href="men-tops.html">Top</a></li>
+
+<li><a href="men-bottoms.html">Bottom</a></li>
+
+<li><a href="men-outwear.html">Outwear</a></li>
+
+<li><a href="men-accessories.html">Accessories</a></li>
+
+</ul>
+
+<h3>DONNA</h3>
+
+<ul>
+
+<li><a href="women-tops.html">Top</a></li>
+
+<li><a href="women-bottoms.html">Bottom</a></li>
+
+<li><a href="women-outwear.html">Outwear</a></li>
+
+<li><a href="women-accessories.html">Accessories</a></li>
+
+</ul>
+
+</aside>
+
+
+<main>
+
+<!-- HERO -->
+
+<a href="shop.html">
+
+<img src="images/hero.jpg" class="hero">
+
+</a>
+
+
+<!-- UOMO DONNA -->
+
+<div class="cards">
+
+<div class="card">
+
+<a href="uomo.html">
+
+<img src="images/man.jpg">
+
+<h2>SHOP MEN</h2>
+
+</a>
+
+</div>
+
+<div class="card">
+
+<a href="donna.html">
+
+<img src="images/woman.jpg">
+
+<h2>SHOP WOMEN</h2>
+
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
 
 </body>
 </html>
