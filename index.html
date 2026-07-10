@@ -6,64 +6,68 @@
     <title>Mehek Candles</title>
     <style>
         :root {
-            --bg-color: #fdfbf7;
-            --text-color: #333;
-            --accent-color: #b89f8a;
+            --bg-color: #e5e0d7; /* Colore sfondo tipo sito riferimento */
             --header-bg: #ffffff;
-            --footer-bg: #f0ede8;
+            --text-color: #000000;
             --dark-blue: #2c3e50;
+            --accent-color: #d1bfa8;
         }
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Times New Roman', serif; /* Font elegante stile sito */
             background-color: var(--bg-color);
             color: var(--text-color);
         }
         header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 20px 50px;
+            padding: 20px;
             background-color: var(--header-bg);
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #ccc;
+            gap: 40px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
-        .nav-links { display: flex; gap: 30px; align-items: center; }
-        .dropdown { position: relative; cursor: pointer; padding: 10px 0; }
+        .nav-item { position: relative; cursor: pointer; }
         .dropdown-menu {
             display: none;
             position: absolute;
             top: 100%;
             left: 0;
             background: #fff;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 10px;
-            width: 200px;
-            z-index: 10;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            min-width: 150px;
+            z-index: 100;
         }
-        .dropdown:hover .dropdown-menu { display: block; }
-        .brand-name { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
+        .nav-item:hover .dropdown-menu { display: block; }
+        
+        .brand-logo { font-size: 1.8rem; font-weight: bold; }
+        
         .hero {
-            padding: 150px 50px;
+            padding: 200px 50px;
             text-align: center;
             background-image: url('IMAGE_REF_PLACEHOLDER');
             background-size: cover;
             background-position: center;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
         }
-        .section { padding: 50px; text-align: center; max-width: 800px; margin: auto; }
+        .section { padding: 60px 20px; text-align: center; background-color: var(--bg-color); }
+        
         .features {
             display: flex;
             justify-content: space-around;
-            padding: 40px;
-            background-color: var(--footer-bg);
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
+            padding: 50px;
+            background-color: #dcd7ce;
+            border-top: 1px solid #bbb;
         }
+        
         footer {
             background-color: var(--dark-blue);
             color: white;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
         }
     </style>
@@ -71,55 +75,48 @@
 <body>
 
 <header>
-    <div class="nav-links">
-        <div class="dropdown">
-            THE SHOP
-            <div class="dropdown-menu">
-                <p>Candles</p><p>Home Diffusers</p><p>Home Spray</p><p>Body Spray</p><p>Perfumes and Hair Mist</p>
-            </div>
+    <div class="nav-item">THE SHOP
+        <div class="dropdown-menu">
+            <div>Candles</div><div>Home Diffusers</div><div>Home Spray</div><div>Body Spray</div><div>Perfumes and Hair Mist</div>
         </div>
-        <div class="dropdown">
-            THE BRAND
-            <div class="dropdown-menu">
-                <p>Our History</p>
-            </div>
+    </div>
+    <div class="nav-item">THE BRAND
+        <div class="dropdown-menu">
+            <div>Our History</div>
         </div>
     </div>
     
-    <div class="brand-name">MEHEK CANDLES</div>
+    <div class="brand-logo">MEHEK CANDLES</div>
     
-    <div class="nav-links">
-        <div class="dropdown">
-            OUR COLLECTIONS
-            <div class="dropdown-menu">
-                <p>Marrakech</p><p>Oriental Luxe</p>
-            </div>
+    <div class="nav-item">OUR COLLECTIONS
+        <div class="dropdown-menu">
+            <div>Marrakech</div><div>Oriental Luxe</div>
         </div>
-        <p>CONTACT US</p>
-        <p>🛒 Cart</p>
     </div>
+    <div class="nav-item">CONTACT US</div>
+    <div class="nav-item">🛒</div>
 </header>
 
 <section class="hero">
-    <h1>Mehek Candles</h1>
-    <p>Handcrafted luxury for your home.</p>
+    <h1>MEHEK CANDLES</h1>
+    <p>MADE IN MARRAKECH</p>
 </section>
 
 <section class="section">
-    <h2>Our Story</h2>
-    <p>Mehek Candles was born from a passion for scent and tradition. Our story is one of artisanal mastery, blending rare ingredients to create sensory journeys that transform your living space into a sanctuary of elegance.</p>
+    <h2>ABOUT MEHEK</h2>
+    <p>We craft premium candles blending tradition and luxury.</p>
     <h3>Certifications</h3>
-    <p>We are committed to quality and sustainability, proudly holding certifications for ethical sourcing, organic integrity, and cruelty-free practices.</p>
+    <p>USDA Organic | Eco Cert | Cruelty Free | Made in Morocco</p>
 </section>
 
 <div class="features">
-    <div><strong>FREE SHIPPING</strong><br>On orders over $150</div>
+    <div><strong>FREE SHIPPING</strong><br>Orders over $150</div>
     <div><strong>SECURE CHECKOUT</strong><br>100% Guaranteed</div>
-    <div><strong>AUTHENTIC INGREDIENTS</strong><br>Handcrafted Quality</div>
+    <div><strong>AUTHENTIC INGREDIENTS</strong><br>Handmade in Morocco</div>
 </div>
 
 <footer>
-    &copy; 2026 Mehek Candles - All Rights Reserved
+    &copy; 2026 Mehek Candles - Made in Morocco
 </footer>
 
 </body>
