@@ -159,3 +159,37 @@ function updateCartCounter() {
         shoppingCart.length;
 
 }
+
+/* =========================================
+   ADD PRODUCT TO CART
+========================================= */
+
+document.addEventListener("click", function(event){
+
+    if(
+        event.target.classList.contains("add-cart-button")
+    ){
+
+        const productId =
+            Number(event.target.dataset.id);
+
+        const selectedProduct =
+            bestSellerProducts.find(product =>
+                product.id === productId
+            );
+
+        shoppingCart.push(selectedProduct);
+
+        localStorage.setItem(
+            "shoppingCart",
+            JSON.stringify(shoppingCart)
+        );
+
+        updateCartCounter();
+
+    }
+
+});
+
+updateCartCounter();
+
