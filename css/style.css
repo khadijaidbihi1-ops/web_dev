@@ -1,0 +1,334 @@
+/*    CSS Variables */
+:root {
+    /* Brand colours */
+    --colour-black: #0d0d0d;
+    --colour-ivory: #f4f1ec;
+    --colour-white: #ffffff;
+    --colour-gold: #b89c6a;
+    --colour-brown: #6b4e3d;
+    --colour-border: #ded8cf;
+
+    /* Typography */
+    --font-heading: Georgia, "Times New Roman", serif;
+    --font-body: Arial, Helvetica, sans-serif;
+
+    /* Spacing */
+    --space-small: 0.5rem;
+    --space-medium: 1rem;
+    --space-large: 1.5rem;
+    --space-extra-large: 2rem;
+
+    /* Design properties */
+    --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.06);
+    --transition: 0.3s ease;
+}
+
+/*    Basic Reset*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--colour-ivory);
+    color: var(--colour-black);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    color: inherit;
+    font: inherit;
+}
+
+/* Accessibility */
+.skip-link {
+    position: fixed;
+    top: 0;
+    left: 1rem;
+    z-index: 1000;
+    padding: 0.75rem 1rem;
+    background-color: var(--colour-black);
+    color: var(--colour-white);
+    transform: translateY(-150%);
+    transition: transform var(--transition);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--colour-gold);
+    outline-offset: 4px;
+}
+
+/* Announcement Bar */
+
+.announcement-bar {
+    display: flex;
+    min-height: 34px;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 1rem;
+    background-color: var(--colour-black);
+    color: var(--colour-ivory);
+    text-align: center;
+}
+
+.announcement-bar p {
+    margin: 0;
+    font-size: 0.7rem;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+}
+
+/*  Website Header */
+
+.site-header {
+    position: relative;
+    z-index: 100;
+    background-color: var(--colour-white);
+    box-shadow: var(--shadow-light);
+}
+
+.navbar {
+    display: grid;
+    min-height: 76px;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--space-medium);
+    padding: 0.75rem 1rem;
+}
+
+/*  Brand Logo */
+
+.brand-logo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    line-height: 1;
+}
+
+.brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    letter-spacing: 0.35rem;
+}
+
+.brand-subtitle {
+    margin-top: 0.35rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+}
+
+/*    Mobile Menu Button */
+
+.menu-toggle {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 22px;
+    height: 1px;
+    background-color: var(--colour-black);
+    transition: transform var(--transition);
+}
+
+/*    Navigation Menu */
+
+.navigation-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    border-top: 1px solid var(--colour-border);
+    background-color: var(--colour-white);
+    list-style: none;
+    box-shadow: var(--shadow-light);
+}
+
+.navigation-menu.menu-open {
+    display: block;
+}
+
+.navigation-menu li + li {
+    border-top: 1px solid var(--colour-border);
+}
+
+.navigation-menu a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.navigation-menu a:hover,
+.navigation-menu a:focus-visible,
+.navigation-menu .active-link {
+    color: var(--colour-gold);
+}
+
+/*   Navigation Icons */
+
+.navigation-actions {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    gap: 0.75rem;
+}
+
+.icon-link {
+    position: relative;
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-link svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.icon-link:hover {
+    color: var(--colour-gold);
+}
+
+.cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    min-width: 17px;
+    height: 17px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--colour-black);
+    color: var(--colour-white);
+    font-size: 0.6rem;
+}
+
+/*    Temporary Content  */
+
+.temporary-content {
+    min-height: 70vh;
+    padding: 5rem 1.5rem;
+    text-align: center;
+}
+
+.temporary-content h1 {
+    margin-top: 0;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+/*   Tablet Layout */
+
+@media (min-width: 768px) {
+    .navbar {
+        padding-inline: 2rem;
+    }
+
+    .brand-name {
+        font-size: 1.7rem;
+    }
+}
+
+/*    Desktop Layout   */
+
+@media (min-width: 1024px) {
+    .navbar {
+        min-height: 86px;
+        grid-template-columns: 220px 1fr 220px;
+        padding-inline: 4rem;
+    }
+
+    .brand-logo {
+        justify-self: start;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .navigation-menu {
+        position: static;
+        display: flex;
+        width: auto;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .navigation-menu li + li {
+        border-top: 0;
+    }
+
+    .navigation-menu a {
+        position: relative;
+        padding: 0.5rem 0;
+        font-size: 0.72rem;
+    }
+
+    .navigation-menu a::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        background-color: var(--colour-gold);
+        content: "";
+        transform: scaleX(0);
+        transition: transform var(--transition);
+    }
+
+    .navigation-menu a:hover::after,
+    .navigation-menu a:focus-visible::after,
+    .navigation-menu .active-link::after {
+        transform: scaleX(1);
+    }
+}

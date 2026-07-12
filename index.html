@@ -2,112 +2,131 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <!--  layout responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Website title -->
-    <title>MEHEK Fragrances</title>
+    <meta
+        name="description"
+        content="Discover MEHEK luxury fragrances inspired by Morocco, Pakistan, Italy and London."
+    >
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Browser tab title -->
+    <title>MEHEK Fragrances | Luxury Perfumes</title>
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <!-- Connection the external CSS file -->
+    <link rel="stylesheet" href="css/style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet"
-          href="css/style.css">
-<!-- Font Awesome Icons -->
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+    <!-- Load JavaScript -->
+    <script src="js/script.js" defer></script>
 </head>
 
-
-
 <body>
-    <!-- Announcement Bar -->
- 
-    <div class="announcement-bar">
 
-        <p>
-            Free UK Shipping on Orders Over £100
-        </p>
+    <!-- Allows keyboard users to skip the navigation -->
+    <a class="skip-link" href="#main-content">
+        Skip to main content
+    </a>
 
-    </div>
+   
+    <!--Website Header-->
+    <header class="site-header">
 
+        <!-- Promotional announcement -->
+        <div class="announcement-bar">
+            <p>Complimentary UK shipping on orders over £100</p>
+        </div>
 
-    <!-- Header -->
-    <header>
+        <!-- Main website navigation -->
+        <nav class="navbar" aria-label="Main navigation">
 
-        <nav class="navbar">
+            <!-- Mobile menu button -->
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="navigation-menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-            <!-- Logo -->
-            <a href="index.html"
-               class="logo">
-
-                <h1>MEHEK</h1>
-
-                <span>FRAGRANCES</span>
-
+            <!-- Brand logo -->
+            <a class="brand-logo" href="index.html" aria-label="MEHEK homepage">
+                <span class="brand-name">MEHEK</span>
+                <span class="brand-subtitle">Fragrances</span>
             </a>
 
-            <!-- Navigation -->
-            <ul class="nav-menu">
-
+            <!-- Main navigation links -->
+            <ul class="navigation-menu" id="navigation-menu">
                 <li>
-                    <a href="index.html">
+                    <a class="active-link" href="index.html" aria-current="page">
                         Home
                     </a>
                 </li>
 
                 <li>
-                    <a href="products.html">
-                        Shop
-                    </a>
+                    <a href="products.html">Shop</a>
                 </li>
 
                 <li>
-                    <a href="#">
-                        Collections
-                    </a>
+                    <a href="products.html#collections">Collections</a>
                 </li>
 
                 <li>
-                    <a href="about.html">
-                        About
-                    </a>
+                    <a href="about.html">About</a>
                 </li>
 
                 <li>
-                    <a href="contact.html">
-                        Contact
-                    </a>
+                    <a href="contact.html">Contact</a>
                 </li>
-
             </ul>
 
-            <!-- Navigation Icons -->
-            <div class="nav-icons">
+            <!-- Navigation actions -->
+            <div class="navigation-actions">
 
-                <button aria-label="Search">
+                <!-- Search link -->
+                <a
+                    class="icon-link"
+                    href="products.html"
+                    aria-label="Search products"
+                >
+                    <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        width="22"
+                        height="22"
+                    >
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <line x1="16" y1="16" x2="21" y2="21"></line>
+                    </svg>
+                </a>
 
-                    🔍
+                <!-- Shopping cart link -->
+                <a
+                    class="icon-link cart-link"
+                    href="cart.html"
+                    aria-label="Open shopping cart"
+                >
+                    <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        width="22"
+                        height="22"
+                    >
+                        <path d="M3 4h2l2 11h10l2-8H6"></path>
+                        <circle cx="9" cy="19" r="1"></circle>
+                        <circle cx="17" cy="19" r="1"></circle>
+                    </svg>
 
-                </button>
-
-                <button aria-label="Shopping Cart">
-
-                    🛒
-
-                </button>
+                    <!-- Updated later with JavaScript -->
+                    <span class="cart-count" id="cart-count" aria-live="polite">
+                        0
+                    </span>
+                </a>
 
             </div>
 
@@ -115,9 +134,49 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
     </header>
 
+    <!-- Temporary main content used while building the homepage -->
+    <main id="main-content">
+        <!--      Hero Section -->
+        <section class="hero-section">
+
+            <!-- Hero text content -->
+            <div class="hero-content">
+
+                <p class="hero-eyebrow">
+                 Luxury Fragrance House
+                </p>
+
+                 <h1>
+                    Where Heritage Meets Luxury
+                </h1>
+
+                <p class="hero-description">
+                 Discover refined fragrances inspired by Morocco,
+                 Pakistan, Italy and London.
+                </p>
+
+                <a class="hero-button" href="products.html">
+                Explore Collection
+                 </a>
+
+            </div>
+
+             <!-- Hero visual content -->
+             <div class="hero-image-wrapper">
+
+                 <img
+                     class="hero-image"
+                     src="media/images/hero/hero-perfume.webp"
+                     alt="MEHEK luxury perfume displayed on soft cream fabric"
+                     width="900"
+                     height="700"
+                >
+
+             </div>
+
+        </section>
+    </main>
+
 </body>
 
 </html>
-
-
-
