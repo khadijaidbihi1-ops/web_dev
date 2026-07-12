@@ -1,5 +1,5 @@
 /* =========================================
-   MOBILE NAVIGATION
+   Mobile Navigation
 ========================================= */
 
 // Selects the mobile menu button.
@@ -8,19 +8,15 @@ const menuToggle = document.querySelector("#menu-toggle");
 // Selects the main navigation list.
 const navigationMenu = document.querySelector("#navigation-menu");
 
-// Checks that both elements exist before adding the interaction.
+// Adds the mobile menu interaction only when both elements exist.
 if (menuToggle && navigationMenu) {
     menuToggle.addEventListener("click", function () {
-        // Shows or hides the mobile navigation.
         navigationMenu.classList.toggle("menu-open");
 
-        // Checks whether the menu is currently open.
         const menuIsOpen = navigationMenu.classList.contains("menu-open");
 
-        // Updates the accessible state of the button.
         menuToggle.setAttribute("aria-expanded", menuIsOpen);
 
-        // Updates the button description for screen-reader users.
         menuToggle.setAttribute(
             "aria-label",
             menuIsOpen ? "Close navigation menu" : "Open navigation menu"
@@ -28,12 +24,11 @@ if (menuToggle && navigationMenu) {
     });
 }
 
-
 /* =========================================
-   BEST SELLER PRODUCTS DATA
+   Best Seller Product Data
 ========================================= */
 
-// Array containing the featured products displayed on the homepage.
+// Stores the four products displayed on the homepage.
 const bestSellerProducts = [
     {
         id: 1,
@@ -69,17 +64,15 @@ const bestSellerProducts = [
     }
 ];
 
-
 /* =========================================
-   CREATE BEST SELLER PRODUCT CARDS
+   Create Best Seller Cards
 ========================================= */
 
-// Selects the product grid from the HTML.
+// Selects the Best Sellers grid.
 const bestSellerGrid = document.querySelector("#best-sellers-grid");
 
-// Checks whether the grid exists on the current page.
+// Creates the cards only when the grid exists on the current page.
 if (bestSellerGrid) {
-    // Creates one card for each product.
     bestSellerProducts.forEach(function (product) {
         const card = document.createElement("article");
 
@@ -102,14 +95,11 @@ if (bestSellerGrid) {
             >
 
             <div class="product-content">
-
                 <p class="product-collection">
                     ${product.collection}
                 </p>
 
-                <h3>
-                    ${product.name}
-                </h3>
+                <h3>${product.name}</h3>
 
                 <p class="product-price">
                     £${product.price.toFixed(2)}
@@ -122,7 +112,6 @@ if (bestSellerGrid) {
                 >
                     Add to Cart
                 </button>
-
             </div>
         `;
 
@@ -130,23 +119,15 @@ if (bestSellerGrid) {
     });
 }
 
-
 /* =========================================
-   SHOPPING CART
+   Shopping Cart
 ========================================= */
 
-// Retrieves the shopping cart from Local Storage.
-// If no cart exists, an empty array is used.
-let shoppingCart = JSON.parse(
-    localStorage.getItem("shoppingCart")
-) || [];
+// Retrieves the saved cart or creates an empty cart.
+let shoppingCart =
+    JSON.parse(localStorage.getItem("shoppingCart")) || [];
 
-
-/* =========================================
-   NORMALISE EXISTING CART DATA
-========================================= */
-
-// Converts old cart items into the new quantity-based structure.
+// Corrects any old cart items that do not contain a quantity.
 shoppingCart = shoppingCart
     .filter(function (item) {
         return item && item.id;
@@ -161,27 +142,30 @@ shoppingCart = shoppingCart
         };
     });
 
-// Saves the corrected cart structure.
-localStorage.setItem(
-    "shoppingCart",
-    JSON.stringify(shoppingCart)
-);
+/* =========================================
+   Save Shopping Cart
+========================================= */
 
+function saveShoppingCart() {
+    localStorage.setItem(
+        "shoppingCart",
+        JSON.stringify(shoppingCart)
+    );
+
+    updateCartCounter();
+}
 
 /* =========================================
-   UPDATE CART COUNTER
+   Update Cart Counter
 ========================================= */
 
 function updateCartCounter() {
-    // Selects the cart counter displayed in the navigation.
     const cartCounter = document.querySelector("#cart-count");
 
-    // Stops the function if the counter is not available on the page.
     if (!cartCounter) {
         return;
     }
 
-    // Calculates the total quantity of all products in the cart.
     const totalCartQuantity = shoppingCart.reduce(
         function (total, item) {
             return total + item.quantity;
@@ -189,56 +173,32 @@ function updateCartCounter() {
         0
     );
 
-    // Displays the total quantity beside the cart icon.
     cartCounter.textContent = totalCartQuantity;
 }
 
-
 /* =========================================
-   SAVE SHOPPING CART
-========================================= */
-
-function saveShoppingCart() {
-    // Saves the current shopping cart in Local Storage.
-    localStorage.setItem(
-        "shoppingCart",
-        JSON.stringify(shoppingCart)
-    );
-
-    // Updates the quantity displayed in the navigation.
-    updateCartCounter();
-}
-
-
-/* =========================================
-   ADD PRODUCT TO CART
+   Add Products to Cart
 ========================================= */
 
 document.addEventListener("click", function (event) {
-    // Finds the nearest Add to Cart button.
     const addButton = event.target.closest(".add-cart-button");
 
-    // Stops the function if another element was clicked.
     if (!addButton) {
         return;
     }
 
-    // Retrieves the selected product ID from the button.
     const productId = Number(addButton.dataset.id);
 
-    // Finds the selected product in the product data array.
     const selectedProduct = bestSellerProducts.find(
         function (product) {
             return product.id === productId;
         }
     );
 
-    // Stops the function if the product cannot be found.
     if (!selectedProduct) {
         return;
     }
 
-    // Checks whether the product already exists in the cart.
     const existingCartItem = shoppingCart.find(
         function (item) {
             return item.id === productId;
@@ -246,20 +206,16 @@ document.addEventListener("click", function (event) {
     );
 
     if (existingCartItem) {
-        // Increases the quantity if the product is already in the cart.
         existingCartItem.quantity += 1;
     } else {
-        // Adds a new product with an initial quantity of one.
         shoppingCart.push({
             ...selectedProduct,
             quantity: 1
         });
     }
 
-    // Saves the updated cart.
     saveShoppingCart();
 
-    // Provides visual feedback to the user.
     const originalButtonText = addButton.textContent.trim();
 
     addButton.textContent = "Added";
@@ -271,9 +227,19 @@ document.addEventListener("click", function (event) {
     }, 1000);
 });
 
+/* =========================================
+   Current Year
+========================================= */
+
+// Updates the copyright year automatically.
+const currentYear = document.querySelector("#current-year");
+
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+}
 
 /* =========================================
-   INITIAL PAGE SETUP
+   Initial Page Setup
 ========================================= */
 
 // Displays the correct cart quantity when the page loads.
