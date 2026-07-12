@@ -338,57 +338,81 @@ button:focus-visible {
 
 .hero-section {
     display: grid;
-    min-height: 75vh;
+    min-height: calc(100vh - 120px);
+    overflow: hidden;
     background-color: var(--colour-ivory);
 }
 
+/* Hero text area */
 .hero-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 3rem 1.5rem;
+    padding: 4rem 1.5rem;
     text-align: center;
 }
 
+/* Small introductory text */
 .hero-eyebrow {
-    margin: 0 0 1rem;
+    position: relative;
+    margin: 0 0 1.5rem;
     color: var(--colour-gold);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 0.18rem;
+    letter-spacing: 0.22rem;
     text-transform: uppercase;
 }
 
+/* Decorative line below the eyebrow */
+.hero-eyebrow::after {
+    display: block;
+    width: 50px;
+    height: 1px;
+    margin: 1.25rem auto 0;
+    background-color: var(--colour-gold);
+    content: "";
+}
+
+/* Main hero heading */
 .hero-content h1 {
-    max-width: 700px;
-    margin: 0 auto 1.25rem;
+    max-width: 650px;
+    margin: 0 auto 1.5rem;
     font-family: var(--font-heading);
-    font-size: clamp(2.6rem, 9vw, 5.5rem);
+    font-size: clamp(2.8rem, 10vw, 5.5rem);
     font-weight: 400;
-    line-height: 1.05;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
     text-transform: uppercase;
 }
 
-.hero-description {
-    max-width: 540px;
-    margin: 0 auto 2rem;
-    color: var(--colour-brown);
-    font-size: 1rem;
+/* Forces the second part of the heading onto a new line */
+.hero-content h1 span {
+    display: block;
 }
 
+/* Hero supporting text */
+.hero-description {
+    max-width: 480px;
+    margin: 0 auto 2.25rem;
+    color: var(--colour-brown);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* Main hero call-to-action */
 .hero-button {
     display: inline-flex;
-    min-height: 48px;
+    min-height: 50px;
     align-items: center;
     justify-content: center;
     align-self: center;
-    padding: 0.85rem 1.5rem;
+    padding: 0.9rem 1.8rem;
     border: 1px solid var(--colour-black);
     background-color: var(--colour-black);
     color: var(--colour-white);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.12rem;
     text-transform: uppercase;
     transition:
         background-color var(--transition),
@@ -397,22 +421,26 @@ button:focus-visible {
         transform var(--transition);
 }
 
-.hero-button:hover {
+.hero-button:hover,
+.hero-button:focus-visible {
     border-color: var(--colour-gold);
     background-color: var(--colour-gold);
     color: var(--colour-black);
     transform: translateY(-2px);
 }
 
+/* Hero image container */
 .hero-image-wrapper {
-    min-height: 420px;
+    min-height: 500px;
     overflow: hidden;
 }
 
+/* Hero image */
 .hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 72% center;
 }
 
 /* =========================================
@@ -421,17 +449,27 @@ button:focus-visible {
 
 @media (min-width: 768px) {
     .hero-section {
-        grid-template-columns: 1fr 1fr;
-        min-height: 680px;
+        grid-template-columns: 44% 56%;
+        min-height: 720px;
     }
 
     .hero-content {
         align-items: flex-start;
-        padding: 4rem;
+        padding: 5rem 3rem;
         text-align: left;
     }
 
-    .hero-content h1,
+    .hero-eyebrow::after {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .hero-content h1 {
+        margin-right: 0;
+        margin-left: 0;
+        font-size: clamp(3.5rem, 6vw, 5.6rem);
+    }
+
     .hero-description {
         margin-right: 0;
         margin-left: 0;
@@ -451,12 +489,21 @@ button:focus-visible {
 ========================================= */
 
 @media (min-width: 1200px) {
+    .hero-section {
+        grid-template-columns: 42% 58%;
+        min-height: 760px;
+    }
+
     .hero-content {
-        padding: 5rem 7rem;
+        padding: 6rem 4.5rem 6rem 7rem;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(4rem, 5.3vw, 5.8rem);
     }
 
     .hero-description {
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
 }
 
