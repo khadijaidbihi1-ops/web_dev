@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Defines the character encoding used by the page -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile, tablet and desktop -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Basic SEO description -->
+    <meta
+        name="description"
+        content="Shop the complete MEHEK collection of luxury perfumes, hair mists, room sprays, reed diffusers and scented candles."
+    >
+
+    <!-- Browser tab title -->
+    <title>Shop All Products | MEHEK Fragrances</title>
+
+    <!-- Connects the main website stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Loads the shared product database first -->
+    <script src="js/products.js" defer></script>
+
+    <!-- Loads shared website interactions -->
+    <script src="js/script.js" defer></script>
+
+    <!-- Loads product listing page interactions -->
+    <script src="js/products-page.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Allows keyboard users to skip directly to the main content -->
+    <a class="skip-link" href="#main-content">
+        Skip to main content
+    </a>
+
+    <!-- =========================================
+         Website Header
+    ========================================== -->
+    <header class="site-header">
+
+        <div class="announcement-bar">
+            <p>Complimentary UK shipping on orders over £100</p>
+        </div>
+
+        <nav class="navbar" aria-label="Main navigation">
+
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="navigation-menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <a class="brand-logo" href="index.html" aria-label="MEHEK homepage">
+                <span class="brand-name">MEHEK</span>
+                <span class="brand-subtitle">Fragrances</span>
+            </a>
+
+            <ul class="navigation-menu" id="navigation-menu">
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a
+                        class="active-link"
+                        href="products.html"
+                        aria-current="page"
+                    >
+                        Shop
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html#featured-collections">
+                        Collections
+                    </a>
+                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="navigation-actions">
+
+                <a
+                    class="icon-link"
+                    href="#product-search"
+                    aria-label="Search products"
+                >
+                    <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        width="22"
+                        height="22"
+                    >
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <line x1="16" y1="16" x2="21" y2="21"></line>
+                    </svg>
+                </a>
+
+                <a
+                    class="icon-link cart-link"
+                    href="cart.html"
+                    aria-label="Open shopping cart"
+                >
+                    <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        width="22"
+                        height="22"
+                    >
+                        <path d="M3 4h2l2 11h10l2-8H6"></path>
+                        <circle cx="9" cy="19" r="1"></circle>
+                        <circle cx="17" cy="19" r="1"></circle>
+                    </svg>
+
+                    <span class="cart-count" id="cart-count" aria-live="polite">
+                        0
+                    </span>
+                </a>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- =========================================
+         Main Content
+    ========================================== -->
+    <main id="main-content">
+
+        <!-- Shop page introduction -->
+        <section
+            class="shop-page-hero"
+            aria-labelledby="shop-page-title"
+        >
+            <div class="shop-page-hero-content">
+
+                <p class="section-eyebrow">
+                    The Complete Collection
+                </p>
+
+                <h1 id="shop-page-title">
+                    All Products
+                </h1>
+
+                <p>
+                    Discover luxury perfumes, hair mists and home fragrances
+                    inspired by Morocco, Pakistan, Italy and London.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- Product filters and catalogue -->
+        <section
+            class="product-catalogue section-spacing"
+            aria-labelledby="product-catalogue-title"
+        >
+
+            <h2 class="visually-hidden" id="product-catalogue-title">
+                Product catalogue
+            </h2>
+
+            <div class="product-controls">
+
+                <div class="filter-group search-group">
+                    <label for="product-search">Search</label>
+
+                    <input
+                        type="search"
+                        id="product-search"
+                        name="product-search"
+                        placeholder="Search by product name"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="filter-group">
+                    <label for="product-type-filter">
+                        Product Type
+                    </label>
+
+                    <select
+                        id="product-type-filter"
+                        name="product-type"
+                    >
+                        <option value="all">All Products</option>
+                        <option value="perfume">Perfumes</option>
+                        <option value="hair-mist">Hair Mist</option>
+                        <option value="room-spray">Room Spray</option>
+                        <option value="reed-diffuser">Reed Diffusers</option>
+                        <option value="scented-candle">Scented Candles</option>
+                    </select>
+                </div>
+
+                <!-- Shown only when Perfumes is selected -->
+                <div
+                    class="filter-group gender-filter-group"
+                    id="gender-filter-group"
+                    hidden
+                >
+                    <label for="gender-filter">Gender</label>
+
+                    <select
+                        id="gender-filter"
+                        name="gender"
+                    >
+                        <option value="all">All Genders</option>
+                        <option value="unisex">Unisex</option>
+                        <option value="men">Men</option>
+                        <option value="women">Women</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sort-products">Sort By</label>
+
+                    <select
+                        id="sort-products"
+                        name="sort-products"
+                    >
+                        <option value="featured">Featured</option>
+                        <option value="price-low-high">
+                            Price: Low to High
+                        </option>
+                        <option value="price-high-low">
+                            Price: High to Low
+                        </option>
+                        <option value="name-a-z">
+                            Name: A to Z
+                        </option>
+                        <option value="name-z-a">
+                            Name: Z to A
+                        </option>
+                    </select>
+                </div>
+
+                <div class="filter-group filter-action-group">
+                    <button
+                        class="secondary-button"
+                        id="reset-filters"
+                        type="button"
+                    >
+                        Reset Filters
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="catalogue-summary">
+                <p
+                    class="product-results-count"
+                    id="product-results-count"
+                    aria-live="polite"
+                >
+                    Showing 21 products
+                </p>
+            </div>
+
+            <!-- Product cards are created by products-page.js -->
+            <div
+                class="product-grid catalogue-product-grid"
+                id="products-grid"
+                aria-live="polite"
+            ></div>
+
+            <!-- Displayed when no products match the filters -->
+            <div
+                class="empty-results-message"
+                id="empty-results-message"
+                hidden
+            >
+                <h2>No products found</h2>
+
+                <p>
+                    Try changing your search term or selecting another
+                    product type.
+                </p>
+
+                <button
+                    class="primary-button"
+                    id="empty-results-reset"
+                    type="button"
+                >
+                    View All Products
+                </button>
+            </div>
+
+            <noscript>
+                <p class="noscript-message">
+                    JavaScript is required to display and filter the products.
+                </p>
+            </noscript>
+
+        </section>
+    </main>
+
+    <!-- =========================================
+         Website Footer
+    ========================================== -->
+    <footer class="site-footer">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <a
+                    class="brand-logo footer-logo"
+                    href="index.html"
+                    aria-label="MEHEK homepage"
+                >
+                    <span class="brand-name">MEHEK</span>
+                    <span class="brand-subtitle">Fragrances</span>
+                </a>
+
+                <p>
+                    Timeless scents inspired by heritage,
+                    culture and modern luxury.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h2 class="footer-heading">Shop</h2>
+
+                <ul>
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="products.html?type=perfume">Fragrances</a></li>
+                    <li><a href="products.html?type=hair-mist">Hair Mist</a></li>
+                    <li><a href="products.html?type=room-spray">Room Spray</a></li>
+                    <li>
+                        <a href="products.html?type=reed-diffuser">
+                            Reed Diffusers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="products.html?type=scented-candle">
+                            Scented Candles
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h2 class="footer-heading">Collections</h2>
+
+                <ul>
+                    <li>
+                        <a href="index.html#featured-collections">
+                            Heritage Collection
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#featured-collections">
+                            Milano Collection
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#featured-collections">
+                            London Collection
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h2 class="footer-heading">MEHEK</h2>
+
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li>
+                        <a href="about.html#why-mehek">
+                            Why MEHEK
+                        </a>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html">Shopping Cart</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                &copy; <span id="current-year">2026</span>
+                MEHEK Fragrances. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
