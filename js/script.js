@@ -253,50 +253,6 @@ document.addEventListener("click", function (event) {
 });
 
 /* =========================================
-   Newsletter
-========================================= */
-
-const newsletterForm = document.querySelector("#newsletter-form");
-const newsletterEmail = document.querySelector("#newsletter-email");
-const newsletterMessage = document.querySelector("#newsletter-message");
-
-if (newsletterForm && newsletterEmail && newsletterMessage) {
-    newsletterForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const email = newsletterEmail.value.trim();
-
-        if (!email || !newsletterEmail.validity.valid) {
-            newsletterMessage.textContent = "Please enter a valid email address.";
-            newsletterEmail.focus();
-            return;
-        }
-
-        const subscribers = JSON.parse(
-            localStorage.getItem("mehekNewsletterSubscribers") || "[]"
-        );
-
-        const emailAlreadySaved = subscribers.some(function (savedEmail) {
-            return savedEmail.toLowerCase() === email.toLowerCase();
-        });
-
-        if (!emailAlreadySaved) {
-            subscribers.push(email);
-            localStorage.setItem(
-                "mehekNewsletterSubscribers",
-                JSON.stringify(subscribers)
-            );
-        }
-
-        newsletterMessage.textContent = emailAlreadySaved
-            ? "You are already part of the MEHEK journal."
-            : "Thank you. Welcome to the world of MEHEK.";
-
-        newsletterForm.reset();
-    });
-}
-
-/* =========================================
    Scroll Reveal
 ========================================= */
 
