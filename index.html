@@ -1,50 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Defines the character encoding used by the page -->
     <meta charset="UTF-8">
-
-    <!-- Makes the layout responsive on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Basic SEO description -->
     <meta
         name="description"
         content="Discover MEHEK luxury fragrances inspired by Morocco, Pakistan, Italy and London."
     >
 
-    <!-- Browser tab title -->
     <title>MEHEK Fragrances | Luxury Perfumes and Home Scents</title>
 
-    <!-- Connects the external CSS file -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Brand typography from the mood board -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet"
+    >
 
-    <!-- Loads JavaScript after the HTML document has been parsed -->
+    <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <!-- Allows keyboard users to skip directly to the main content -->
-    <a class="skip-link" href="#main-content">
-        Skip to main content
-    </a>
-
-    <!-- =========================================
-         Website Header
-    ========================================== -->
-    <header class="site-header">
-
-        <!-- Promotional announcement -->
+    <header class="site-header" id="site-header">
         <div class="announcement-bar">
             <p>Complimentary UK shipping on orders over £100</p>
         </div>
 
-        <!-- Main navigation -->
         <nav class="navbar" aria-label="Main navigation">
-
-            <!-- Mobile menu button -->
             <button
                 class="menu-toggle"
                 id="menu-toggle"
@@ -58,113 +45,65 @@
                 <span></span>
             </button>
 
-            <!-- Brand logo -->
             <a class="brand-logo" href="index.html" aria-label="MEHEK homepage">
+                <span class="brand-mark" aria-hidden="true">✦</span>
                 <span class="brand-name">MEHEK</span>
-                <span class="brand-subtitle">Fragrances</span>
+                <span class="brand-subtitle">Luxury Fragrances</span>
             </a>
 
-            <!-- Main navigation links -->
             <ul class="navigation-menu" id="navigation-menu">
-                <li>
-                    <a class="active-link" href="index.html" aria-current="page">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="products.html">Shop</a>
-                </li>
-                <li>
-                    <a href="#featured-collections">Collections</a>
-                </li>
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
+                <li><a class="active-link" href="index.html" aria-current="page">Home</a></li>
+                <li><a href="products.html">Shop</a></li>
+                <li><a href="#featured-collections">Collections</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
 
-            <!-- Navigation actions -->
             <div class="navigation-actions">
-
-                <!-- Search link -->
-                <a
-                    class="icon-link"
-                    href="products.html"
-                    aria-label="Search products"
-                >
-                    <svg
-                        aria-hidden="true"
-                        viewBox="0 0 24 24"
-                        width="22"
-                        height="22"
-                    >
+                <a class="icon-link" href="products.html" aria-label="Search products">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" width="21" height="21">
                         <circle cx="11" cy="11" r="7"></circle>
                         <line x1="16" y1="16" x2="21" y2="21"></line>
                     </svg>
                 </a>
 
-                <!-- Shopping cart link -->
-                <a
-                    class="icon-link cart-link"
-                    href="cart.html"
-                    aria-label="Open shopping cart"
-                >
-                    <svg
-                        aria-hidden="true"
-                        viewBox="0 0 24 24"
-                        width="22"
-                        height="22"
-                    >
+                <a class="icon-link cart-link" href="cart.html" aria-label="Open shopping cart">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" width="21" height="21">
                         <path d="M3 4h2l2 11h10l2-8H6"></path>
                         <circle cx="9" cy="19" r="1"></circle>
                         <circle cx="17" cy="19" r="1"></circle>
                     </svg>
-
-                    <span class="cart-count" id="cart-count" aria-live="polite">
-                        0
-                    </span>
+                    <span class="cart-count" id="cart-count" aria-live="polite">0</span>
                 </a>
-
             </div>
-
         </nav>
-
     </header>
 
-    <!-- =========================================
-         Main Content
-    ========================================== -->
     <main id="main-content">
+        <section class="hero-section" aria-labelledby="hero-title">
+            <div class="hero-content reveal">
+                <p class="hero-eyebrow">A fragrance house shaped by four worlds</p>
 
-        <!-- =========================================
-             Hero Section
-        ========================================== -->
-        <section class="hero-section">
-
-            <!-- Hero text content -->
-            <div class="hero-content">
-                <p class="hero-eyebrow">
-                    Luxury Fragrance House
-                </p>
-
-                <h1>
-                    Where Heritage
-                    <span>Meets Luxury</span>
+                <h1 id="hero-title">
+                    Where heritage
+                    <span>meets <em>modern luxury</em></span>
                 </h1>
 
                 <p class="hero-description">
-                    Discover refined fragrances inspired by Morocco,
+                    Refined perfumes and home scents inspired by Morocco,
                     Pakistan, Italy and London.
                 </p>
 
-                <a class="hero-button" href="products.html">
-                    Explore Our Products
-                </a>
+                <div class="hero-actions">
+                    <a class="button button-dark" href="products.html">Explore the collection</a>
+                    <a class="text-link" href="about.html">
+                        Our story <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+                <p class="hero-signature">Morocco · Pakistan · Italy · London</p>
             </div>
 
-            <!-- Hero image -->
             <div class="hero-image-wrapper">
                 <img
                     class="hero-image"
@@ -173,38 +112,28 @@
                     width="1920"
                     height="1080"
                 >
+                <div class="hero-image-caption" aria-hidden="true">
+                    <span>MEHEK</span>
+                    <span>01 — The beginning</span>
+                </div>
             </div>
-
         </section>
 
-        <!-- =========================================
-             Featured Collections Section
-        ========================================== -->
         <section
             class="featured-collections section-spacing"
             id="featured-collections"
             aria-labelledby="featured-collections-title"
         >
-
-            <div class="section-heading">
-                <p class="section-eyebrow">
-                    Discover the World of MEHEK
-                </p>
-
-                <h2 id="featured-collections-title">
-                    Featured Collections
-                </h2>
-
+            <div class="section-heading reveal">
+                <p class="section-eyebrow">Discover the world of MEHEK</p>
+                <h2 id="featured-collections-title">Three places. Three moods.</h2>
                 <p class="section-description">
-                    Explore three fragrance collections inspired by heritage,
-                    elegance and modern luxury.
+                    Each collection translates a different place, memory and atmosphere into scent.
                 </p>
             </div>
 
             <div class="collection-grid">
-
-                <!-- Heritage Collection -->
-                <article class="collection-card">
+                <article class="collection-card reveal">
                     <img
                         class="collection-image"
                         src="media/images/collections/heritage-collection.webp"
@@ -213,27 +142,17 @@
                         height="1200"
                         loading="lazy"
                     >
-
                     <div class="collection-overlay">
-                        <h3>Heritage Collection</h3>
-
-                        <p>
-                            A celebration of Moroccan and Pakistani roots,
-                            blending oud, saffron, amber and precious woods.
-                        </p>
-
-                        <a
-                            class="collection-link"
-                            href="products.html?collection=heritage"
-                        >
-                            Explore Heritage
-                            <span aria-hidden="true">→</span>
+                        <p class="card-number">01</p>
+                        <h3>Heritage</h3>
+                        <p>A rich blend of oud, saffron, amber and precious woods.</p>
+                        <a class="overlay-link" href="products.html?collection=heritage">
+                            Explore Heritage <span aria-hidden="true">→</span>
                         </a>
                     </div>
                 </article>
 
-                <!-- Milano Collection -->
-                <article class="collection-card">
+                <article class="collection-card reveal">
                     <img
                         class="collection-image"
                         src="media/images/collections/milano-collection.webp"
@@ -242,27 +161,17 @@
                         height="1200"
                         loading="lazy"
                     >
-
                     <div class="collection-overlay">
-                        <h3>Milano Collection</h3>
-
-                        <p>
-                            Refined fragrances inspired by Italian elegance,
-                            timeless design and effortless sophistication.
-                        </p>
-
-                        <a
-                            class="collection-link"
-                            href="products.html?collection=milano"
-                        >
-                            Explore Milano
-                            <span aria-hidden="true">→</span>
+                        <p class="card-number">02</p>
+                        <h3>Milano</h3>
+                        <p>Soft structure, clean lines and effortless Italian refinement.</p>
+                        <a class="overlay-link" href="products.html?collection=milano">
+                            Explore Milano <span aria-hidden="true">→</span>
                         </a>
                     </div>
                 </article>
 
-                <!-- London Collection -->
-                <article class="collection-card">
+                <article class="collection-card reveal">
                     <img
                         class="collection-image"
                         src="media/images/collections/london-collection.webp"
@@ -271,134 +180,92 @@
                         height="1200"
                         loading="lazy"
                     >
-
                     <div class="collection-overlay">
-                        <h3>London Collection</h3>
-
-                        <p>
-                            Contemporary scents shaped by London style,
-                            cultural diversity and modern sophistication.
-                        </p>
-
-                        <a
-                            class="collection-link"
-                            href="products.html?collection=london"
-                        >
-                            Explore London
-                            <span aria-hidden="true">→</span>
+                        <p class="card-number">03</p>
+                        <h3>London</h3>
+                        <p>Contemporary compositions shaped by contrast and cultural energy.</p>
+                        <a class="overlay-link" href="products.html?collection=london">
+                            Explore London <span aria-hidden="true">→</span>
                         </a>
                     </div>
                 </article>
-
             </div>
-
         </section>
 
-        <!-- =========================================
-             Shop by Category Section
-        ========================================== -->
-        <section
-            class="shop-categories section-spacing"
-            aria-labelledby="shop-categories-title"
-        >
-
-            <div class="section-heading">
-                <p class="section-eyebrow">
-                    Explore the Collection
-                </p>
-
-                <h2 id="shop-categories-title">
-                    Shop by Category
-                </h2>
+        <section class="shop-categories section-spacing" aria-labelledby="shop-categories-title">
+            <div class="section-heading reveal">
+                <p class="section-eyebrow">The MEHEK ritual</p>
+                <h2 id="shop-categories-title">Shop by category</h2>
             </div>
 
             <div class="category-grid">
-
-                <!-- Fragrances category -->
-                <article class="category-card">
-                    <img
-                        class="category-image"
-                        src="media/images/categories/fragrances-category.webp"
-                        alt="MEHEK men's and women's luxury perfume bottles"
-                        width="1080"
-                        height="1440"
-                        loading="lazy"
-                    >
-
+                <article class="category-card reveal">
+                    <a href="products.html?type=perfume" class="category-image-link">
+                        <img
+                            class="category-image"
+                            src="media/images/categories/fragrances-category.webp"
+                            alt="MEHEK men's and women's luxury perfume bottles"
+                            width="1080"
+                            height="1440"
+                            loading="lazy"
+                        >
+                    </a>
                     <div class="category-content">
+                        <p class="category-index">01</p>
                         <h3>Fragrances</h3>
-
-                        <a
-                            class="category-link"
-                                href="products.html?type=perfume"
-                        >
-                            Shop Now
-                            <span aria-hidden="true">→</span>
+                        <p>Eau de parfum shaped by memory, place and identity.</p>
+                        <a class="editorial-link" href="products.html?type=perfume">
+                            Discover perfumes <span aria-hidden="true">→</span>
                         </a>
                     </div>
                 </article>
 
-                <!-- Home fragrance category -->
-                <article class="category-card">
-                    <img
-                        class="category-image"
-                        src="media/images/categories/home-fragrance-category.webp"
-                        alt="MEHEK candle, reed diffuser and room spray"
-                        width="1080"
-                        height="1440"
-                        loading="lazy"
-                    >
-
+                <article class="category-card reveal">
+                    <a href="products.html?type=home-fragrance" class="category-image-link">
+                        <img
+                            class="category-image"
+                            src="media/images/categories/home-fragrance-category.webp"
+                            alt="MEHEK candle, reed diffuser and room spray"
+                            width="1080"
+                            height="1440"
+                            loading="lazy"
+                        >
+                    </a>
                     <div class="category-content">
+                        <p class="category-index">02</p>
                         <h3>Home Fragrance</h3>
-
-                        <a
-                            class="category-link"
-                            href="products.html?type=home-fragrance"
-                        >
-                            Shop Now
-                            <span aria-hidden="true">→</span>
+                        <p>Candles, diffusers and room sprays for a layered interior ritual.</p>
+                        <a class="editorial-link" href="products.html?type=home-fragrance">
+                            Discover home scents <span aria-hidden="true">→</span>
                         </a>
                     </div>
                 </article>
 
-                <!-- Hair collection category -->
-                <article class="category-card">
-                    <img
-                        class="category-image"
-                        src="media/images/categories/hair-collection-category.webp"
-                        alt="MEHEK luxury hair mist bottle and packaging"
-                        width="1080"
-                        height="1440"
-                        loading="lazy"
-                    >
-
+                <article class="category-card reveal">
+                    <a href="products.html?type=hair-mist" class="category-image-link">
+                        <img
+                            class="category-image"
+                            src="media/images/categories/hair-collection-category.webp"
+                            alt="MEHEK luxury hair mist bottle and packaging"
+                            width="1080"
+                            height="1440"
+                            loading="lazy"
+                        >
+                    </a>
                     <div class="category-content">
-                        <h3>Hair Collection</h3>
-
-                        <a
-                            class="category-link"
-                            href="products.html?type=hair-mist"
-                        >
-                            Shop Now
-                            <span aria-hidden="true">→</span>
+                        <p class="category-index">03</p>
+                        <h3>Hair Mist</h3>
+                        <p>A delicate veil of fragrance designed to move with the hair.</p>
+                        <a class="editorial-link" href="products.html?type=hair-mist">
+                            Discover hair mist <span aria-hidden="true">→</span>
                         </a>
                     </div>
                 </article>
-
             </div>
-
         </section>
 
-        <!-- =========================================
-             Our Story Section
-        ========================================== -->
-        <section
-            class="our-story section-spacing"
-            aria-labelledby="our-story-title"
-        >
-
-            <div class="our-story-image-wrapper">
+        <section class="our-story section-spacing" aria-labelledby="our-story-title">
+            <div class="our-story-image-wrapper reveal">
                 <img
                     class="our-story-image"
                     src="media/images/about/our-story.webp"
@@ -407,146 +274,122 @@
                     height="900"
                     loading="lazy"
                 >
+                <span class="story-image-label">Born between worlds</span>
             </div>
 
-            <div class="our-story-content">
-                <p class="section-eyebrow">
-                    The MEHEK Journey
-                </p>
+            <div class="our-story-content reveal">
+                <p class="section-eyebrow">The MEHEK journey</p>
+                <h2 id="our-story-title">One soul, shaped by four worlds.</h2>
 
-                <h2 id="our-story-title">
-                    Our Story
-                </h2>
-
-                <p>
-                    MEHEK was born from the union of Moroccan and Pakistani
-                    heritage, shaped by an upbringing in Italy and brought
-                    to life in London.
+                <p class="story-lead">
+                    Born from Moroccan and Pakistani heritage, raised in Italy
+                    and brought to life in London.
                 </p>
 
                 <p>
-                    Each fragrance celebrates culture, memory and modern
-                    elegance through distinctive scents and refined design.
+                    MEHEK creates fragrances that hold identity, memory and emotion.
+                    Every composition pairs cultural depth with refined contemporary design.
                 </p>
 
-                <a class="story-link" href="about.html">
-                    Discover Our Story
-                    <span aria-hidden="true">→</span>
+                <a class="editorial-link" href="about.html">
+                    Discover our story <span aria-hidden="true">→</span>
                 </a>
             </div>
-
         </section>
 
-        <!-- =========================================
-             Best Sellers Section
-        ========================================== -->
-        <section
-            class="best-sellers section-spacing"
-            aria-labelledby="best-sellers-title"
-        >
-
-            <div class="section-heading">
-                <p class="section-eyebrow">
-                    Customer Favourites
-                </p>
-
-                <h2 id="best-sellers-title">
-                    Best Sellers
-                </h2>
-
+        <section class="best-sellers section-spacing" aria-labelledby="best-sellers-title">
+            <div class="section-heading reveal">
+                <p class="section-eyebrow">Customer favourites</p>
+                <h2 id="best-sellers-title">Best sellers</h2>
                 <p class="section-description">
-                    Discover the fragrances our customers love the most.
+                    Signature scents selected from across the MEHEK collections.
                 </p>
             </div>
 
-            <!-- Product cards are created with JavaScript -->
-            <div
-                class="product-grid"
-                id="best-sellers-grid"
-                aria-live="polite"
-            ></div>
+            <div class="product-grid" id="best-sellers-grid" aria-live="polite"></div>
 
-            <div class="section-action">
-                <a class="view-all-link" href="products.html">
-                    View All Products
-                    <span aria-hidden="true">→</span>
+            <div class="section-action reveal">
+                <a class="editorial-link" href="products.html">
+                    View all products <span aria-hidden="true">→</span>
                 </a>
             </div>
-
         </section>
 
+        <section class="newsletter-section" aria-labelledby="newsletter-title">
+            <div class="newsletter-inner reveal">
+                <div class="newsletter-copy">
+                    <p class="section-eyebrow">The MEHEK journal</p>
+                    <h2 id="newsletter-title">Enter the world of MEHEK.</h2>
+                    <p>
+                        Receive new collection stories, fragrance notes and private launch invitations.
+                    </p>
+                </div>
+
+                <form class="newsletter-form" id="newsletter-form" novalidate>
+                    <label class="visually-hidden" for="newsletter-email">Email address</label>
+                    <div class="newsletter-field">
+                        <input
+                            id="newsletter-email"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            placeholder="Your email address"
+                            required
+                        >
+                        <button type="submit" aria-label="Subscribe to the MEHEK newsletter">
+                            Subscribe
+                        </button>
+                    </div>
+                    <p class="newsletter-message" id="newsletter-message" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
     </main>
 
-    <!-- =========================================
-         Website Footer
-    ========================================== -->
     <footer class="site-footer">
-
         <div class="footer-grid">
-
-            <!-- Brand information -->
             <div class="footer-brand">
-                <a
-                    class="brand-logo footer-logo"
-                    href="index.html"
-                    aria-label="MEHEK homepage"
-                >
+                <a class="brand-logo footer-logo" href="index.html" aria-label="MEHEK homepage">
+                    <span class="brand-mark" aria-hidden="true">✦</span>
                     <span class="brand-name">MEHEK</span>
-                    <span class="brand-subtitle">Fragrances</span>
+                    <span class="brand-subtitle">Luxury Fragrances</span>
                 </a>
-
-                <p>
-                    Timeless scents inspired by heritage,
-                    culture and modern luxury.
-                </p>
+                <p>Timeless scents inspired by heritage, culture and modern luxury.</p>
             </div>
 
-            <!-- Shop links -->
             <div class="footer-column">
                 <h2 class="footer-heading">Shop</h2>
-
                 <ul>
                     <li><a href="products.html">All Products</a></li>
-                    <li><a href="products.html?category=perfume">Fragrances</a></li>
-                    <li><a href="products.html?category=home-fragrance">Home Fragrance</a></li>
-                    <li><a href="products.html?category=hair-mist">Hair Collection</a></li>
+                    <li><a href="products.html?type=perfume">Fragrances</a></li>
+                    <li><a href="products.html?type=home-fragrance">Home Fragrance</a></li>
+                    <li><a href="products.html?type=hair-mist">Hair Mist</a></li>
                 </ul>
             </div>
 
-            <!-- Collection links -->
             <div class="footer-column">
                 <h2 class="footer-heading">Collections</h2>
-
                 <ul>
-                    <li><a href="products.html?collection=heritage">Heritage Collection</a></li>
-                    <li><a href="products.html?collection=milano">Milano Collection</a></li>
-                    <li><a href="products.html?collection=london">London Collection</a></li>
+                    <li><a href="products.html?collection=heritage">Heritage</a></li>
+                    <li><a href="products.html?collection=milano">Milano</a></li>
+                    <li><a href="products.html?collection=london">London</a></li>
                 </ul>
             </div>
 
-            <!-- Brand links -->
             <div class="footer-column">
                 <h2 class="footer-heading">MEHEK</h2>
-
                 <ul>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="about.html#why-mehek">Why MEHEK</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="cart.html">Shopping Cart</a></li>
                 </ul>
             </div>
-
         </div>
 
         <div class="footer-bottom">
-            <p>
-                &copy; <span id="current-year">2026</span>
-                MEHEK Fragrances. All rights reserved.
-            </p>
+            <p>&copy; <span id="current-year">2026</span> MEHEK Fragrances. All rights reserved.</p>
+            <p>Morocco · Pakistan · Italy · London</p>
         </div>
-
     </footer>
-
 </body>
-
 </html>
