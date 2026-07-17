@@ -28,6 +28,64 @@
 
     <!-- Loads product listing page interactions -->
     <script src="js/products-page.js" defer></script>
+
+    <style>
+        .shop-filter-panel {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--colour-border, #ded8cf);
+        }
+
+        .shop-filter-group {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        .shop-filter-group legend {
+            margin-bottom: 0.85rem;
+            color: var(--colour-black, #0d0d0d);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .shop-filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+
+        .shop-filter-button {
+            min-height: 42px;
+            padding: 0.7rem 1.15rem;
+            border: 1px solid var(--colour-black, #0d0d0d);
+            background: transparent;
+            color: var(--colour-black, #0d0d0d);
+            font: inherit;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .shop-filter-button:hover,
+        .shop-filter-button:focus-visible,
+        .shop-filter-button.is-active {
+            background: var(--colour-black, #0d0d0d);
+            color: var(--colour-white, #ffffff);
+        }
+
+        .shop-filter-button:focus-visible {
+            outline: 2px solid var(--colour-gold, #b89c6a);
+            outline-offset: 3px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -168,89 +226,29 @@
                 Product catalogue
             </h2>
 
-            <div class="product-controls">
+            <div class="shop-filter-panel" aria-label="Filter products">
 
-                <div class="filter-group search-group">
-                    <label for="product-search">Search</label>
+                <fieldset class="shop-filter-group">
+                    <legend>Category</legend>
 
-                    <input
-                        type="search"
-                        id="product-search"
-                        name="product-search"
-                        placeholder="Search by product name"
-                        autocomplete="off"
-                    >
-                </div>
+                    <div class="shop-filter-buttons" role="group" aria-label="Filter by category">
+                        <button class="shop-filter-button is-active" type="button" data-category="all" aria-pressed="true">All</button>
+                        <button class="shop-filter-button" type="button" data-category="perfume" aria-pressed="false">Fragrances</button>
+                        <button class="shop-filter-button" type="button" data-category="hair-mist" aria-pressed="false">Hair Mist</button>
+                        <button class="shop-filter-button" type="button" data-category="home-fragrance" aria-pressed="false">Home Fragrance</button>
+                    </div>
+                </fieldset>
 
-                <div class="filter-group">
-                    <label for="product-type-filter">
-                        Product Type
-                    </label>
+                <fieldset class="shop-filter-group">
+                    <legend>Collection</legend>
 
-                    <select
-                        id="product-type-filter"
-                        name="product-type"
-                    >
-                        <option value="all">All Products</option>
-                        <option value="perfume">Perfumes</option>
-                        <option value="hair-mist">Hair Mist</option>
-                        <option value="room-spray">Room Spray</option>
-                        <option value="reed-diffuser">Reed Diffusers</option>
-                        <option value="scented-candle">Scented Candles</option>
-                    </select>
-                </div>
-
-                <!-- Shown only when Perfumes is selected -->
-                <div
-                    class="filter-group gender-filter-group"
-                    id="gender-filter-group"
-                    hidden
-                >
-                    <label for="gender-filter">Gender</label>
-
-                    <select
-                        id="gender-filter"
-                        name="gender"
-                    >
-                        <option value="all">All Genders</option>
-                        <option value="unisex">Unisex</option>
-                        <option value="men">Men</option>
-                        <option value="women">Women</option>
-                    </select>
-                </div>
-
-                <div class="filter-group">
-                    <label for="sort-products">Sort By</label>
-
-                    <select
-                        id="sort-products"
-                        name="sort-products"
-                    >
-                        <option value="featured">Featured</option>
-                        <option value="price-low-high">
-                            Price: Low to High
-                        </option>
-                        <option value="price-high-low">
-                            Price: High to Low
-                        </option>
-                        <option value="name-a-z">
-                            Name: A to Z
-                        </option>
-                        <option value="name-z-a">
-                            Name: Z to A
-                        </option>
-                    </select>
-                </div>
-
-                <div class="filter-group filter-action-group">
-                    <button
-                        class="secondary-button"
-                        id="reset-filters"
-                        type="button"
-                    >
-                        Reset Filters
-                    </button>
-                </div>
+                    <div class="shop-filter-buttons" role="group" aria-label="Filter by collection">
+                        <button class="shop-filter-button is-active" type="button" data-collection="all" aria-pressed="true">All</button>
+                        <button class="shop-filter-button" type="button" data-collection="heritage" aria-pressed="false">Heritage</button>
+                        <button class="shop-filter-button" type="button" data-collection="milano" aria-pressed="false">Milano</button>
+                        <button class="shop-filter-button" type="button" data-collection="london" aria-pressed="false">London</button>
+                    </div>
+                </fieldset>
 
             </div>
 
