@@ -2,19 +2,25 @@
 
 /*
  * MEHEK — Shop page
- * Creates the product cards and combines the Category and Collection filters.
+ *
+ * This first version has one job only:
+ * read the product list from products.js and display the product cards.
+ * Search, filters and sorting will be added later, one step at a time.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     const productsGrid = document.querySelector('#products-grid');
     const resultsCount = document.querySelector('#product-results-count');
     const emptyMessage = document.querySelector('#empty-results-message');
-    const categoryButtons = [...document.querySelectorAll('[data-category]')];
-    const collectionButtons = [...document.querySelectorAll('[data-collection]')];
-    const emptyResetButton = document.querySelector('#empty-results-reset');
 
-    if (!productsGrid) return;
+    if (!productsGrid) {
+        return;
+    }
 
+    /*
+     * Accepts the most common names for the product array.
+     * The first one found will be used.
+     */
     const productList =
         window.products ||
         window.mehekProducts ||
@@ -22,29 +28,44 @@ document.addEventListener('DOMContentLoaded', () => {
         window.PRODUCTS ||
         [];
 
-    const normaliseValue = value =>
-        String(value || '')
-            .trim()
-            .toLowerCase()
-            .replace(/_/g, '-')
-            .replace(/\s+/g, '-');
+    if (!Array.isArray(productList) || productList.length === 0) {
+        productsGrid.innerHTML = '';
 
-    const formatLabel = value =>
-        String(value || '')
+        if (resultsCount) {
+            resultsCount.textContent = 'Showing 0 products';
+        }
+
+        if (emptyMessage) {
+            emptyMessage.hidden = false;
+        }
+
+        console.warn(
+            'MEHEK: no products were found. Check that products.js creates an array called products.'
+        );
+        return;
+    }
+
+    const formatLabel = (value = '') => {
+        return String(value)
             .replace(/-/g, ' ')
             .replace(/\b\w/g, letter => letter.toUpperCase());
+    };
 
     const getProductImage = product => {
         if (Array.isArray(product.images) && product.images.length > 0) {
             return product.images[0];
         }
+
         return product.image || product.image1 || 'images/product-placeholder.png';
     };
 
     const getProductPrice = product => {
         const rawPrice = product.price ?? product.startingPrice ?? 0;
         const numberPrice = Number(rawPrice);
-        return Number.isFinite(numberPrice) ? `£${numberPrice.toFixed(2)}` : String(rawPrice);
+
+        return Number.isFinite(numberPrice)
+            ? `£${numberPrice.toFixed(2)}`
+            : String(rawPrice);
     };
 
     const createProductCard = product => {
@@ -53,128 +74,118 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const productId = encodeURIComponent(product.id || product.slug || product.name);
         const productUrl = `product.html?id=${productId}`;
+        const image = getProductImage(product);
         const collection = formatLabel(product.collection || 'MEHEK');
         const type = formatLabel(product.type || product.category || 'Fragrance');
         const gender = product.gender ? formatLabel(product.gender) : '';
 
         article.innerHTML = `
             <a class="product-image-link" href="${productUrl}" aria-label="View ${product.name}">
-                <img class="product-image" src="${getProductImage(product)}" alt="${product.name}" loading="lazy">
+                <img
+                    class="product-image"
+                    src="${image}"
+                    alt="${product.name}"
+                    loading="lazy"
+                >
             </a>
+
             <div class="product-content">
                 <p class="product-collection">${collection} Collection</p>
-                <h3><a class="product-name-link" href="${productUrl}">${product.name}</a></h3>
-                <p class="product-meta">${type}${gender ? ` · <span class="product-gender">${gender}</span>` : ''}</p>
+
+                <h3>
+                    <a class="product-name-link" href="${productUrl}">
+                        ${product.name}
+                    </a>
+                </h3>
+
+                <p class="product-meta">
+                    ${type}${gender ? ` · <span class="product-gender">${gender}</span>` : ''}
+                </p>
+
                 <p class="product-price">${getProductPrice(product)}</p>
-                <a class="product-view-link" href="${productUrl}">View Product <span aria-hidden="true">→</span></a>
-            </div>`;
+            </div>
+        `;
 
         return article;
     };
 
+    /*
+     * Read the links coming from the homepage, for example:
+     * products.html?collection=heritage
+     * products.html?category=home-fragrance
+     */
+    const urlParameters = new URLSearchParams(window.location.search);
+    const selectedCollection = (urlParameters.get('collection') || '').toLowerCase();
+    const selectedCategory = (urlParameters.get('category') || '').toLowerCase();
+
+    const normaliseValue = value =>
+        String(value || '')
+            .trim()
+            .toLowerCase()
+            .replace(/_/g, '-')
+            .replace(/\s+/g, '-');
+
     const isHomeFragrance = product => {
-        const values = [normaliseValue(product.category), normaliseValue(product.type)];
-        return values.some(value => [
-            'home-fragrance', 'candle', 'candles', 'scented-candle',
-            'diffuser', 'diffusers', 'reed-diffuser',
-            'room-spray', 'room-sprays'
-        ].includes(value));
+        const category = normaliseValue(product.category);
+        const type = normaliseValue(product.type);
+        const value = category || type;
+
+        return [
+            'home-fragrance',
+            'candle',
+            'candles',
+            'diffuser',
+            'diffusers',
+            'room-spray',
+            'room-sprays'
+        ].includes(value);
     };
 
-    const matchesCategory = (product, category) => {
-        if (category === 'all') return true;
-        if (category === 'home-fragrance') return isHomeFragrance(product);
-
-        const values = [normaliseValue(product.category), normaliseValue(product.type)];
-        if (category === 'perfume') return values.some(value => ['perfume', 'fragrance'].includes(value));
-        return values.includes(category);
-    };
-
-    const parameters = new URLSearchParams(window.location.search);
-    let activeCategory = normaliseValue(parameters.get('category') || parameters.get('type') || 'all');
-    let activeCollection = normaliseValue(parameters.get('collection') || 'all');
-
-    const validCategories = ['all', 'perfume', 'hair-mist', 'home-fragrance'];
-    const validCollections = ['all', 'heritage', 'milano', 'london'];
-
-    if (!validCategories.includes(activeCategory)) {
-        activeCategory = ['room-spray', 'reed-diffuser', 'scented-candle', 'candle', 'diffuser'].includes(activeCategory)
-            ? 'home-fragrance'
-            : 'all';
-    }
-    if (!validCollections.includes(activeCollection)) activeCollection = 'all';
-
-    const setActiveButton = (buttons, value, dataName) => {
-        buttons.forEach(button => {
-            const selected = button.dataset[dataName] === value;
-            button.classList.toggle('is-active', selected);
-            button.setAttribute('aria-pressed', String(selected));
-        });
-    };
-
-    const updateUrl = () => {
-        const nextParameters = new URLSearchParams();
-        if (activeCategory !== 'all') nextParameters.set('category', activeCategory);
-        if (activeCollection !== 'all') nextParameters.set('collection', activeCollection);
-        const query = nextParameters.toString();
-        history.replaceState(null, '', `${window.location.pathname}${query ? `?${query}` : ''}`);
-    };
-
-    const renderProducts = () => {
-        const filteredProducts = productList.filter(product => {
-            const categoryMatches = matchesCategory(product, activeCategory);
-            const collectionMatches = activeCollection === 'all' ||
-                normaliseValue(product.collection) === activeCollection;
-            return categoryMatches && collectionMatches;
-        });
-
-        const fragment = document.createDocumentFragment();
-        filteredProducts.forEach(product => fragment.appendChild(createProductCard(product)));
-        productsGrid.replaceChildren(fragment);
-
-        if (resultsCount) {
-            const word = filteredProducts.length === 1 ? 'product' : 'products';
-            resultsCount.textContent = `Showing ${filteredProducts.length} ${word}`;
+    const matchesCategory = product => {
+        if (!selectedCategory) {
+            return true;
         }
-        if (emptyMessage) emptyMessage.hidden = filteredProducts.length > 0;
+
+        if (selectedCategory === 'home-fragrance') {
+            return isHomeFragrance(product);
+        }
+
+        const category = normaliseValue(product.category);
+        const type = normaliseValue(product.type);
+
+        if (selectedCategory === 'perfume') {
+            return ['perfume', 'fragrance'].includes(category) ||
+                ['perfume', 'fragrance'].includes(type);
+        }
+
+        if (selectedCategory === 'hair-mist') {
+            return category === 'hair-mist' || type === 'hair-mist';
+        }
+
+        return category === selectedCategory || type === selectedCategory;
     };
 
-    const applyFilters = () => {
-        setActiveButton(categoryButtons, activeCategory, 'category');
-        setActiveButton(collectionButtons, activeCollection, 'collection');
-        updateUrl();
-        renderProducts();
-    };
+    const filteredProducts = productList.filter(product => {
+        const collectionMatches = !selectedCollection ||
+            normaliseValue(product.collection) === selectedCollection;
 
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            activeCategory = button.dataset.category;
-            applyFilters();
-        });
+        return collectionMatches && matchesCategory(product);
     });
 
-    collectionButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            activeCollection = button.dataset.collection;
-            applyFilters();
-        });
+    const fragment = document.createDocumentFragment();
+
+    filteredProducts.forEach(product => {
+        fragment.appendChild(createProductCard(product));
     });
 
-    if (emptyResetButton) {
-        emptyResetButton.addEventListener('click', () => {
-            activeCategory = 'all';
-            activeCollection = 'all';
-            applyFilters();
-        });
+    productsGrid.replaceChildren(fragment);
+
+    if (resultsCount) {
+        const word = filteredProducts.length === 1 ? 'product' : 'products';
+        resultsCount.textContent = `Showing ${filteredProducts.length} ${word}`;
     }
 
-    if (!Array.isArray(productList) || productList.length === 0) {
-        productsGrid.replaceChildren();
-        if (resultsCount) resultsCount.textContent = 'Showing 0 products';
-        if (emptyMessage) emptyMessage.hidden = false;
-        console.warn('MEHEK: no products were found in products.js.');
-        return;
+    if (emptyMessage) {
+        emptyMessage.hidden = filteredProducts.length > 0;
     }
-
-    applyFilters();
 });
