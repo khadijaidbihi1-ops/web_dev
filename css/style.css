@@ -2527,3 +2527,66 @@ button:focus-visible {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
+
+
+/* =========================================
+   MEHEK Shop — Minimal Hero Refinement
+========================================= */
+.shop-page-hero {
+    position: relative;
+    display: grid;
+    min-height: clamp(360px, 46vw, 560px);
+    place-items: center;
+    padding: clamp(5rem, 10vw, 8rem) 1.5rem;
+    overflow: hidden;
+    background: var(--colour-ivory);
+    border-bottom: 1px solid var(--colour-border);
+}
+
+.shop-page-hero::before {
+    position: absolute;
+    inset: 1.25rem;
+    border: 1px solid rgba(13, 13, 13, 0.12);
+    content: "";
+    pointer-events: none;
+}
+
+.shop-page-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+}
+
+.shop-page-hero .section-eyebrow {
+    margin-bottom: 1.25rem;
+    color: var(--colour-gold);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+}
+
+.shop-page-hero h1 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(4rem, 10vw, 7rem);
+    letter-spacing: -0.035em;
+    text-transform: none;
+}
+
+.shop-page-hero p:last-child {
+    max-width: 660px;
+    color: rgba(13, 13, 13, 0.68);
+    font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+    line-height: 1.85;
+}
+
+@media (max-width: 640px) {
+    .shop-page-hero {
+        min-height: 390px;
+        padding-inline: 2rem;
+    }
+
+    .shop-page-hero::before {
+        inset: 0.75rem;
+    }
+}
