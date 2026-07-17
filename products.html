@@ -183,6 +183,16 @@
                 </div>
 
                 <div class="filter-group">
+                    <label for="collection-filter">Collection</label>
+                    <select id="collection-filter" name="collection">
+                        <option value="all">All Collections</option>
+                        <option value="heritage">Heritage</option>
+                        <option value="milano">Milano</option>
+                        <option value="london">London</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
                     <label for="product-type-filter">
                         Product Type
                     </label>
@@ -194,6 +204,7 @@
                         <option value="all">All Products</option>
                         <option value="perfume">Perfumes</option>
                         <option value="hair-mist">Hair Mist</option>
+                        <option value="home-fragrance">Home Fragrance</option>
                         <option value="room-spray">Room Spray</option>
                         <option value="reed-diffuser">Reed Diffusers</option>
                         <option value="scented-candle">Scented Candles</option>
@@ -243,6 +254,7 @@
                 </div>
 
                 <div class="filter-group filter-action-group">
+                    <button class="primary-button" id="apply-filters" type="button">Apply Filters</button>
                     <button
                         class="secondary-button"
                         id="reset-filters"

@@ -78,7 +78,7 @@ const bestSellerProducts = [
         type: "Eau de Parfum",
         size: "50 ml",
         price: 140,
-        image: "media/images/products/velvet-rose.webp",
+        image: "media/images/products/royal-cedar1.webp",
         badge: ""
     },
     {

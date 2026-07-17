@@ -14,9 +14,10 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'unisex',
     price: 145,
-    images: ['media/images/products/oud-legacy.png', 'media/images/products/oud-legacy1.png'],
+    images: ['media/images/products/oud-legacy.webp', 'media/images/products/oud-legacy1.webp'],
     description: 'A deep and enveloping fragrance where precious oud meets saffron, warm amber and polished woods.',
     notes: { top: 'Saffron, bergamot', heart: 'Rose, incense', base: 'Oud, amber, sandalwood' },
+    occasion: 'Evening · Formal · Special occasions · Autumn/Winter',
     variants: [{ label: '50 ml', price: 145 }]
   },
   {
@@ -28,9 +29,10 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'women',
     price: 140,
-    images: ['media/images/products/velvet-rose.webp'],
+    images: ['media/images/products/royal-cedar1.webp'],
     description: 'A soft yet expressive rose fragrance layered with pink pepper, amber and a smooth veil of musk.',
     notes: { top: 'Pink pepper, bergamot', heart: 'Damask rose, jasmine', base: 'Amber, musk, cedarwood' },
+    occasion: 'Day or evening · Date night · Elegant occasions · Spring/Autumn',
     variants: [{ label: '50 ml', price: 140 }]
   },
   {
@@ -42,9 +44,10 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'men',
     price: 135,
-    images: ['media/images/products/milano-noir.png', 'media/images/products/milano-noir.webp'],
+    images: ['media/images/products/milano-noir.webp', 'media/images/products/milano-noir.webp'],
     description: 'A refined evening scent combining aromatic citrus, iris and dark woods with a modern Italian character.',
     notes: { top: 'Bergamot, black pepper', heart: 'Iris, lavender', base: 'Vetiver, cedarwood, musk' },
+    occasion: 'Evening · Formal · City nights · Autumn/Winter',
     variants: [{ label: '50 ml', price: 135 }]
   },
   {
@@ -56,9 +59,10 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'women',
     price: 150,
-    images: ['media/images/products/london-bloom.png', 'media/images/products/london-bloom.webp'],
+    images: ['media/images/products/london-bloom.webp', 'media/images/products/london-bloom.webp'],
     description: 'A luminous floral fragrance inspired by London gardens after rain, with airy petals and clean woods.',
     notes: { top: 'Pear, bergamot', heart: 'Peony, jasmine', base: 'White musk, cedarwood' },
+    occasion: 'Daytime · Everyday elegance · Spring/Summer',
     variants: [{ label: '50 ml', price: 150 }]
   },
   {
@@ -70,9 +74,10 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'men',
     price: 148,
-    images: ['media/images/products/black-tabacco.png'],
+    images: ['media/images/products/black-tabacco.webp'],
     description: 'A rich composition of tobacco leaf, warm spice and smoky woods with a smooth amber finish.',
     notes: { top: 'Cardamom, cinnamon', heart: 'Tobacco leaf, leather', base: 'Amber, patchouli, oud' },
+    occasion: 'Evening · Formal · Special events · Autumn/Winter',
     variants: [{ label: '50 ml', price: 148 }]
   },
   {
@@ -84,9 +89,10 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'unisex',
     price: 132,
-    images: ['media/images/products/italian-bergamot.png'],
+    images: ['media/images/products/italian-bergamot.webp'],
     description: 'A bright and elegant citrus fragrance softened by neroli, white tea and clean musk.',
     notes: { top: 'Italian bergamot, lemon', heart: 'Neroli, white tea', base: 'Musk, sandalwood' },
+    occasion: 'Daytime · Office · Smart casual · Spring/Summer',
     variants: [{ label: '50 ml', price: 132 }]
   },
   {
@@ -101,6 +107,7 @@ window.products = [
     images: ['media/images/products/milano-noir.webp'],
     description: 'A polished floral blend of peony, iris and jasmine resting on creamy sandalwood and white musk.',
     notes: { top: 'Mandarin, pear', heart: 'Peony, iris, jasmine', base: 'White musk, sandalwood' },
+    occasion: 'Day or evening · Celebrations · Elegant occasions · Spring/Summer',
     variants: [{ label: '50 ml', price: 138 }]
   },
   {
@@ -112,9 +119,10 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'unisex',
     price: 145,
-    images: ['media/images/products/cashmeer-wood.png'],
+    images: ['media/images/products/cashmeer-wood.webp'],
     description: 'A soft woody fragrance with fig, cashmere accords and warm cedar, designed for quiet everyday luxury.',
     notes: { top: 'Fig leaf, bergamot', heart: 'Cashmere wood, violet', base: 'Cedarwood, musk, amber' },
+    occasion: 'Daytime · Quiet luxury · Smart casual · All seasons',
     variants: [{ label: '50 ml', price: 145 }]
   },
   {
@@ -126,9 +134,10 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'men',
     price: 152,
-    images: ['media/images/products/midnight.png'],
+    images: ['media/images/products/midnight.webp'],
     description: 'A dark urban fragrance blending black tea, aromatic spice and vetiver over a smooth woody base.',
     notes: { top: 'Black pepper, bergamot', heart: 'Black tea, lavender', base: 'Vetiver, patchouli, cedarwood' },
+    occasion: 'Night · Formal events · Special occasions · Autumn/Winter',
     variants: [{ label: '50 ml', price: 152 }]
   },
   {
@@ -140,9 +149,10 @@ window.products = [
     type: 'Hair Mist',
     gender: 'unisex',
     price: 55,
-    images: ['media/images/products/heritage-hair-mist.png', 'media/images/products/fd7e1d2f-03b3-4899-a661-b67a4551a881.png'],
+    images: ['media/images/products/heritage-hair-mist.webp', 'media/images/products/fd7e1d2f-03b3-4899-a661-b67a4551a881.webp'],
     description: 'A lightweight scented mist that leaves the hair softly fragranced with rose, amber and cedarwood.',
     notes: { top: 'Bergamot, freesia, pink pepper', heart: 'Damask rose, jasmine, lavender', base: 'Amber, cedarwood, musk' },
+    occasion: 'Everyday refresh · Hair layering · Day or evening',
     variants: [{ label: '100 ml', price: 55 }]
   },
   {
@@ -154,9 +164,10 @@ window.products = [
     type: 'Hair Mist',
     gender: 'unisex',
     price: 55,
-    images: ['media/images/products/milano-hair-mist.png', 'media/images/products/milano-hair-mist1.png'],
+    images: ['media/images/products/milano-hair-mist.webp', 'media/images/products/milano-hair-mist1.webp'],
     description: 'A fresh hair mist with bergamot, iris and white musk for a clean and refined scented finish.',
     notes: { top: 'Bergamot, mandarin', heart: 'Iris, jasmine', base: 'White musk, sandalwood' },
+    occasion: 'Everyday refresh · Office · Spring/Summer',
     variants: [{ label: '100 ml', price: 55 }]
   },
   {
@@ -168,9 +179,10 @@ window.products = [
     type: 'Hair Mist',
     gender: 'unisex',
     price: 55,
-    images: ['media/images/products/london-hair-mist.png', 'media/images/products/london-hair-mist1.png'],
+    images: ['media/images/products/london-hair-mist.webp', 'media/images/products/london-hair-mist1.webp'],
     description: 'A contemporary hair mist combining airy florals, black tea and clean woods.',
     notes: { top: 'Pear, bergamot', heart: 'Black tea, violet', base: 'Cedarwood, musk' },
+    occasion: 'Everyday refresh · City days · All seasons',
     variants: [{ label: '100 ml', price: 55 }]
   },
   {
@@ -182,9 +194,10 @@ window.products = [
     type: 'Scented Candle',
     gender: '',
     price: 48,
-    images: ['media/images/products/heritage- candela.png'],
+    images: ['media/images/products/heritage-candela.webp'],
     description: 'A warm home fragrance built around amber, rose, spice and dark woods.',
     notes: { top: 'Saffron, spice', heart: 'Rose, incense', base: 'Amber, oud, cedarwood' },
+    occasion: 'Living room · Evening relaxation · Autumn/Winter',
     variants: [{ label: '200 g', price: 48 }, { label: '500 g', price: 78 }]
   },
   {
@@ -196,9 +209,10 @@ window.products = [
     type: 'Scented Candle',
     gender: '',
     price: 48,
-    images: ['media/images/products/milano-candle.png'],
+    images: ['media/images/products/milano-candle.webp'],
     description: 'A luminous candle with bergamot, iris and creamy sandalwood.',
     notes: { top: 'Bergamot, lemon', heart: 'Iris, jasmine', base: 'Sandalwood, white musk' },
+    occasion: 'Living room · Dining area · Spring/Summer',
     variants: [{ label: '200 g', price: 48 }, { label: '500 g', price: 78 }]
   },
   {
@@ -210,9 +224,10 @@ window.products = [
     type: 'Scented Candle',
     gender: '',
     price: 48,
-    images: ['media/images/products/london-candle.png'],
+    images: ['media/images/products/london-candle.webp'],
     description: 'A modern candle blending black tea, fig and refined woods.',
     notes: { top: 'Bergamot, fig', heart: 'Black tea, violet', base: 'Cedarwood, vetiver' },
+    occasion: 'Bedroom · Evening relaxation · Autumn/Winter',
     variants: [{ label: '200 g', price: 48 }, { label: '500 g', price: 78 }]
   },
   {
@@ -224,9 +239,10 @@ window.products = [
     type: 'Reed Diffuser',
     gender: '',
     price: 58,
-    images: ['media/images/products/heritage-diffuser.png'],
+    images: ['media/images/products/heritage-diffuser.webp'],
     description: 'A long-lasting diffuser that fills the room with warm amber, rose and oud.',
     notes: { top: 'Saffron, spice', heart: 'Rose, incense', base: 'Amber, oud, cedarwood' },
+    occasion: 'Entrance · Living room · Warm ambience',
     variants: [{ label: '200 ml', price: 58 }, { label: '500 ml', price: 92 }]
   },
   {
@@ -238,9 +254,10 @@ window.products = [
     type: 'Reed Diffuser',
     gender: '',
     price: 58,
-    images: ['media/images/products/milano-diffuser.png'],
+    images: ['media/images/products/milano-diffuser.webp'],
     description: 'A bright diffuser with citrus, iris and soft white musk.',
     notes: { top: 'Bergamot, lemon', heart: 'Iris, jasmine', base: 'Sandalwood, white musk' },
+    occasion: 'Office · Entrance · Bright ambience',
     variants: [{ label: '200 ml', price: 58 }, { label: '500 ml', price: 92 }]
   },
   {
@@ -252,9 +269,10 @@ window.products = [
     type: 'Reed Diffuser',
     gender: '',
     price: 58,
-    images: ['media/images/products/london-diffuser.png'],
+    images: ['media/images/products/london-diffuser.webp'],
     description: 'A contemporary diffuser scented with black tea, fig and clean woods.',
     notes: { top: 'Bergamot, fig', heart: 'Black tea, violet', base: 'Cedarwood, vetiver' },
+    occasion: 'Bedroom · Living room · Contemporary ambience',
     variants: [{ label: '200 ml', price: 58 }, { label: '500 ml', price: 92 }]
   },
   {
@@ -266,9 +284,10 @@ window.products = [
     type: 'Room Spray',
     gender: '',
     price: 42,
-    images: ['media/images/products/heritage room-spray.png'],
+    images: ['media/images/products/heritage-room-spray.webp'],
     description: 'An immediate veil of rose, spice, amber and oud for the home.',
     notes: { top: 'Saffron, spice', heart: 'Rose, incense', base: 'Amber, oud' },
+    occasion: 'Living room · Instant refresh · Evening',
     variants: [{ label: '150 ml', price: 42 }]
   },
   {
@@ -280,9 +299,10 @@ window.products = [
     type: 'Room Spray',
     gender: '',
     price: 42,
-    images: ['media/images/products/milano-room-spray.png'],
+    images: ['media/images/products/milano-room-spray.webp'],
     description: 'A crisp room spray with bergamot, iris and white musk.',
     notes: { top: 'Bergamot, lemon', heart: 'Iris, jasmine', base: 'White musk' },
+    occasion: 'Kitchen · Entrance · Daytime refresh',
     variants: [{ label: '150 ml', price: 42 }]
   },
   {
@@ -294,9 +314,10 @@ window.products = [
     type: 'Room Spray',
     gender: '',
     price: 42,
-    images: ['media/images/products/london-roomspray.png'],
+    images: ['media/images/products/london-roomspray.webp'],
     description: 'A modern room spray combining black tea, fig and cedarwood.',
     notes: { top: 'Bergamot, fig', heart: 'Black tea, violet', base: 'Cedarwood, vetiver' },
+    occasion: 'Bedroom · Living room · Evening refresh',
     variants: [{ label: '150 ml', price: 42 }]
   }
 ];
