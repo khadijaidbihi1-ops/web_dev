@@ -1,0 +1,164 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Complete your MEHEK order securely.">
+  <title>Checkout | MEHEK</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="announcement-bar">Complimentary UK shipping on orders over £100</div>
+
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="brand-logo" href="index.html">
+        <span>MEHEK</span>
+        <small>FRAGRANCES</small>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="index.html#featured-collections">Collections</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a class="cart-link" href="cart.html">Bag <span id="cart-count">0</span></a>
+    </nav>
+  </header>
+
+  <main class="checkout-page-main">
+    <section class="checkout-heading">
+      <p class="eyebrow">Secure Checkout</p>
+      <h1>Complete Your Order</h1>
+    </section>
+
+    <div id="checkout-empty" class="checkout-empty" hidden>
+      <p class="eyebrow">Your Bag Is Empty</p>
+      <h2>There is nothing to check out yet.</h2>
+      <a class="btn-primary" href="products.html">Explore the Collection</a>
+    </div>
+
+    <section id="checkout-content" class="checkout-layout" aria-label="Checkout">
+      <form id="checkout-form" class="checkout-form">
+        <fieldset>
+          <legend>Contact Information</legend>
+          <div class="checkout-field checkout-field-full">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="checkout-field checkout-field-full">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Shipping Address</legend>
+          <div class="checkout-fields-grid">
+            <div class="checkout-field">
+              <label for="first-name">First name</label>
+              <input id="first-name" name="firstName" type="text" autocomplete="given-name" required>
+            </div>
+            <div class="checkout-field">
+              <label for="last-name">Last name</label>
+              <input id="last-name" name="lastName" type="text" autocomplete="family-name" required>
+            </div>
+            <div class="checkout-field checkout-field-full">
+              <label for="address">Address</label>
+              <input id="address" name="address" type="text" autocomplete="street-address" required>
+            </div>
+            <div class="checkout-field">
+              <label for="city">City</label>
+              <input id="city" name="city" type="text" autocomplete="address-level2" required>
+            </div>
+            <div class="checkout-field">
+              <label for="postcode">Postcode</label>
+              <input id="postcode" name="postcode" type="text" autocomplete="postal-code" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Payment Details</legend>
+          <p class="checkout-demo-note">Demonstration checkout — no real payment will be processed.</p>
+          <div class="checkout-field checkout-field-full">
+            <label for="card-name">Name on card</label>
+            <input id="card-name" name="cardName" type="text" autocomplete="cc-name" required>
+          </div>
+          <div class="checkout-field checkout-field-full">
+            <label for="card-number">Card number</label>
+            <input id="card-number" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" maxlength="19" pattern="[0-9 ]{15,19}" required>
+          </div>
+          <div class="checkout-fields-grid">
+            <div class="checkout-field">
+              <label for="expiry">Expiry date</label>
+              <input id="expiry" name="expiry" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5" pattern="(0[1-9]|1[0-2])/[0-9]{2}" required>
+            </div>
+            <div class="checkout-field">
+              <label for="security-code">Security code</label>
+              <input id="security-code" name="securityCode" type="text" inputmode="numeric" autocomplete="cc-csc" maxlength="4" pattern="[0-9]{3,4}" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <button class="btn-primary checkout-submit" type="submit">Complete Order</button>
+        <p class="checkout-privacy">By completing your order, you agree to our terms and privacy policy.</p>
+      </form>
+
+      <aside class="checkout-summary" aria-label="Order summary">
+        <h2>Order Summary</h2>
+        <div id="checkout-items" class="checkout-summary-items"></div>
+        <div class="checkout-summary-totals">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="checkout-subtotal">£0.00</strong>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <strong id="checkout-shipping">£0.00</strong>
+          </div>
+          <p id="checkout-shipping-message" class="shipping-message"></p>
+          <div class="summary-row summary-total">
+            <span>Total</span>
+            <strong id="checkout-total">£0.00</strong>
+          </div>
+        </div>
+        <a class="checkout-edit-bag" href="cart.html">Edit Shopping Bag</a>
+      </aside>
+    </section>
+
+    <section id="order-success" class="order-success" hidden aria-live="polite">
+      <p class="eyebrow">Order Confirmed</p>
+      <h2>Thank you for choosing MEHEK.</h2>
+      <p>Your demonstration order has been successfully created.</p>
+      <p class="order-reference">Order reference: <strong id="order-reference"></strong></p>
+      <a class="btn-primary" href="products.html">Continue Shopping</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a class="brand-logo light" href="index.html"><span>MEHEK</span><small>FRAGRANCES</small></a>
+      <p>Timeless scents inspired by heritage, culture and modern luxury.</p>
+    </div>
+    <div>
+      <h3>Shop</h3>
+      <a href="products.html">All Products</a>
+      <a href="products.html?category=perfume">Fragrances</a>
+      <a href="products.html?category=hair-mist">Hair Mist</a>
+      <a href="products.html?category=home-fragrance">Home Fragrance</a>
+    </div>
+    <div>
+      <h3>Collections</h3>
+      <a href="products.html?collection=heritage">Heritage</a>
+      <a href="products.html?collection=milano">Milano</a>
+      <a href="products.html?collection=london">London</a>
+    </div>
+  </footer>
+
+  <script src="js/checkout.js"></script>
+</body>
+</html>

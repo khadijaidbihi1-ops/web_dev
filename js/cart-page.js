@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const STORAGE_KEY = 'shoppingCart';
   const FREE_SHIPPING_LIMIT = 100;
-  const STANDARD_SHIPPING = 5;
+  const STANDARD_SHIPPING = 4.95;
 
   const cartItemsElement = document.querySelector('#cart-items');
   const cartSummaryElement = document.querySelector('#cart-summary');
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderSummary() {
     const quantity = totalQuantity();
     const currentSubtotal = subtotal();
-    const shippingCost = currentSubtotal === 0 || currentSubtotal >= FREE_SHIPPING_LIMIT
+    const shippingCost = currentSubtotal === 0 || currentSubtotal > FREE_SHIPPING_LIMIT
       ? 0
       : STANDARD_SHIPPING;
     const total = currentSubtotal + shippingCost;
@@ -142,8 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
     totalElement.textContent = formatMoney(total);
 
     if (currentSubtotal > 0 && currentSubtotal < FREE_SHIPPING_LIMIT) {
-      shippingMessageElement.textContent = `${formatMoney(FREE_SHIPPING_LIMIT - currentSubtotal)} away from complimentary UK shipping.`;
-    } else if (currentSubtotal >= FREE_SHIPPING_LIMIT) {
+      shippingMessageElement.textContent = `${formatMoney(FREE_SHIPPING_LIMIT - currentSubtotal + 0.01)} away from complimentary UK shipping.`;
+    } else if (currentSubtotal > FREE_SHIPPING_LIMIT) {
       shippingMessageElement.textContent = 'Complimentary UK shipping applied.';
     } else {
       shippingMessageElement.textContent = '';
