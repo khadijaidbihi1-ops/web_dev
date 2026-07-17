@@ -1,29 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Product | MEHEK</title><link rel="stylesheet" href="css/products.css"></head>
-<body>
-<div class="announcement">FREE UK DELIVERY ON ORDERS OVER £80</div>
-<header class="header"><a class="logo" href="index.html">MEHEK</a><nav><a href="index.html">Home</a><a href="products.html">Shop</a><a href="about.html">About</a></nav><div>Search　♡　Bag</div></header>
-
-<main class="container product-page">
-<div class="breadcrumbs"><a href="index.html">Home</a> / <a href="products.html">Shop</a> / <span id="crumb"></span></div>
-<section class="product-detail">
-<div>
-<div class="gallery-stage"><button id="prev" class="arrow left">‹</button><img id="main-image" alt=""><button id="next" class="arrow right">›</button><span id="counter"></span></div>
-<div id="thumbs" class="thumbs"></div>
-</div>
-
-<div class="product-info"><p id="product-collection" class="eyebrow"></p><h1 id="name"></h1><p>★★★★★ <span class="muted">(214)</span></p>
-<p id="price" class="price"></p><p id="size" class="muted"></p><p id="description" class="description"></p>
-<div id="variant-wrap" hidden><label>Choose size<select id="variant"></select></label></div>
-<div class="notes"><div><b>Top Notes</b><p id="top"></p></div><div><b>Heart Notes</b><p id="heart"></p></div><div><b>Base Notes</b><p id="base"></p></div></div>
-<div class="quantity"><span>Quantity</span><div><button id="minus">−</button><span id="qty">1</span><button id="plus">+</button></div></div>
-<button class="primary">Add to Cart</button><button class="secondary">Buy Now</button>
-</div></section>
-
-<section class="services"><span>Free UK Delivery</span><span>30-Day Returns</span><span>Secure Packaging</span></section>
-<section><p class="eyebrow">DISCOVER MORE</p><h2>You May Also Like</h2><div id="related" class="grid related"></div></section>
-</main>
-<script src="js/products-data.js"></script><script src="js/product-page.js"></script>
-</body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="MEHEK luxury fragrances and home scents."><title>Product | MEHEK</title><link rel="stylesheet" href="css/style.css"></head><body><div class="announcement-bar">Complimentary UK shipping on orders over £100</div>
+<header class="site-header"><nav class="navbar" aria-label="Main navigation">
+<a class="brand-logo" href="index.html"><span>MEHEK</span><small>FRAGRANCES</small></a>
+<button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+<div class="nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a href="index.html#featured-collections">Collections</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+<a class="cart-link" href="cart.html">Bag <span id="cart-count">0</span></a>
+</nav></header><main><section class="product-detail section"><div class="gallery"><div id="thumbnails" class="thumbnails"></div><div class="main-image"><img id="main-product-image" alt=""></div></div><div class="product-info"><p id="product-collection" class="eyebrow"></p><h1 id="product-name"></h1><p id="product-meta" class="muted"></p><p id="product-price" class="detail-price"></p><p id="product-description"></p><div id="variant-wrap" hidden><label for="variant-select">Choose size</label><select id="variant-select"></select></div><button id="add-to-cart" class="button dark">Add to Bag</button><div class="notes"><div><h3>Top Notes</h3><p id="top-notes"></p></div><div><h3>Heart Notes</h3><p id="heart-notes"></p></div><div><h3>Base Notes</h3><p id="base-notes"></p></div></div></div></section></main><footer class="site-footer"><div><a class="brand-logo light" href="index.html"><span>MEHEK</span><small>FRAGRANCES</small></a><p>Timeless scents inspired by heritage, culture and modern luxury.</p></div><div><h3>Shop</h3><a href="products.html">All Products</a><a href="products.html?type=perfume">Fragrances</a><a href="products.html?type=hair-mist">Hair Mist</a><a href="products.html?type=home-fragrance">Home Fragrance</a></div><div><h3>Collections</h3><a href="products.html?collection=heritage">Heritage</a><a href="products.html?collection=milano">Milano</a><a href="products.html?collection=london">London</a></div></footer><script src="js/products.js"></script><script src="js/common.js"></script><script src="js/product-page.js"></script></body></html>

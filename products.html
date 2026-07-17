@@ -1,42 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Shop | MEHEK</title>
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<div class="announcement">FREE UK DELIVERY ON ORDERS OVER £80</div>
-<header class="header"><a class="logo" href="index.html">MEHEK</a>
-<nav><a href="index.html">Home</a><a href="products.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
-<div>Search　♡　Bag</div></header>
-
-<section class="hero"><p>THE MEHEK COLLECTION</p><h1 id="page-title">Shop All Products</h1>
-<span>Discover fragrances and home scents created with timeless elegance.</span></section>
-
-<main class="container">
-<div class="tabs">
-<button class="active" data-type="all">All Products</button><button data-type="perfume">Perfumes</button>
-<button data-type="hair-mist">Hair Mist</button><button data-type="room-spray">Room Spray</button>
-<button data-type="reed-diffuser">Reed Diffusers</button><button data-type="scented-candle">Scented Candles</button>
-</div>
-
-<div class="toolbar">
-<input id="search" type="search" placeholder="Search products">
-<select id="collection"><option value="all">All collections</option><option value="heritage">Heritage</option><option value="milano">Milano</option><option value="london">London</option></select>
-<select id="gender" hidden><option value="all">All genders</option><option value="unisex">Unisex</option><option value="men">Men</option><option value="women">Women</option></select>
-<select id="sort"><option value="featured">Featured</option><option value="low">Price low to high</option><option value="high">Price high to low</option><option value="az">Name A-Z</option></select>
-</div>
-
-<div class="result-line"><span><strong id="count">0</strong> products</span><button id="clear">Clear filters</button></div>
-<div id="grid" class="grid"></div><p id="empty" class="empty" hidden>No products found.</p>
-</main>
-
-<footer class="footer"><div><b class="logo">MEHEK</b><p>Timeless fragrances and luxury home scents.</p></div>
-<div><b>SHOP</b><a href="products.html">All Products</a><a href="products.html?type=perfume">Perfumes</a></div>
-<div><b>COLLECTIONS</b><a href="products.html?collection=heritage">Heritage</a><a href="products.html?collection=milano">Milano</a><a href="products.html?collection=london">London</a></div></footer>
-
-<script src="js/products-data.js">
-    
-</script><script src="js/products-page.js"></script>
-</body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="MEHEK luxury fragrances and home scents."><title>Shop | MEHEK</title><link rel="stylesheet" href="css/style.css"></head><body><div class="announcement-bar">Complimentary UK shipping on orders over £100</div>
+<header class="site-header"><nav class="navbar" aria-label="Main navigation">
+<a class="brand-logo" href="index.html"><span>MEHEK</span><small>FRAGRANCES</small></a>
+<button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+<div class="nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a href="index.html#featured-collections">Collections</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+<a class="cart-link" href="cart.html">Bag <span id="cart-count">0</span></a>
+</nav></header><main><section class="page-hero"><p class="eyebrow">The MEHEK Collection</p><h1 id="page-title">Shop All Products</h1><p>Discover perfumes, hair mists and home scents created with timeless elegance.</p></section>
+<section class="catalogue section"><div class="tabs" role="group" aria-label="Product categories"><button data-type="all">All Products</button><button data-type="perfume">Perfumes</button><button data-type="hair-mist">Hair Mist</button><button data-type="home-fragrance">Home Fragrance</button></div>
+<div class="toolbar"><input id="search" type="search" placeholder="Search products"><select id="collection"><option value="all">All collections</option><option value="heritage">Heritage</option><option value="milano">Milano</option><option value="london">London</option></select><select id="gender" hidden><option value="all">All genders</option><option value="unisex">Unisex</option><option value="men">Men</option><option value="women">Women</option></select><select id="sort"><option value="featured">Featured</option><option value="low">Price low to high</option><option value="high">Price high to low</option><option value="az">Name A–Z</option></select><button id="clear" class="button outline">Clear filters</button></div>
+<div class="result-line"><span><strong id="count">0</strong> products</span></div><div id="grid" class="product-grid"></div><p id="empty" class="empty" hidden>No products found.</p></section></main><footer class="site-footer"><div><a class="brand-logo light" href="index.html"><span>MEHEK</span><small>FRAGRANCES</small></a><p>Timeless scents inspired by heritage, culture and modern luxury.</p></div><div><h3>Shop</h3><a href="products.html">All Products</a><a href="products.html?type=perfume">Fragrances</a><a href="products.html?type=hair-mist">Hair Mist</a><a href="products.html?type=home-fragrance">Home Fragrance</a></div><div><h3>Collections</h3><a href="products.html?collection=heritage">Heritage</a><a href="products.html?collection=milano">Milano</a><a href="products.html?collection=london">London</a></div></footer><script src="js/products.js"></script><script src="js/common.js"></script><script src="js/products-page.js"></script></body></html>
