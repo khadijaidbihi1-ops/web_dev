@@ -2438,3 +2438,314 @@ button:focus-visible {
   display: inline-flex;
   margin-top: 1.5rem;
 }
+
+/* =========================================================
+   MEHEK SHOPPING BAG
+   ========================================================= */
+.cart-page-main {
+  min-height: 70vh;
+  padding: clamp(3.5rem, 7vw, 7rem) clamp(1.25rem, 5vw, 5rem) clamp(5rem, 9vw, 9rem);
+  background: var(--colour-ivory, #f4f1ec);
+}
+
+.cart-page-heading,
+.cart-layout {
+  width: min(1400px, 100%);
+  margin-inline: auto;
+}
+
+.cart-page-heading {
+  padding-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  border-bottom: 1px solid rgba(13, 13, 13, 0.16);
+}
+
+.cart-page-heading .eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.cart-page-heading h1 {
+  margin: 0;
+  font-family: var(--font-heading, Georgia, serif);
+  font-size: clamp(2.8rem, 6vw, 5.8rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.cart-page-heading h1 span {
+  color: rgba(13, 13, 13, 0.48);
+  font-family: var(--font-body, Arial, sans-serif);
+  font-size: 0.3em;
+  font-weight: 400;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 390px);
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: start;
+  padding-top: clamp(2.5rem, 5vw, 5rem);
+}
+
+.cart-items {
+  display: grid;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) auto;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.14);
+}
+
+.cart-item:first-child {
+  padding-top: 0;
+}
+
+.cart-item-image {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #ebe6de;
+}
+
+.cart-item-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  object-fit: contain;
+  transition: transform 300ms ease;
+}
+
+.cart-item-image:hover img {
+  transform: scale(1.025);
+}
+
+.cart-item-collection {
+  margin: 0 0 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.cart-item-details h2 {
+  margin: 0;
+  font-family: var(--font-heading, Georgia, serif);
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  font-weight: 400;
+}
+
+.cart-item-details h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cart-item-meta {
+  margin: 0.7rem 0 1.5rem;
+  color: rgba(13, 13, 13, 0.6);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cart-item-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.quantity-control {
+  display: inline-grid;
+  grid-template-columns: 38px 42px 38px;
+  min-height: 40px;
+  border: 1px solid rgba(13, 13, 13, 0.3);
+}
+
+.quantity-control button,
+.quantity-control span {
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: #0d0d0d;
+  font: inherit;
+}
+
+.quantity-control button {
+  cursor: pointer;
+}
+
+.quantity-control button:hover,
+.quantity-control button:focus-visible {
+  background: rgba(13, 13, 13, 0.07);
+}
+
+.cart-remove-button {
+  padding: 0.35rem 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  color: rgba(13, 13, 13, 0.68);
+  font: inherit;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.cart-remove-button:hover,
+.cart-remove-button:focus-visible {
+  color: #0d0d0d;
+}
+
+.cart-item-price {
+  align-self: start;
+  margin: 0;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cart-summary {
+  position: sticky;
+  top: 2rem;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border: 1px solid rgba(13, 13, 13, 0.18);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.cart-summary h2 {
+  margin: 0 0 2rem;
+  font-family: var(--font-heading, Georgia, serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0.65rem 0;
+  font-size: 0.92rem;
+}
+
+.summary-row strong {
+  font-weight: 500;
+}
+
+.shipping-message {
+  min-height: 1.4em;
+  margin: 0.65rem 0 1.4rem;
+  color: rgba(13, 13, 13, 0.62);
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+.summary-total {
+  margin-top: 0.8rem;
+  padding: 1.4rem 0;
+  border-top: 1px solid rgba(13, 13, 13, 0.16);
+  border-bottom: 1px solid rgba(13, 13, 13, 0.16);
+  font-size: 1rem;
+}
+
+.cart-checkout-button {
+  display: flex;
+  width: 100%;
+  min-height: 56px;
+  margin-top: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.cart-checkout-button[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.cart-continue-link {
+  display: block;
+  width: max-content;
+  margin: 1.3rem auto 0;
+  border-bottom: 1px solid currentColor;
+  color: #0d0d0d;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.empty-cart {
+  padding: clamp(3rem, 7vw, 6rem) 0;
+  text-align: left;
+}
+
+.empty-cart h2 {
+  max-width: 640px;
+  margin: 0.5rem 0 1rem;
+  font-family: var(--font-heading, Georgia, serif);
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.empty-cart > p:not(.eyebrow) {
+  margin: 0 0 2rem;
+  color: rgba(13, 13, 13, 0.65);
+}
+
+.empty-cart .btn-primary {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+@media (max-width: 980px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 680px) {
+  .cart-page-main {
+    padding-inline: 1.15rem;
+  }
+
+  .cart-item {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .cart-item-price {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .cart-item-details {
+    grid-column: 2;
+    padding-top: 2rem;
+  }
+
+  .cart-item-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
