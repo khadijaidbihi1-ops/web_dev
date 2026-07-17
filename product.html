@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Product | MEHEK</title><link rel="stylesheet" href="css/products.css"></head>
+<body>
+<div class="announcement">FREE UK DELIVERY ON ORDERS OVER £80</div>
+<header class="header"><a class="logo" href="index.html">MEHEK</a><nav><a href="index.html">Home</a><a href="products.html">Shop</a><a href="about.html">About</a></nav><div>Search　♡　Bag</div></header>
+
+<main class="container product-page">
+<div class="breadcrumbs"><a href="index.html">Home</a> / <a href="products.html">Shop</a> / <span id="crumb"></span></div>
+<section class="product-detail">
+<div>
+<div class="gallery-stage"><button id="prev" class="arrow left">‹</button><img id="main-image" alt=""><button id="next" class="arrow right">›</button><span id="counter"></span></div>
+<div id="thumbs" class="thumbs"></div>
+</div>
+
+<div class="product-info"><p id="product-collection" class="eyebrow"></p><h1 id="name"></h1><p>★★★★★ <span class="muted">(214)</span></p>
+<p id="price" class="price"></p><p id="size" class="muted"></p><p id="description" class="description"></p>
+<div id="variant-wrap" hidden><label>Choose size<select id="variant"></select></label></div>
+<div class="notes"><div><b>Top Notes</b><p id="top"></p></div><div><b>Heart Notes</b><p id="heart"></p></div><div><b>Base Notes</b><p id="base"></p></div></div>
+<div class="quantity"><span>Quantity</span><div><button id="minus">−</button><span id="qty">1</span><button id="plus">+</button></div></div>
+<button class="primary">Add to Cart</button><button class="secondary">Buy Now</button>
+</div></section>
+
+<section class="services"><span>Free UK Delivery</span><span>30-Day Returns</span><span>Secure Packaging</span></section>
+<section><p class="eyebrow">DISCOVER MORE</p><h2>You May Also Like</h2><div id="related" class="grid related"></div></section>
+</main>
+<script src="js/products-data.js"></script><script src="js/product-page.js"></script>
+</body></html>
