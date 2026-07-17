@@ -1,959 +1,553 @@
-/* =========================================
-   CSS Variables
-========================================= */
-
-:root {
-    --colour-black: #0d0d0d;
-    --colour-ivory: #f4f1ec;
-    --colour-white: #ffffff;
-    --colour-gold: #b89c6a;
-    --colour-brown: #6b4e3d;
-    --colour-border: #ded8cf;
-
-    --font-heading: Georgia, "Times New Roman", serif;
-    --font-body: Arial, Helvetica, sans-serif;
-
-    --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.06);
-    --transition: 0.3s ease;
-}
-
-/* =========================================
-   Basic Reset
-========================================= */
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    background-color: var(--colour-ivory);
-    color: var(--colour-black);
-    font-family: var(--font-body);
-    line-height: 1.6;
-}
-
-img,
-svg {
-    display: block;
-    max-width: 100%;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
-    color: inherit;
-    font: inherit;
-}
-
-/* =========================================
-   Accessibility
-========================================= */
-
-.skip-link {
-    position: fixed;
-    top: 0;
-    left: 1rem;
-    z-index: 1000;
-    padding: 0.75rem 1rem;
-    background-color: var(--colour-black);
-    color: var(--colour-white);
-    transform: translateY(-150%);
-    transition: transform var(--transition);
-}
-
-.skip-link:focus {
-    transform: translateY(0);
-}
-
-a:focus-visible,
-button:focus-visible {
-    outline: 3px solid var(--colour-gold);
-    outline-offset: 4px;
-}
-
-/* =========================================
-   Announcement Bar
-========================================= */
-
-.announcement-bar {
-    display: flex;
-    min-height: 34px;
-    align-items: center;
-    justify-content: center;
-    padding: 0.4rem 1rem;
-    background-color: var(--colour-black);
-    color: var(--colour-ivory);
-    text-align: center;
-}
-
-.announcement-bar p {
-    margin: 0;
-    font-size: 0.7rem;
-    letter-spacing: 0.12rem;
-    text-transform: uppercase;
-}
-
-/* =========================================
-   Header and Navigation
-========================================= */
-
-.site-header {
-    position: relative;
-    z-index: 100;
-    background-color: var(--colour-white);
-    box-shadow: var(--shadow-light);
-}
-
-.navbar {
-    display: grid;
-    min-height: 76px;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem 1rem;
-}
-
-.brand-logo {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-self: center;
-    line-height: 1;
-}
-
-.brand-name {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    letter-spacing: 0.35rem;
-}
-
-.brand-subtitle {
-    margin-top: 0.35rem;
-    font-size: 0.55rem;
-    letter-spacing: 0.25rem;
-    text-transform: uppercase;
-}
-
-.menu-toggle {
-    display: flex;
-    width: 42px;
-    height: 42px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    width: 22px;
-    height: 1px;
-    background-color: var(--colour-black);
-}
-
-.navigation-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none;
-    width: 100%;
-    margin: 0;
-    padding: 1rem;
-    border-top: 1px solid var(--colour-border);
-    background-color: var(--colour-white);
-    list-style: none;
-    box-shadow: var(--shadow-light);
-}
-
-.navigation-menu.menu-open {
-    display: block;
-}
-
-.navigation-menu li + li {
-    border-top: 1px solid var(--colour-border);
-}
-
-.navigation-menu a {
-    display: block;
-    padding: 1rem 0;
-    font-size: 0.8rem;
-    letter-spacing: 0.1rem;
-    text-transform: uppercase;
-}
-
-.navigation-menu a:hover,
-.navigation-menu a:focus-visible,
-.navigation-menu .active-link {
-    color: var(--colour-gold);
-}
-
-.navigation-actions {
-    display: flex;
-    align-items: center;
-    justify-self: end;
-    gap: 0.75rem;
-}
-
-.icon-link {
-    position: relative;
-    display: inline-flex;
-    width: 38px;
-    height: 38px;
-    align-items: center;
-    justify-content: center;
-}
-
-.icon-link svg {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.icon-link:hover {
-    color: var(--colour-gold);
-}
-
-.cart-count {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    min-width: 17px;
-    height: 17px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: var(--colour-black);
-    color: var(--colour-white);
-    font-size: 0.6rem;
-}
-
-/* =========================================
-   Hero Section
-========================================= */
-
-.hero-section {
-    display: grid;
-    min-height: calc(100vh - 110px);
-    overflow: hidden;
-    background-color: var(--colour-ivory);
-}
-
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 4rem 1.5rem;
-    text-align: center;
-}
-
-.hero-eyebrow,
-.section-eyebrow {
-    margin: 0 0 1rem;
-    color: var(--colour-gold);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.18rem;
-    text-transform: uppercase;
-}
-
-.hero-eyebrow::after {
-    display: block;
-    width: 50px;
-    height: 1px;
-    margin: 1.25rem auto 0;
-    background-color: var(--colour-gold);
-    content: "";
-}
-
-.hero-content h1 {
-    max-width: 650px;
-    margin: 0 auto 1.5rem;
-    font-family: var(--font-heading);
-    font-size: clamp(2.8rem, 10vw, 5.5rem);
-    font-weight: 400;
-    line-height: 0.98;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-}
-
-.hero-content h1 span {
-    display: block;
-}
-
-.hero-description {
-    max-width: 480px;
-    margin: 0 auto 2.25rem;
-    color: var(--colour-brown);
-    font-size: 0.95rem;
-    line-height: 1.8;
-}
-
-.hero-button,
-.primary-button {
-    display: inline-flex;
-    min-height: 48px;
-    align-items: center;
-    justify-content: center;
-    padding: 0.85rem 1.5rem;
-    border: 1px solid var(--colour-black);
-    background-color: var(--colour-black);
-    color: var(--colour-white);
-    cursor: pointer;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.1rem;
-    text-transform: uppercase;
-    transition:
-        background-color var(--transition),
-        border-color var(--transition),
-        color var(--transition),
-        transform var(--transition);
-}
-
-.hero-button {
-    align-self: center;
-}
-
-.hero-button:hover,
-.hero-button:focus-visible,
-.primary-button:hover,
-.primary-button:focus-visible {
-    border-color: var(--colour-gold);
-    background-color: var(--colour-gold);
-    color: var(--colour-black);
-    transform: translateY(-2px);
-}
-
-.primary-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.75;
-}
-
-.hero-image-wrapper {
-    min-height: 500px;
-    overflow: hidden;
-}
-
-.hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 72% center;
-}
-
-/* =========================================
-   Reusable Section Styles
-========================================= */
-
-.section-spacing {
-    padding: 4rem 1.25rem;
-}
-
-.section-heading {
-    max-width: 720px;
-    margin: 0 auto 2.5rem;
-    text-align: center;
-}
-
-.section-heading h2,
-.our-story-content h2 {
-    margin: 0;
-    font-family: var(--font-heading);
-    font-size: clamp(2.2rem, 7vw, 3.8rem);
-    font-weight: 400;
-    line-height: 1.15;
-}
-
-.section-description {
-    max-width: 600px;
-    margin: 1rem auto 0;
-    color: var(--colour-brown);
-}
-
-/* =========================================
-   Featured Collections
-========================================= */
-
-.featured-collections {
-    background-color: var(--colour-white);
-}
-
-.collection-grid {
-    display: grid;
-    gap: 1.5rem;
-    max-width: 1500px;
-    margin-inline: auto;
-}
-
-.collection-card {
-    position: relative;
-    min-height: 440px;
-    overflow: hidden;
-    background-color: var(--colour-black);
-    box-shadow: var(--shadow-light);
-}
-
-.collection-image {
-    width: 100%;
-    height: 100%;
-    min-height: 440px;
-    object-fit: cover;
-    transition: transform 0.7s ease;
-}
-
-.collection-card::after {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(13, 13, 13, 0.9) 0%,
-        rgba(13, 13, 13, 0.35) 55%,
-        rgba(13, 13, 13, 0.08) 100%
-    );
-    content: "";
-}
-
-.collection-overlay {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    padding: 2rem;
-    color: var(--colour-white);
-}
-
-.collection-overlay h3,
-.category-content h3 {
-    margin: 0 0 0.8rem;
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    font-weight: 400;
-}
-
-.collection-overlay p {
-    max-width: 470px;
-    margin: 0 0 1.25rem;
-    font-size: 0.9rem;
-}
-
-.collection-link,
-.category-link,
-.story-link,
-.view-all-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    padding-bottom: 0.25rem;
-    border-bottom: 1px solid var(--colour-gold);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.1rem;
-    text-transform: uppercase;
-    transition:
-        color var(--transition),
-        gap var(--transition);
-}
-
-.collection-link,
-.category-link {
-    color: var(--colour-white);
-}
-
-.collection-link:hover,
-.collection-link:focus-visible,
-.category-link:hover,
-.category-link:focus-visible,
-.story-link:hover,
-.story-link:focus-visible,
-.view-all-link:hover,
-.view-all-link:focus-visible {
-    gap: 1rem;
-    color: var(--colour-gold);
-}
-
-.collection-card:hover .collection-image {
-    transform: scale(1.05);
-}
-
-/* =========================================
-   Shop by Category
-========================================= */
-
-.shop-categories {
-    background-color: var(--colour-ivory);
-}
-
-.category-grid {
-    display: grid;
-    gap: 1.5rem;
-    max-width: 1500px;
-    margin-inline: auto;
-}
-
-.category-card {
-    position: relative;
-    min-height: 360px;
-    overflow: hidden;
-    background-color: var(--colour-black);
-    box-shadow: var(--shadow-light);
-}
-
-.category-image {
-    width: 100%;
-    height: 100%;
-    min-height: 360px;
-    object-fit: cover;
-    transition:
-        transform 0.7s ease,
-        filter 0.7s ease;
-}
-
-.category-card::after {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(13, 13, 13, 0.72) 0%,
-        rgba(13, 13, 13, 0.08) 60%
-    );
-    content: "";
-}
-
-.category-content {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    padding: 1.75rem;
-    color: var(--colour-white);
-}
-
-.category-card:hover .category-image {
-    filter: brightness(0.9);
-    transform: scale(1.04);
-}
-
-/* =========================================
-   Our Story
-========================================= */
-
-.our-story {
-    display: grid;
-    gap: 3rem;
-    align-items: center;
-    background-color: var(--colour-white);
-}
-
-.our-story-image-wrapper {
-    min-height: 420px;
-    overflow: hidden;
-}
-
-.our-story-image {
-    width: 100%;
-    height: 100%;
-    min-height: 420px;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.our-story-image-wrapper:hover .our-story-image {
-    transform: scale(1.03);
-}
-
-.our-story-content {
-    max-width: 560px;
-}
-
-.our-story-content h2 {
-    margin-bottom: 1.5rem;
-}
-
-.our-story-content p {
-    margin: 0 0 1.25rem;
-    color: var(--colour-brown);
-    font-size: 0.95rem;
-    line-height: 1.85;
-}
-
-.story-link {
-    margin-top: 0.75rem;
-    color: var(--colour-black);
-}
-
-/* =========================================
-   Best Sellers
-========================================= */
-
-.best-sellers {
-    background-color: var(--colour-ivory);
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 1500px;
-    margin-inline: auto;
-}
-
-.product-card {
-    position: relative;
-    overflow: hidden;
-    background-color: var(--colour-white);
-    border: 1px solid var(--colour-border);
-    border-radius: 8px;
-    box-shadow: var(--shadow-light);
-    transition:
-        transform var(--transition),
-        box-shadow var(--transition);
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
-}
-
-.product-badge {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    z-index: 2;
-    padding: 0.4rem 0.75rem;
-    border-radius: 999px;
-    background-color: var(--colour-gold);
-    color: var(--colour-black);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.08rem;
-    text-transform: uppercase;
-}
-
-.product-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.product-card:hover .product-image {
-    transform: scale(1.04);
-}
-
-.product-content {
-    padding: 1.5rem;
-    text-align: center;
-}
-
-.product-collection {
-    margin: 0 0 0.5rem;
-    color: var(--colour-gold);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.1rem;
-    text-transform: uppercase;
-}
-
-.product-content h3 {
-    margin: 0 0 0.75rem;
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    font-weight: 400;
-}
-
-.product-price {
-    margin: 0 0 1.25rem;
-    color: var(--colour-brown);
-    font-size: 0.95rem;
-    font-weight: 600;
-}
-
-.add-cart-button {
-    width: 100%;
-}
-
-.section-action {
-    margin-top: 3rem;
-    text-align: center;
-}
-
-/* =========================================
-   Footer
-========================================= */
-
-.site-footer {
-    padding: 4rem 1.5rem 1.5rem;
-    background-color: var(--colour-black);
-    color: var(--colour-white);
-}
-
-.footer-grid {
-    display: grid;
-    gap: 2.5rem;
-    max-width: 1500px;
-    margin-inline: auto;
-}
-
-.footer-logo {
-    align-items: flex-start;
-    justify-self: start;
-    color: var(--colour-white);
-}
-
-.footer-brand p {
-    max-width: 320px;
-    margin: 1.25rem 0 0;
-    color: var(--colour-border);
-    font-size: 0.9rem;
-    line-height: 1.8;
-}
-
-.footer-heading {
-    margin: 0 0 1rem;
-    color: var(--colour-gold);
-    font-family: var(--font-body);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.14rem;
-    text-transform: uppercase;
-}
-
-.footer-column ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.footer-column li + li {
-    margin-top: 0.75rem;
-}
-
-.footer-column a {
-    color: var(--colour-border);
-    font-size: 0.88rem;
-    transition: color var(--transition);
-}
-
-.footer-column a:hover,
-.footer-column a:focus-visible {
-    color: var(--colour-gold);
-}
-
-.footer-bottom {
-    max-width: 1500px;
-    margin: 3rem auto 0;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    text-align: center;
-}
-
-.footer-bottom p {
-    margin: 0;
-    color: var(--colour-border);
-    font-size: 0.75rem;
-}
-
-/* =========================================
-   Tablet Layout
-========================================= */
-
-@media (min-width: 768px) {
-    .navbar {
-        padding-inline: 2rem;
-    }
-
-    .brand-name {
-        font-size: 1.7rem;
-    }
-
-    .hero-section {
-        grid-template-columns: 44% 56%;
-        min-height: 720px;
-    }
-
-    .hero-content {
-        align-items: flex-start;
-        padding: 5rem 3rem;
-        text-align: left;
-    }
-
-    .hero-eyebrow::after {
-        margin-right: 0;
-        margin-left: 0;
-    }
-
-    .hero-content h1,
-    .hero-description {
-        margin-right: 0;
-        margin-left: 0;
-    }
-
-    .hero-button {
-        align-self: flex-start;
-    }
-
-    .section-spacing {
-        padding: 5rem 2rem;
-    }
-
-    .collection-grid,
-    .category-grid,
-    .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .collection-card:last-child,
-    .category-card:first-child {
-        grid-column: 1 / -1;
-    }
-
-    .our-story {
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 4rem;
-    }
-
-    .our-story-image-wrapper,
-    .our-story-image {
-        min-height: 560px;
-    }
-
-    .footer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-/* =========================================
-   Desktop Layout
-========================================= */
-
-@media (min-width: 1024px) {
-    .navbar {
-        min-height: 86px;
-        grid-template-columns: 220px 1fr 220px;
-        padding-inline: 4rem;
-    }
-
-    .brand-logo {
-        justify-self: start;
-    }
-
-    .menu-toggle {
-        display: none;
-    }
-
-    .navigation-menu {
-        position: static;
-        display: flex;
-        width: auto;
-        align-items: center;
-        justify-content: center;
-        gap: 2.5rem;
-        padding: 0;
-        border: 0;
-        background: transparent;
-        box-shadow: none;
-    }
-
-    .navigation-menu li + li {
-        border-top: 0;
-    }
-
-    .navigation-menu a {
-        position: relative;
-        padding: 0.5rem 0;
-        font-size: 0.72rem;
-    }
-
-    .navigation-menu a::after {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 1px;
-        background-color: var(--colour-gold);
-        content: "";
-        transform: scaleX(0);
-        transition: transform var(--transition);
-    }
-
-    .navigation-menu a:hover::after,
-    .navigation-menu a:focus-visible::after,
-    .navigation-menu .active-link::after {
-        transform: scaleX(1);
-    }
-}
-
-@media (min-width: 1100px) {
-    .section-spacing {
-        padding: 6rem 4rem;
-    }
-
-    .collection-grid,
-    .category-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .collection-card:last-child,
-    .category-card:first-child {
-        grid-column: auto;
-    }
-
-    .collection-card,
-    .collection-image {
-        min-height: 520px;
-    }
-
-    .category-card,
-    .category-image {
-        min-height: 430px;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .site-footer {
-        padding: 5rem 4rem 2rem;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
-    }
-
-    .footer-bottom {
-        text-align: left;
-    }
-}
-
-@media (min-width: 1200px) {
-    .hero-section {
-        grid-template-columns: 42% 58%;
-        min-height: 760px;
-    }
-
-    .hero-content {
-        padding: 6rem 4.5rem 6rem 7rem;
-    }
-
-    .hero-content h1 {
-        font-size: clamp(4rem, 5.3vw, 5.8rem);
-    }
-}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Defines the character encoding used by the page -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the layout responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Basic SEO description -->
+    <meta
+        name="description"
+        content="Discover MEHEK luxury fragrances inspired by Morocco, Pakistan, Italy and London."
+    >
+
+    <!-- Browser tab title -->
+    <title>MEHEK Fragrances | Luxury Perfumes and Home Scents</title>
+
+    <!-- Connects the external CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Loads JavaScript after the HTML document has been parsed -->
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Allows keyboard users to skip directly to the main content -->
+    <a class="skip-link" href="#main-content">
+        Skip to main content
+    </a>
+
+    <!-- =========================================
+         Website Header
+    ========================================== -->
+    <header class="site-header">
+
+        <!-- Promotional announcement -->
+        <div class="announcement-bar">
+            <p>Complimentary UK shipping on orders over £100</p>
+        </div>
+
+        <!-- Main navigation -->
+        <nav class="navbar" aria-label="Main navigation">
+
+            <!-- Mobile menu button -->
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="navigation-menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Brand logo -->
+            <a class="brand-logo" href="index.html" aria-label="MEHEK homepage">
+                <span class="brand-name">MEHEK</span>
+                <span class="brand-subtitle">Fragrances</span>
+            </a>
+
+            <!-- Main navigation links -->
+            <ul class="navigation-menu" id="navigation-menu">
+                <li>
+                    <a class="active-link" href="index.html" aria-current="page">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="products.html">Shop</a>
+                </li>
+                <li>
+                    <a href="#featured-collections">Collections</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+
+            <!-- Navigation actions -->
+            <div class="navigation-actions">
+
+                <!-- Search link -->
+                <a
+                    class="icon-link"
+                    href="products.html"
+                    aria-label="Search products"
+                >
+                    <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        width="22"
+                        height="22"
+                    >
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <line x1="16" y1="16" x2="21" y2="21"></line>
+                    </svg>
+                </a>
+
+                <!-- Shopping cart link -->
+                <a
+                    class="icon-link cart-link"
+                    href="cart.html"
+                    aria-label="Open shopping cart"
+                >
+                    <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        width="22"
+                        height="22"
+                    >
+                        <path d="M3 4h2l2 11h10l2-8H6"></path>
+                        <circle cx="9" cy="19" r="1"></circle>
+                        <circle cx="17" cy="19" r="1"></circle>
+                    </svg>
+
+                    <span class="cart-count" id="cart-count" aria-live="polite">
+                        0
+                    </span>
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- =========================================
+         Main Content
+    ========================================== -->
+    <main id="main-content">
+
+        <!-- =========================================
+             Hero Section
+        ========================================== -->
+        <section class="hero-section">
+
+            <!-- Hero text content -->
+            <div class="hero-content">
+                <p class="hero-eyebrow">
+                    Luxury Fragrance House
+                </p>
+
+                <h1>
+                    Where Heritage
+                    <span>Meets Luxury</span>
+                </h1>
+
+                <p class="hero-description">
+                    Discover refined fragrances inspired by Morocco,
+                    Pakistan, Italy and London.
+                </p>
+
+                <a class="hero-button" href="products.html">
+                    Explore Collection
+                </a>
+            </div>
+
+            <!-- Hero image -->
+            <div class="hero-image-wrapper">
+                <img
+                    class="hero-image"
+                    src="media/images/hero/hero-perfume.webp"
+                    alt="Luxury MEHEK perfume bottle displayed in a warm, elegant setting"
+                    width="1920"
+                    height="1080"
+                >
+            </div>
+
+        </section>
+
+        <!-- =========================================
+             Featured Collections Section
+        ========================================== -->
+        <section
+            class="featured-collections section-spacing"
+            id="featured-collections"
+            aria-labelledby="featured-collections-title"
+        >
+
+            <div class="section-heading">
+                <p class="section-eyebrow">
+                    Discover the World of MEHEK
+                </p>
+
+                <h2 id="featured-collections-title">
+                    Featured Collections
+                </h2>
+
+                <p class="section-description">
+                    Explore three fragrance collections inspired by heritage,
+                    elegance and modern luxury.
+                </p>
+            </div>
+
+            <div class="collection-grid">
+
+                <!-- Heritage Collection -->
+                <article class="collection-card">
+                    <img
+                        class="collection-image"
+                        src="media/images/collections/heritage-collection.webp"
+                        alt="Heritage Collection perfume inspired by Moroccan and Pakistani culture"
+                        width="900"
+                        height="1200"
+                        loading="lazy"
+                    >
+
+                    <div class="collection-overlay">
+                        <h3>Heritage Collection</h3>
+
+                        <p>
+                            A celebration of Moroccan and Pakistani roots,
+                            blending oud, saffron, amber and precious woods.
+                        </p>
+
+                        <a
+                            class="collection-link"
+                            href="products.html?collection=heritage"
+                        >
+                            Explore Heritage
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Milano Collection -->
+                <article class="collection-card">
+                    <img
+                        class="collection-image"
+                        src="media/images/collections/milano-collection.webp"
+                        alt="Milano Collection perfume inspired by Italian elegance"
+                        width="900"
+                        height="1200"
+                        loading="lazy"
+                    >
+
+                    <div class="collection-overlay">
+                        <h3>Milano Collection</h3>
+
+                        <p>
+                            Refined fragrances inspired by Italian elegance,
+                            timeless design and effortless sophistication.
+                        </p>
+
+                        <a
+                            class="collection-link"
+                            href="products.html?collection=milano"
+                        >
+                            Explore Milano
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- London Collection -->
+                <article class="collection-card">
+                    <img
+                        class="collection-image"
+                        src="media/images/collections/london-collection.webp"
+                        alt="London Collection perfume inspired by modern London style"
+                        width="900"
+                        height="1200"
+                        loading="lazy"
+                    >
+
+                    <div class="collection-overlay">
+                        <h3>London Collection</h3>
+
+                        <p>
+                            Contemporary scents shaped by London style,
+                            cultural diversity and modern sophistication.
+                        </p>
+
+                        <a
+                            class="collection-link"
+                            href="products.html?collection=london"
+                        >
+                            Explore London
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- =========================================
+             Shop by Category Section
+        ========================================== -->
+        <section
+            class="shop-categories section-spacing"
+            aria-labelledby="shop-categories-title"
+        >
+
+            <div class="section-heading">
+                <p class="section-eyebrow">
+                    Explore the Collection
+                </p>
+
+                <h2 id="shop-categories-title">
+                    Shop by Category
+                </h2>
+            </div>
+
+            <div class="category-grid">
+
+                <!-- Fragrances category -->
+                <article class="category-card">
+                    <img
+                        class="category-image"
+                        src="media/images/categories/fragrances-category.webp"
+                        alt="MEHEK men's and women's luxury perfume bottles"
+                        width="1080"
+                        height="1440"
+                        loading="lazy"
+                    >
+
+                    <div class="category-content">
+                        <h3>Fragrances</h3>
+
+                        <a
+                            class="category-link"
+                            href="products.html?category=perfume"
+                        >
+                            Shop Now
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Home fragrance category -->
+                <article class="category-card">
+                    <img
+                        class="category-image"
+                        src="media/images/categories/home-fragrance-category.webp"
+                        alt="MEHEK candle, reed diffuser and room spray"
+                        width="1080"
+                        height="1440"
+                        loading="lazy"
+                    >
+
+                    <div class="category-content">
+                        <h3>Home Fragrance</h3>
+
+                        <a
+                            class="category-link"
+                            href="products.html?category=home-fragrance"
+                        >
+                            Shop Now
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Hair collection category -->
+                <article class="category-card">
+                    <img
+                        class="category-image"
+                        src="media/images/categories/hair-collection-category.webp"
+                        alt="MEHEK luxury hair mist bottle and packaging"
+                        width="1080"
+                        height="1440"
+                        loading="lazy"
+                    >
+
+                    <div class="category-content">
+                        <h3>Hair Collection</h3>
+
+                        <a
+                            class="category-link"
+                            href="products.html?category=hair-mist"
+                        >
+                            Shop Now
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- =========================================
+             Our Story Section
+        ========================================== -->
+        <section
+            class="our-story section-spacing"
+            aria-labelledby="our-story-title"
+        >
+
+            <div class="our-story-image-wrapper">
+                <img
+                    class="our-story-image"
+                    src="media/images/about/our-story.webp"
+                    alt="MEHEK perfume displayed in a refined setting inspired by cultural heritage"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="our-story-content">
+                <p class="section-eyebrow">
+                    The MEHEK Journey
+                </p>
+
+                <h2 id="our-story-title">
+                    Our Story
+                </h2>
+
+                <p>
+                    MEHEK was born from the union of Moroccan and Pakistani
+                    heritage, shaped by an upbringing in Italy and brought
+                    to life in London.
+                </p>
+
+                <p>
+                    Each fragrance celebrates culture, memory and modern
+                    elegance through distinctive scents and refined design.
+                </p>
+
+                <a class="story-link" href="about.html">
+                    Discover Our Story
+                    <span aria-hidden="true">→</span>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- =========================================
+             Best Sellers Section
+        ========================================== -->
+        <section
+            class="best-sellers section-spacing"
+            aria-labelledby="best-sellers-title"
+        >
+
+            <div class="section-heading">
+                <p class="section-eyebrow">
+                    Customer Favourites
+                </p>
+
+                <h2 id="best-sellers-title">
+                    Best Sellers
+                </h2>
+
+                <p class="section-description">
+                    Discover the fragrances our customers love the most.
+                </p>
+            </div>
+
+            <!-- Product cards are created with JavaScript -->
+            <div
+                class="product-grid"
+                id="best-sellers-grid"
+                aria-live="polite"
+            ></div>
+
+            <div class="section-action">
+                <a class="view-all-link" href="products.html">
+                    View All Products
+                    <span aria-hidden="true">→</span>
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =========================================
+         Website Footer
+    ========================================== -->
+    <footer class="site-footer">
+
+        <div class="footer-grid">
+
+            <!-- Brand information -->
+            <div class="footer-brand">
+                <a
+                    class="brand-logo footer-logo"
+                    href="index.html"
+                    aria-label="MEHEK homepage"
+                >
+                    <span class="brand-name">MEHEK</span>
+                    <span class="brand-subtitle">Fragrances</span>
+                </a>
+
+                <p>
+                    Timeless scents inspired by heritage,
+                    culture and modern luxury.
+                </p>
+            </div>
+
+            <!-- Shop links -->
+            <div class="footer-column">
+                <h2 class="footer-heading">Shop</h2>
+
+                <ul>
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="products.html?category=perfume">Fragrances</a></li>
+                    <li><a href="products.html?category=home-fragrance">Home Fragrance</a></li>
+                    <li><a href="products.html?category=hair-mist">Hair Collection</a></li>
+                </ul>
+            </div>
+
+            <!-- Collection links -->
+            <div class="footer-column">
+                <h2 class="footer-heading">Collections</h2>
+
+                <ul>
+                    <li><a href="products.html?collection=heritage">Heritage Collection</a></li>
+                    <li><a href="products.html?collection=milano">Milano Collection</a></li>
+                    <li><a href="products.html?collection=london">London Collection</a></li>
+                </ul>
+            </div>
+
+            <!-- Brand links -->
+            <div class="footer-column">
+                <h2 class="footer-heading">MEHEK</h2>
+
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="about.html#why-mehek">Why MEHEK</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html">Shopping Cart</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                &copy; <span id="current-year">2026</span>
+                MEHEK Fragrances. All rights reserved.
+            </p>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
