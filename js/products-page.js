@@ -7,7 +7,7 @@ const placeholder=n=>`https://placehold.co/700x850/f3efe8/222?text=${encodeURICo
 function render(){
  gender.hidden=type!=="perfume";
  tabs.forEach(b=>b.classList.toggle("active",b.dataset.type===type));
- let list=PRODUCTS.filter(p=>(type==="all"||p.type===type)&&(collection.value==="all"||p.collection===collection.value)&&(type!=="perfume"||gender.value==="all"||p.gender===gender.value)&&(`${p.name} ${p.collection}`.toLowerCase().includes(search.value.toLowerCase())));
+ let list=window.PRODUCTS.filter(p=>(type==="all"||p.type===type)&&(collection.value==="all"||p.collection===collection.value)&&(type!=="perfume"||gender.value==="all"||p.gender===gender.value)&&(`${p.name} ${p.collection}`.toLowerCase().includes(search.value.toLowerCase())));
  if(sort.value==="low")list.sort((a,b)=>a.price-b.price);
  if(sort.value==="high")list.sort((a,b)=>b.price-a.price);
  if(sort.value==="az")list.sort((a,b)=>a.name.localeCompare(b.name));
