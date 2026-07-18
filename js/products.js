@@ -18,7 +18,7 @@ window.products = [
     description: 'A deep and enveloping fragrance where precious oud meets saffron, warm amber and polished woods.',
     notes: { top: 'Saffron, bergamot', heart: 'Rose, incense', base: 'Oud, amber, sandalwood' },
     occasion: 'Evening · Formal · Special occasions · Autumn/Winter',
-    variants: [{ label: '50 ml', price: 145 }]
+    variants: [{ label: '100 ml', price: 145 }]
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ window.products = [
     description: 'A soft yet expressive rose fragrance layered with pink pepper, amber and a smooth veil of musk.',
     notes: { top: 'Pink pepper, bergamot', heart: 'Damask rose, jasmine', base: 'Amber, musk, cedarwood' },
     occasion: 'Day or evening · Date night · Elegant occasions · Spring/Autumn',
-    variants: [{ label: '50 ml', price: 140 }]
+    variants: [{ label: '100 ml', price: 140 }]
   },
   {
     id: 3,
@@ -48,7 +48,7 @@ window.products = [
     description: 'A refined evening scent combining aromatic citrus, iris and dark woods with a modern Italian character.',
     notes: { top: 'Bergamot, black pepper', heart: 'Iris, lavender', base: 'Vetiver, cedarwood, musk' },
     occasion: 'Evening · Formal · City nights · Autumn/Winter',
-    variants: [{ label: '50 ml', price: 135 }]
+    variants: [{ label: '100 ml', price: 135 }]
   },
   {
     id: 4,
@@ -63,7 +63,7 @@ window.products = [
     description: 'A luminous floral fragrance inspired by London gardens after rain, with airy petals and clean woods.',
     notes: { top: 'Pear, bergamot', heart: 'Peony, jasmine', base: 'White musk, cedarwood' },
     occasion: 'Daytime · Everyday elegance · Spring/Summer',
-    variants: [{ label: '50 ml', price: 150 }]
+    variants: [{ label: '100 ml', price: 150 }]
   },
   {
     id: 5,
@@ -78,7 +78,7 @@ window.products = [
     description: 'A rich composition of tobacco leaf, warm spice and smoky woods with a smooth amber finish.',
     notes: { top: 'Cardamom, cinnamon', heart: 'Tobacco leaf, leather', base: 'Amber, patchouli, oud' },
     occasion: 'Evening · Formal · Special events · Autumn/Winter',
-    variants: [{ label: '50 ml', price: 148 }]
+    variants: [{ label: '100 ml', price: 148 }]
   },
   {
     id: 6,
@@ -93,7 +93,7 @@ window.products = [
     description: 'A bright and elegant citrus fragrance softened by neroli, white tea and clean musk.',
     notes: { top: 'Italian bergamot, lemon', heart: 'Neroli, white tea', base: 'Musk, sandalwood' },
     occasion: 'Daytime · Office · Smart casual · Spring/Summer',
-    variants: [{ label: '50 ml', price: 132 }]
+    variants: [{ label: '100 ml', price: 132 }]
   },
   {
     id: 7,
@@ -108,7 +108,7 @@ window.products = [
     description: 'A polished floral blend of peony, iris and jasmine resting on creamy sandalwood and white musk.',
     notes: { top: 'Mandarin, pear', heart: 'Peony, iris, jasmine', base: 'White musk, sandalwood' },
     occasion: 'Day or evening · Celebrations · Elegant occasions · Spring/Summer',
-    variants: [{ label: '50 ml', price: 138 }]
+    variants: [{ label: '100 ml', price: 138 }]
   },
   {
     id: 8,
@@ -123,7 +123,7 @@ window.products = [
     description: 'A soft woody fragrance with fig, cashmere accords and warm cedar, designed for quiet everyday luxury.',
     notes: { top: 'Fig leaf, bergamot', heart: 'Cashmere wood, violet', base: 'Cedarwood, musk, amber' },
     occasion: 'Daytime · Quiet luxury · Smart casual · All seasons',
-    variants: [{ label: '50 ml', price: 145 }]
+    variants: [{ label: '100 ml', price: 145 }]
   },
   {
     id: 9,
@@ -138,7 +138,7 @@ window.products = [
     description: 'A dark urban fragrance blending black tea, aromatic spice and vetiver over a smooth woody base.',
     notes: { top: 'Black pepper, bergamot', heart: 'Black tea, lavender', base: 'Vetiver, patchouli, cedarwood' },
     occasion: 'Night · Formal events · Special occasions · Autumn/Winter',
-    variants: [{ label: '50 ml', price: 152 }]
+    variants: [{ label: '100 ml', price: 152 }]
   },
   {
     id: 10,
