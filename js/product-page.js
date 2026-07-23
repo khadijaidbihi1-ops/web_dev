@@ -1,10 +1,51 @@
 "use strict";
 document.addEventListener("DOMContentLoaded",()=>{
- const list=Array.isArray(window.products)?window.products:[];const id=new URLSearchParams(location.search).get("id");const p=list.find(x=>String(x.id)===String(id)||x.slug===id);if(!p){document.querySelector(".product-page-main").innerHTML='<section class="product-not-found"><h1>Product not found</h1><a class="btn-primary" href="products.html">Return to Shop</a></section>';return;}
- const nice=v=>String(v||"").replace(/-/g," ").replace(/\b\w/g,c=>c.toUpperCase()); const imgs=(p.images||[]).filter(Boolean);const variants=p.variants?.length?p.variants:[{label:"",price:p.price}];let selected=0;
- document.title=`${p.name} | MEHEK`;document.querySelector("#product-collection").textContent=`${nice(p.collection)} Collection`;document.querySelector("#product-name").textContent=p.name;document.querySelector("#product-meta").textContent=[p.type,p.gender?nice(p.gender):""].filter(Boolean).join(" · ");document.querySelector("#product-description").textContent=p.description||"";document.querySelector("#top-notes").textContent=p.notes?.top||"—";document.querySelector("#heart-notes").textContent=p.notes?.heart||"—";document.querySelector("#base-notes").textContent=p.notes?.base||"—";document.querySelector("#wear-guide-title").textContent=["scented-candle","reed-diffuser","room-spray"].includes(p.category)?"Best For":"When to Wear";document.querySelector("#wear-guide-text").textContent=p.occasion||"Designed for modern everyday rituals.";
- const main=document.querySelector("#main-product-image");main.src=imgs[0]||"";main.alt=`${p.name} by MEHEK`;if(imgs[1]){const panel=document.querySelector("#secondary-image-panel");const im=document.querySelector("#secondary-product-image");im.src=imgs[1];im.alt=`${p.name} fragrance details`;panel.hidden=false;}
- const price=document.querySelector("#product-price");const wrap=document.querySelector("#variant-wrap");const buttons=document.querySelector("#variant-buttons");function update(){price.textContent=`£${Number(variants[selected].price).toFixed(2)}`;buttons?.querySelectorAll("button").forEach((b,i)=>{b.classList.toggle("selected",i===selected);b.setAttribute("aria-pressed",i===selected);});}
- if(variants.length){wrap.hidden=false;buttons.innerHTML=variants.map((v,i)=>`<button type="button" class="variant-button" data-index="${i}" aria-pressed="${i===0}">${v.label||"Standard"}</button>`).join("");buttons.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;selected=Number(b.dataset.index);update();});}update();
- document.querySelector("#add-to-cart").addEventListener("click",e=>{let cart=[];try{cart=JSON.parse(localStorage.getItem("shoppingCart"))||[]}catch{}const v=variants[selected],key=`${p.id}-${v.label||"default"}`,existing=cart.find(x=>x.cartKey===key);if(existing)existing.quantity=(Number(existing.quantity)||0)+1;else cart.push({cartKey:key,id:p.id,name:p.name,collection:`${nice(p.collection)} Collection`,type:p.type,size:v.label,price:Number(v.price),image:imgs[0]||"",quantity:1});localStorage.setItem("shoppingCart",JSON.stringify(cart));document.dispatchEvent(new CustomEvent("cart:updated"));const old=e.currentTarget.textContent;e.currentTarget.textContent="Added to Bag";e.currentTarget.disabled=true;setTimeout(()=>{e.currentTarget.textContent=old;e.currentTarget.disabled=false},1200);});
+ const list=Array.isArray(window.products)?window.products:[];
+ const id=new URLSearchParams(location.search).get("id");
+ const p=list.find(x=>String(x.id)===String(id)||x.slug===id);
+ if(!p){document.querySelector(".product-page-main").innerHTML='<section class="product-not-found"><h1>Product not found</h1><a class="btn-primary" href="products.html">Return to Shop</a></section>';return;}
+ const nice=v=>String(v||"").
+ replace(/-/g," ").
+ replace(/\b\w/g,c=>c.toUpperCase());
+  const imgs=(p.images||[]).filter(Boolean);
+  const variants=p.variants?.length?p.variants:[{label:"",price:p.price}];
+  let selected=0;
+ document.title=`${p.name} | MEHEK`;
+ document.querySelector("#product-collection").textContent=`${nice(p.collection)} Collection`;
+ document.querySelector("#product-name").textContent=p.name;
+ document.querySelector("#product-meta").textContent=[p.type,p.gender?nice(p.gender):""].filter(Boolean).join(" · ");
+ document.querySelector("#product-description").textContent=p.description||"";
+ document.querySelector("#top-notes").textContent=p.notes?.top||"—";
+ document.querySelector("#heart-notes").textContent=p.notes?.heart||"—";
+ document.querySelector("#base-notes").textContent=p.notes?.base||"—";
+ document.querySelector("#wear-guide-title").textContent=["scented-candle","reed-diffuser","room-spray"].includes(p.category)?"Best For":"When to Wear";
+ document.querySelector("#wear-guide-text").textContent=p.occasion||"Designed for modern everyday rituals.";
+ const main=document.querySelector("#main-product-image");
+ main.src=imgs[0]||"";main.alt=`${p.name} by MEHEK`;
+ if(imgs[1]){const panel=document.querySelector("#secondary-image-panel");
+    const im=document.querySelector("#secondary-product-image");
+    im.src=imgs[1];
+    im.alt=`${p.name} fragrance details`;panel.hidden=false;}
+ const price=document.querySelector("#product-price");
+ const wrap=document.querySelector("#variant-wrap");
+ const buttons=document.querySelector("#variant-buttons");
+ function update(){price.textContent=`£${Number(variants[selected].price).toFixed(2)}`;
+ buttons?.querySelectorAll("button").forEach((b,i)=>{b.classList.toggle("selected",i===selected);
+    b.setAttribute("aria-pressed",i===selected);});}
+ if(variants.length){wrap.hidden=false;buttons.innerHTML=variants.map((v,i)=>`<button type="button" class="variant-button" data-index="${i}" aria-pressed="${i===0}">${v.label||"Standard"}</button>`).join("");
+ buttons.addEventListener("click",e=>{const b=e.target.closest("button");
+    if(!b)return;selected=Number(b.dataset.index);
+    update();});
+}update();
+ document.querySelector("#add-to-cart").addEventListener("click",e=>{let cart=[];
+    try{cart=JSON.parse(localStorage.getItem("shoppingCart"))||[]}catch{}const v=variants[selected],
+    key=`${p.id}-${v.label||"default"}`,
+    existing=cart.find(x=>x.cartKey===key);
+    if(existing)existing.quantity=(Number(existing.quantity)||0)+1;else cart.push({cartKey:key,id:p.id,name:p.name,collection:`${nice(p.collection)} Collection`,type:p.type,size:v.label,price:Number(v.price),image:imgs[0]||"",
+    quantity:1});
+    localStorage.setItem("shoppingCart",JSON.stringify(cart));
+    document.dispatchEvent(new CustomEvent("cart:updated"));
+    const old=e.currentTarget.textContent;e.currentTarget.textContent="Added to Bag";
+    e.currentTarget.disabled=true;setTimeout(()=>{e.currentTarget.textContent=old;
+        e.currentTarget.disabled=false},1200);});
 });
