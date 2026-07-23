@@ -18,6 +18,7 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'unisex',
     price: 145,
+    images: ['media/images/products/oud-legacy.webp', 'media/images/products/oud-legacy-notes.webp'],
     description: 'A deep and enveloping fragrance where precious oud meets saffron, warm amber and polished woods.',
     notes: { top: 'Saffron, bergamot', heart: 'Rose, incense', base: 'Oud, amber, sandalwood' },
     occasion: 'Evening · Formal · Special occasions · Autumn/Winter',
@@ -32,6 +33,7 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'women',
     price: 140,
+    images: ['media/images/products/velvet-rose-notes.webp'],
     description: 'A soft yet expressive rose fragrance layered with pink pepper, amber and a smooth veil of musk.',
     notes: { top: 'Pink pepper, bergamot', heart: 'Damask rose, jasmine', base: 'Amber, musk, cedarwood' },
     occasion: 'Day or evening · Date night · Elegant occasions · Spring/Autumn',
@@ -46,6 +48,7 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'men',
     price: 135,
+    images: ['media/images/products/milano-noir.webp'],
     description: 'A refined evening scent combining aromatic citrus, iris and dark woods with a modern Italian character.',
     notes: { top: 'Bergamot, black pepper', heart: 'Iris, lavender', base: 'Vetiver, cedarwood, musk' },
     occasion: 'Evening · Formal · City nights · Autumn/Winter',
@@ -60,6 +63,7 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'women',
     price: 150,
+    images: ['media/images/products/london-bloom.webp'],
     description: 'A luminous floral fragrance inspired by London gardens after rain, with airy petals and clean woods.',
     notes: { top: 'Pear, bergamot', heart: 'Peony, jasmine', base: 'White musk, cedarwood' },
     occasion: 'Daytime · Everyday elegance · Spring/Summer',
@@ -74,6 +78,7 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'men',
     price: 148,
+    images: ['media/images/products/black-tabacco.webp'],
     description: 'A rich composition of tobacco leaf, warm spice and smoky woods with a smooth amber finish.',
     notes: { top: 'Cardamom, cinnamon', heart: 'Tobacco leaf, leather', base: 'Amber, patchouli, oud' },
     occasion: 'Evening · Formal · Special events · Autumn/Winter',
@@ -88,6 +93,7 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'unisex',
     price: 132,
+    images: ['media/images/products/italian-bergamot.webp'],
     description: 'A bright and elegant citrus fragrance softened by neroli, white tea and clean musk.',
     notes: { top: 'Italian bergamot, lemon', heart: 'Neroli, white tea', base: 'Musk, sandalwood' },
     occasion: 'Daytime · Office · Smart casual · Spring/Summer',
@@ -102,6 +108,7 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'women',
     price: 138,
+    images: ['media/images/products/milano-noir.webp'],
     description: 'A polished floral blend of peony, iris and jasmine resting on creamy sandalwood and white musk.',
     notes: { top: 'Mandarin, pear', heart: 'Peony, iris, jasmine', base: 'White musk, sandalwood' },
     occasion: 'Day or evening · Celebrations · Elegant occasions · Spring/Summer',
@@ -116,6 +123,7 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'unisex',
     price: 145,
+    images: ['media/images/products/cashmeer-wood.webp'],
     description: 'A soft woody fragrance with fig, cashmere accords and warm cedar, designed for quiet everyday luxury.',
     notes: { top: 'Fig leaf, bergamot', heart: 'Cashmere wood, violet', base: 'Cedarwood, musk, amber' },
     occasion: 'Daytime · Quiet luxury · Smart casual · All seasons',
@@ -130,6 +138,7 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'men',
     price: 152,
+    images: ['media/images/products/midnight.webp'],
     description: 'A dark urban fragrance blending black tea, aromatic spice and vetiver over a smooth woody base.',
     notes: { top: 'Black pepper, bergamot', heart: 'Black tea, lavender', base: 'Vetiver, patchouli, cedarwood' },
     occasion: 'Night · Formal events · Special occasions · Autumn/Winter',
@@ -148,6 +157,7 @@ window.products = [
     type: 'Hair Mist',
     gender: 'unisex',
     price: 55,
+    images: ['media/images/products/heritage-hair-mist.webp', 'media/images/products/heritage-hair-mist-notes.webp'],
     description: 'A lightweight scented mist that leaves the hair softly fragranced with rose, amber and cedarwood.',
     notes: { top: 'Bergamot, freesia, pink pepper', heart: 'Damask rose, jasmine, lavender', base: 'Amber, cedarwood, musk' },
     occasion: 'Everyday refresh · Hair layering · Day or evening',
@@ -162,6 +172,7 @@ window.products = [
     type: 'Hair Mist',
     gender: 'unisex',
     price: 55,
+    images: ['media/images/products/milano-hair-mist.webp', 'media/images/products/milano-hair-mist-notes.webp'],
     description: 'A fresh hair mist with bergamot, iris and white musk for a clean and refined scented finish.',
     notes: { top: 'Bergamot, mandarin', heart: 'Iris, jasmine', base: 'White musk, sandalwood' },
     occasion: 'Everyday refresh · Office · Spring/Summer',
@@ -176,6 +187,7 @@ window.products = [
     type: 'Hair Mist',
     gender: 'unisex',
     price: 55,
+    images: ['media/images/products/london-hair-mist.webp', 'media/images/products/london-hair-mist-notes.webp'],
     description: 'A contemporary hair mist combining airy florals, black tea and clean woods.',
     notes: { top: 'Pear, bergamot', heart: 'Black tea, violet', base: 'Cedarwood, musk' },
     occasion: 'Everyday refresh · City days · All seasons',
@@ -194,6 +206,7 @@ window.products = [
     type: 'Scented Candle',
     gender: '',
     price: 48,
+    images: ['media/images/products/heritage-candela.webp'],
     description: 'A warm home fragrance built around amber, rose, spice and dark woods.',
     notes: { top: 'Saffron, spice', heart: 'Rose, incense', base: 'Amber, oud, cedarwood' },
     occasion: 'Living room · Evening relaxation · Autumn/Winter',
@@ -208,6 +221,7 @@ window.products = [
     type: 'Scented Candle',
     gender: '',
     price: 48,
+    images: ['media/images/products/milano-candle.webp'],
     description: 'A luminous candle with bergamot, iris and creamy sandalwood.',
     notes: { top: 'Bergamot, lemon', heart: 'Iris, jasmine', base: 'Sandalwood, white musk' },
     occasion: 'Living room · Dining area · Spring/Summer',
@@ -222,6 +236,7 @@ window.products = [
     type: 'Scented Candle',
     gender: '',
     price: 48,
+    images: ['media/images/products/london-candle.webp'],
     description: 'A modern candle blending black tea, fig and refined woods.',
     notes: { top: 'Bergamot, fig', heart: 'Black tea, violet', base: 'Cedarwood, vetiver' },
     occasion: 'Bedroom · Evening relaxation · Autumn/Winter',
@@ -240,6 +255,7 @@ window.products = [
     type: 'Reed Diffuser',
     gender: '',
     price: 58,
+    images: ['media/images/products/heritage-diffuser.webp'],
     description: 'A long-lasting diffuser that fills the room with warm amber, rose and oud.',
     notes: { top: 'Saffron, spice', heart: 'Rose, incense', base: 'Amber, oud, cedarwood' },
     occasion: 'Entrance · Living room · Warm ambience',
@@ -254,6 +270,7 @@ window.products = [
     type: 'Reed Diffuser',
     gender: '',
     price: 58,
+    images: ['media/images/products/milano-diffuser.webp'],
     description: 'A bright diffuser with citrus, iris and soft white musk.',
     notes: { top: 'Bergamot, lemon', heart: 'Iris, jasmine', base: 'Sandalwood, white musk' },
     occasion: 'Office · Entrance · Bright ambience',
@@ -268,6 +285,7 @@ window.products = [
     type: 'Reed Diffuser',
     gender: '',
     price: 58,
+    images: ['media/images/products/london-diffuser.webp'],
     description: 'A contemporary diffuser scented with black tea, fig and clean woods.',
     notes: { top: 'Bergamot, fig', heart: 'Black tea, violet', base: 'Cedarwood, vetiver' },
     occasion: 'Bedroom · Living room · Contemporary ambience',
@@ -286,6 +304,7 @@ window.products = [
     type: 'Room Spray',
     gender: '',
     price: 42,
+    images: ['media/images/products/heritage-room-spray.webp'],
     description: 'An immediate veil of rose, spice, amber and oud for the home.',
     notes: { top: 'Saffron, spice', heart: 'Rose, incense', base: 'Amber, oud' },
     occasion: 'Living room · Instant refresh · Evening',
@@ -300,6 +319,7 @@ window.products = [
     type: 'Room Spray',
     gender: '',
     price: 42,
+    images: ['media/images/products/milano-room-spray.webp'],
     description: 'A crisp room spray with bergamot, iris and white musk.',
     notes: { top: 'Bergamot, lemon', heart: 'Iris, jasmine', base: 'White musk' },
     occasion: 'Kitchen · Entrance · Daytime refresh',
@@ -314,55 +334,10 @@ window.products = [
     type: 'Room Spray',
     gender: '',
     price: 42,
+    images: ['media/images/products/london-roomspray.webp'],
     description: 'A modern room spray combining black tea, fig and cedarwood.',
     notes: { top: 'Bergamot, fig', heart: 'Black tea, violet', base: 'Cedarwood, vetiver' },
     occasion: 'Bedroom · Living room · Evening refresh',
     variants: [{ label: '150 ml', price: 42 }]
   }
 ];
-
-/*
- * Automatic product image paths
- * --------------------------------
- * Images are generated from each product slug, so new products are easier
- * to maintain and image links do not need to be written manually.
- *
- * Naming rules:
- *   Perfume / Hair Mist:
- *     <slug>.webp
- *     <slug>-notes.webp
- *
- *   Scented Candle:
- *     <slug>.webp
- *     <slug>-2.webp
- *     <slug>-3.webp
- *
- *   Reed Diffuser / Room Spray:
- *     <slug>.webp
- */
-const PRODUCT_IMAGE_FOLDER = 'media/images/products';
-
-function buildProductImages(product) {
-  const basePath = `${PRODUCT_IMAGE_FOLDER}/${product.slug}`;
-
-  if (product.category === 'scented-candle') {
-    return [
-      `${basePath}.webp`,
-      `${basePath}-2.webp`,
-      `${basePath}-3.webp`
-    ];
-  }
-
-  if (product.category === 'perfume' || product.category === 'hair-mist') {
-    return [
-      `${basePath}.webp`,
-      `${basePath}-notes.webp`
-    ];
-  }
-
-  return [`${basePath}.webp`];
-}
-
-window.products.forEach((product) => {
-  product.images = buildProductImages(product);
-});
