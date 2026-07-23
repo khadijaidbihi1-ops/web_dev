@@ -5,6 +5,10 @@
  * This single array is used by the Shop page and the dynamic Product page.
  */
 window.products = [
+
+  // -----------------------------------------------------------------------
+  // Perfumes
+  // -----------------------------------------------------------------------
   {
     id: 1,
     slug: 'oud-legacy',
@@ -44,7 +48,7 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'men',
     price: 135,
-    images: ['media/images/products/milano-noir.webp', 'media/images/products/milano-noir.webp'],
+    images: ['media/images/products/milano-noir.webp'],
     description: 'A refined evening scent combining aromatic citrus, iris and dark woods with a modern Italian character.',
     notes: { top: 'Bergamot, black pepper', heart: 'Iris, lavender', base: 'Vetiver, cedarwood, musk' },
     occasion: 'Evening · Formal · City nights · Autumn/Winter',
@@ -59,7 +63,7 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'women',
     price: 150,
-    images: ['media/images/products/london-bloom.webp', 'media/images/products/london-bloom.webp'],
+    images: ['media/images/products/london-bloom.webp'],
     description: 'A luminous floral fragrance inspired by London gardens after rain, with airy petals and clean woods.',
     notes: { top: 'Pear, bergamot', heart: 'Peony, jasmine', base: 'White musk, cedarwood' },
     occasion: 'Daytime · Everyday elegance · Spring/Summer',
@@ -140,6 +144,10 @@ window.products = [
     occasion: 'Night · Formal events · Special occasions · Autumn/Winter',
     variants: [{ label: '100 ml', price: 152 }]
   },
+
+  // -----------------------------------------------------------------------
+  // Hair mists
+  // -----------------------------------------------------------------------
   {
     id: 10,
     slug: 'heritage-hair-mist',
@@ -185,6 +193,10 @@ window.products = [
     occasion: 'Everyday refresh · City days · All seasons',
     variants: [{ label: '100 ml', price: 55 }]
   },
+
+  // -----------------------------------------------------------------------
+  // Scented candles
+  // -----------------------------------------------------------------------
   {
     id: 13,
     slug: 'heritage-candle',
@@ -230,6 +242,10 @@ window.products = [
     occasion: 'Bedroom · Evening relaxation · Autumn/Winter',
     variants: [{ label: '200 g', price: 48 }, { label: '500 g', price: 78 }]
   },
+
+  // -----------------------------------------------------------------------
+  // Reed diffusers
+  // -----------------------------------------------------------------------
   {
     id: 16,
     slug: 'heritage-diffuser',
@@ -275,6 +291,10 @@ window.products = [
     occasion: 'Bedroom · Living room · Contemporary ambience',
     variants: [{ label: '200 ml', price: 58 }, { label: '500 ml', price: 92 }]
   },
+
+  // -----------------------------------------------------------------------
+  // Room sprays
+  // -----------------------------------------------------------------------
   {
     id: 19,
     slug: 'heritage-room-spray',

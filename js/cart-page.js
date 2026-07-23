@@ -2,10 +2,17 @@
 
 /* MEHEK shopping bag page */
 document.addEventListener('DOMContentLoaded', () => {
-  const STORAGE_KEY = 'shoppingCart';
-  const FREE_SHIPPING_LIMIT = 100;
-  const STANDARD_SHIPPING = 4.95;
 
+  // ---------------------------------------------------------------------
+  // Constants
+  // ---------------------------------------------------------------------
+  const STORAGE_KEY = 'shoppingCart';
+  const FREE_SHIPPING_LIMIT = 100; // subtotal needed for free shipping
+  const STANDARD_SHIPPING = 4.95;  // flat fee below that limit
+
+  // ---------------------------------------------------------------------
+  // DOM elements
+  // ---------------------------------------------------------------------
   const cartItemsElement = document.querySelector('#cart-items');
   const cartSummaryElement = document.querySelector('#cart-summary');
   const cartCountElement = document.querySelector('#cart-count');
@@ -18,8 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
 
+  // Cart loaded once when the page opens
   let cart = loadCart();
 
+  // ---------------------------------------------------------------------
+  // Load / save cart
+  // ---------------------------------------------------------------------
+
+  // Reads the cart from localStorage. Returns an empty array if anything
+  // is missing, broken, or has a zero/negative quantity.
   function loadCart() {
     try {
       const savedCart = JSON.parse(localStorage.getItem(STORAGE_KEY));
@@ -31,10 +45,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Writes the current cart back to localStorage
   function saveCart() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
   }
 
+  // ---------------------------------------------------------------------
+  // Formatting helpers
+  // ---------------------------------------------------------------------
+
+  // Turns a number into a price string, e.g. 12.5 -> "£12.50"
   function formatMoney(value) {
     return new Intl.NumberFormat('en-GB', {
       style: 'currency',
@@ -42,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).format(Number(value) || 0);
   }
 
+  // Makes text safe to insert into HTML
   function escapeHtml(value) {
     return String(value ?? '')
       .replaceAll('&', '&amp;')
@@ -51,20 +72,32 @@ document.addEventListener('DOMContentLoaded', () => {
       .replaceAll("'", '&#039;');
   }
 
+  // Builds a unique key for a cart item, used to find/update/remove it later
   function itemKey(item, index) {
     return item.cartKey || `${item.id || 'item'}-${item.size || 'default'}-${index}`;
   }
 
+  // ---------------------------------------------------------------------
+  // Cart calculations
+  // ---------------------------------------------------------------------
+
+  // Adds up every quantity, used for the cart badge and heading
   function totalQuantity() {
     return cart.reduce((total, item) => total + (Number(item.quantity) || 0), 0);
   }
 
+  // Adds up price × quantity for every item
   function subtotal() {
     return cart.reduce((total, item) => {
       return total + (Number(item.price) || 0) * (Number(item.quantity) || 0);
     }, 0);
   }
 
+  // ---------------------------------------------------------------------
+  // Cart actions
+  // ---------------------------------------------------------------------
+
+  // Changes an item's quantity by +1/-1 (never below 1), then saves and re-renders
   function updateItem(key, change) {
     const item = cart.find((entry, index) => itemKey(entry, index) === key);
     if (!item) return;
@@ -74,12 +107,18 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCart();
   }
 
+  // Removes an item from the cart, then saves and re-renders
   function removeItem(key) {
     cart = cart.filter((entry, index) => itemKey(entry, index) !== key);
     saveCart();
     renderCart();
   }
 
+  // ---------------------------------------------------------------------
+  // Rendering
+  // ---------------------------------------------------------------------
+
+  // Shows the "your bag is empty" message and hides the summary
   function renderEmptyCart() {
     cartItemsElement.innerHTML = `
       <div class="empty-cart">
@@ -92,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cartSummaryElement.hidden = true;
   }
 
+  // Draws each cart item as a row, with image, details, quantity controls, and price
   function renderItems() {
     cartItemsElement.innerHTML = cart.map((item, index) => {
       const key = itemKey(item, index);
@@ -127,6 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cartSummaryElement.hidden = false;
   }
 
+  // Draws the item count, subtotal, shipping, total, and shipping message
   function renderSummary() {
     const quantity = totalQuantity();
     const currentSubtotal = subtotal();
@@ -149,9 +190,11 @@ document.addEventListener('DOMContentLoaded', () => {
       shippingMessageElement.textContent = '';
     }
 
+    // Disable the checkout link when the cart is empty
     checkoutLink.setAttribute('aria-disabled', cart.length === 0 ? 'true' : 'false');
   }
 
+  // Top-level render: item list (or empty state) plus the summary
   function renderCart() {
     if (cart.length === 0) {
       renderEmptyCart();
@@ -161,6 +204,11 @@ document.addEventListener('DOMContentLoaded', () => {
     renderSummary();
   }
 
+  // ---------------------------------------------------------------------
+  // Event listeners
+  // ---------------------------------------------------------------------
+
+  // One listener for all quantity/remove buttons, using the clicked item's cart key
   cartItemsElement.addEventListener('click', event => {
     const button = event.target.closest('button[data-action]');
     const itemElement = event.target.closest('[data-cart-key]');
@@ -174,15 +222,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (action === 'remove') removeItem(key);
   });
 
+  // Blocks navigation to checkout if the cart is empty
   checkoutLink.addEventListener('click', event => {
     if (cart.length === 0) event.preventDefault();
   });
 
+  // Mobile menu toggle
   menuToggle?.addEventListener('click', () => {
     const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
     menuToggle.setAttribute('aria-expanded', String(!isOpen));
     navLinks?.classList.toggle('is-open', !isOpen);
   });
 
+  // First render when the page loads
   renderCart();
 });
