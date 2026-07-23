@@ -1,24 +1,30 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Complete your MEHEK order securely.">
   <title>Checkout | MEHEK</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Header -->
   <header class="site-header" id="site-header">
-    <div class="announcement-bar"><p>Complimentary UK shipping on orders over £100</p></div>
+    <div class="announcement-bar">
+      <p>Complimentary UK shipping on orders over £100</p>
+    </div>
+
     <nav class="navbar" aria-label="Main navigation">
       <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="navigation-menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
+
       <a class="brand-logo" href="index.html" aria-label="MEHEK homepage">
         <span class="brand-name">MEHEK</span><span class="brand-subtitle">Fragrances</span>
       </a>
+
       <ul class="navigation-menu" id="navigation-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Shop</a></li>
@@ -26,32 +32,46 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+
       <div class="navigation-actions">
         <a class="icon-link" href="products.html#product-search" aria-label="Search products">
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><circle cx="11" cy="11" r="7"></circle><line x1="16" y1="16" x2="21" y2="21"></line></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16" y1="16" x2="21" y2="21"></line>
+          </svg>
         </a>
         <a class="icon-link cart-link" href="cart.html" aria-label="Open shopping cart">
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M3 4h2l2 11h10l2-8H6"></path><circle cx="9" cy="19" r="1"></circle><circle cx="17" cy="19" r="1"></circle></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22">
+            <path d="M3 4h2l2 11h10l2-8H6"></path>
+            <circle cx="9" cy="19" r="1"></circle>
+            <circle cx="17" cy="19" r="1"></circle>
+          </svg>
           <span class="cart-count" id="cart-count" aria-live="polite">0</span>
         </a>
       </div>
     </nav>
   </header>
 
+  <!-- Main content -->
   <main id="main-content" class="checkout-page-main">
+
+    <!-- Page heading -->
     <section class="checkout-heading">
       <p class="eyebrow">Secure Checkout</p>
       <h1>Complete Your Order</h1>
     </section>
 
+    <!-- Shown when the cart is empty -->
     <div id="checkout-empty" class="checkout-empty" hidden>
       <p class="eyebrow">Your Bag Is Empty</p>
       <h2>There is nothing to check out yet.</h2>
       <a class="btn-primary" href="products.html">Explore the Collection</a>
     </div>
 
+    <!-- Checkout form and order summary -->
     <section id="checkout-content" class="checkout-layout" aria-label="Checkout">
       <form id="checkout-form" class="checkout-form">
+
         <fieldset>
           <legend>Contact Information</legend>
           <div class="checkout-field checkout-field-full">
@@ -139,6 +159,7 @@
       </aside>
     </section>
 
+    <!-- Shown after a successful order submission -->
     <section id="order-success" class="order-success" hidden aria-live="polite">
       <p class="eyebrow">Order Confirmed</p>
       <h2>Thank you for choosing MEHEK.</h2>
@@ -148,6 +169,7 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-brand">
@@ -156,6 +178,7 @@
         </a>
         <p>Timeless scents inspired by heritage, culture and modern luxury.</p>
       </div>
+
       <div class="footer-column">
         <h2 class="footer-heading">Shop</h2>
         <ul>
@@ -163,11 +186,12 @@
           <li><a href="products.html?category=perfume">Fragrances</a></li>
           <li><a href="products.html?category=hair-mist">Hair Mist</a></li>
           <li><a href="products.html?category=home-fragrance">Home Fragrance</a></li>
-                    <li><a href="products.html?type=scented-candle">Candles</a></li>
-                    <li><a href="products.html?type=reed-diffuser">Reed Diffusers</a></li>
-                    <li><a href="products.html?type=room-spray">Room Sprays</a></li>
+          <li><a href="products.html?type=scented-candle">Candles</a></li>
+          <li><a href="products.html?type=reed-diffuser">Reed Diffusers</a></li>
+          <li><a href="products.html?type=room-spray">Room Sprays</a></li>
         </ul>
       </div>
+
       <div class="footer-column">
         <h2 class="footer-heading">Collections</h2>
         <ul>
@@ -176,6 +200,7 @@
           <li><a href="collections.html#london">London</a></li>
         </ul>
       </div>
+
       <div class="footer-column">
         <h2 class="footer-heading">MEHEK</h2>
         <ul>
@@ -185,7 +210,10 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom"><p>&copy; <span id="current-year">2026</span> MEHEK Fragrances. All rights reserved.</p></div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year">2026</span> MEHEK Fragrances. All rights reserved.</p>
+    </div>
   </footer>
 
   <script src="js/checkout.js"></script>

@@ -1,14 +1,30 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="MEHEK luxury fragrances and home scents."><title>Contact | MEHEK</title><link rel="stylesheet" href="css/style.css"></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MEHEK luxury fragrances and home scents.">
+  <title>Contact | MEHEK</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Header -->
   <header class="site-header" id="site-header">
-    <div class="announcement-bar"><p>Complimentary UK shipping on orders over £100</p></div>
+    <div class="announcement-bar">
+      <p>Complimentary UK shipping on orders over £100</p>
+    </div>
+
     <nav class="navbar" aria-label="Main navigation">
       <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="navigation-menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
+
       <a class="brand-logo" href="index.html" aria-label="MEHEK homepage">
         <span class="brand-name">MEHEK</span><span class="brand-subtitle">Fragrances</span>
       </a>
+
       <ul class="navigation-menu" id="navigation-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Shop</a></li>
@@ -16,17 +32,93 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html" class="active-link" aria-current="page">Contact</a></li>
       </ul>
+
       <div class="navigation-actions">
         <a class="icon-link" href="products.html#product-search" aria-label="Search products">
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><circle cx="11" cy="11" r="7"></circle><line x1="16" y1="16" x2="21" y2="21"></line></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16" y1="16" x2="21" y2="21"></line>
+          </svg>
         </a>
         <a class="icon-link cart-link" href="cart.html" aria-label="Open shopping cart">
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M3 4h2l2 11h10l2-8H6"></path><circle cx="9" cy="19" r="1"></circle><circle cx="17" cy="19" r="1"></circle></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22">
+            <path d="M3 4h2l2 11h10l2-8H6"></path>
+            <circle cx="9" cy="19" r="1"></circle>
+            <circle cx="17" cy="19" r="1"></circle>
+          </svg>
           <span class="cart-count" id="cart-count" aria-live="polite">0</span>
         </a>
       </div>
     </nav>
-  </header><main id="main-content"><section class="contact-hero"><div><p class="eyebrow">Contact MEHEK</p><h1>How can we help?</h1><p>Questions about a fragrance, your order or choosing the right ritual? Send us a message and our customer care team will be happy to help.</p></div></section><section class="contact-layout section-spacing"><aside class="contact-details"><p class="section-eyebrow">Customer Care</p><h2>We are here for you</h2><p>Complete the form and we will respond as soon as possible.</p><div class="contact-detail-card"><strong>Response time</strong><span>Within 1–2 working days</span></div><div class="contact-detail-card"><strong>Opening hours</strong><span>Monday–Friday, 9:00–17:00</span></div></aside><form class="contact-form" id="contact-form" novalidate><div class="form-row"><label for="contact-name">Name</label><input id="contact-name" name="name" required><small class="field-error" id="name-error"></small></div><div class="form-row"><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" required><small class="field-error" id="email-error"></small></div><div class="form-row"><label for="contact-subject">Subject</label><select id="contact-subject" name="subject" required><option value="">Choose a subject</option><option>Product advice</option><option>Order enquiry</option><option>Delivery</option><option>Other</option></select><small class="field-error" id="subject-error"></small></div><div class="form-row"><label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="7" required minlength="10"></textarea><small class="field-error" id="message-error"></small></div><button class="btn-primary" type="submit">Send Message</button><p class="form-success" id="form-success" role="status" hidden>Thank you. Your message has been received.</p></form></section></main><footer class="site-footer">
+  </header>
+
+  <!-- Main content -->
+  <main id="main-content">
+
+    <!-- Intro -->
+    <section class="contact-hero">
+      <div>
+        <p class="eyebrow">Contact MEHEK</p>
+        <h1>How can we help?</h1>
+        <p>Questions about a fragrance, your order or choosing the right ritual? Send us a message and our customer care team will be happy to help.</p>
+      </div>
+    </section>
+
+    <!-- Contact details and form -->
+    <section class="contact-layout section-spacing">
+      <aside class="contact-details">
+        <p class="section-eyebrow">Customer Care</p>
+        <h2>We are here for you</h2>
+        <p>Complete the form and we will respond as soon as possible.</p>
+        <div class="contact-detail-card">
+          <strong>Response time</strong>
+          <span>Within 1–2 working days</span>
+        </div>
+        <div class="contact-detail-card">
+          <strong>Opening hours</strong>
+          <span>Monday–Friday, 9:00–17:00</span>
+        </div>
+      </aside>
+
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-row">
+          <label for="contact-name">Name</label>
+          <input id="contact-name" name="name" required>
+          <small class="field-error" id="name-error"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="contact-email">Email</label>
+          <input id="contact-email" name="email" type="email" required>
+          <small class="field-error" id="email-error"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="contact-subject">Subject</label>
+          <select id="contact-subject" name="subject" required>
+            <option value="">Choose a subject</option>
+            <option>Product advice</option>
+            <option>Order enquiry</option>
+            <option>Delivery</option>
+            <option>Other</option>
+          </select>
+          <small class="field-error" id="subject-error"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="7" required minlength="10"></textarea>
+          <small class="field-error" id="message-error"></small>
+        </div>
+
+        <button class="btn-primary" type="submit">Send Message</button>
+        <p class="form-success" id="form-success" role="status" hidden>Thank you. Your message has been received.</p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="brand-logo footer-logo" href="index.html" aria-label="MEHEK homepage">
@@ -34,6 +126,7 @@
         </a>
         <p>Timeless scents inspired by heritage, culture and modern luxury.</p>
       </div>
+
       <div class="footer-column">
         <h2 class="footer-heading">Shop</h2>
         <ul>
@@ -41,11 +134,12 @@
           <li><a href="products.html?category=perfume">Fragrances</a></li>
           <li><a href="products.html?category=hair-mist">Hair Mist</a></li>
           <li><a href="products.html?category=home-fragrance">Home Fragrance</a></li>
-                    <li><a href="products.html?type=scented-candle">Candles</a></li>
-                    <li><a href="products.html?type=reed-diffuser">Reed Diffusers</a></li>
-                    <li><a href="products.html?type=room-spray">Room Sprays</a></li>
+          <li><a href="products.html?type=scented-candle">Candles</a></li>
+          <li><a href="products.html?type=reed-diffuser">Reed Diffusers</a></li>
+          <li><a href="products.html?type=room-spray">Room Sprays</a></li>
         </ul>
       </div>
+
       <div class="footer-column">
         <h2 class="footer-heading">Collections</h2>
         <ul>
@@ -54,6 +148,7 @@
           <li><a href="collections.html#london">London</a></li>
         </ul>
       </div>
+
       <div class="footer-column">
         <h2 class="footer-heading">MEHEK</h2>
         <ul>
@@ -63,6 +158,13 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom"><p>&copy; <span id="current-year">2026</span> MEHEK Fragrances. All rights reserved.</p></div>
-  </footer>  <script src="js/script.js"></script><script src="js/contact.js"></script>
-</body></html>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year">2026</span> MEHEK Fragrances. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
