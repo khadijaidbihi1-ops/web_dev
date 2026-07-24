@@ -2989,7 +2989,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .contact-hero {
-    padding: clamp(4rem,8vw,7rem) 1.5rem;
+    padding: clamp(2.75rem,5vw,4.25rem) 1.5rem;
     background: linear-gradient(120deg,#16120f,#6b4e3d);
     color: #fff;
     text-align: center;
@@ -3001,8 +3001,8 @@ a:focus-visible, button:focus-visible {
 }
 
 .contact-hero h1 {
-    font: clamp(2.5rem,6vw,5rem)/1.05 var(--font-heading);
-    margin: .5rem 0 1rem;
+    margin: .35rem 0 .75rem;
+    font: clamp(2.8rem,5vw,4.5rem)/1.05 var(--font-heading);
 }
 
 .contact-layout {
@@ -3971,5 +3971,22 @@ a:focus-visible, button:focus-visible {
 
     .active-filter-list {
         width: 100%;
+    }
+}
+
+
+.contact-layout.section-spacing {
+    padding-top: 3rem;
+    padding-bottom: 4.5rem;
+}
+
+@media (max-width: 760px) {
+    .contact-hero {
+        padding: 2.75rem 1.25rem;
+    }
+
+    .contact-layout.section-spacing {
+        padding-top: 2.25rem;
+        padding-bottom: 3.5rem;
     }
 }
