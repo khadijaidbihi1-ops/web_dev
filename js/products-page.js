@@ -43,6 +43,83 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchParams = new URLSearchParams(location.search);
 
   // ---------------------------------------------------------------------
+  // Responsive filter drawer
+  // ---------------------------------------------------------------------
+
+  function getFocusableElements() {
+    if (!filterPanel) return [];
+
+    return Array.from(filterPanel.querySelectorAll(
+      'button:not([disabled]), input:not([disabled]), select:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+    )).filter(element => !element.hidden && element.offsetParent !== null);
+  }
+
+  function openFilterPanel() {
+    if (!mobileFilterQuery.matches || !filterPanel || !filterOverlay) return;
+
+    lastFilterTrigger = document.activeElement;
+    filterOverlay.hidden = false;
+
+    requestAnimationFrame(() => {
+      filterPanel.classList.add('is-open');
+      filterOverlay.classList.add('is-visible');
+    });
+
+    filterPanel.setAttribute('aria-hidden', 'false');
+    filterToggle?.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('filters-open');
+
+    window.setTimeout(() => {
+      const focusable = getFocusableElements();
+      (filterClose || focusable[0])?.focus();
+    }, 40);
+  }
+
+  function closeFilterPanel({ restoreFocus = true } = {}) {
+    if (!filterPanel || !filterOverlay) return;
+
+    filterPanel.classList.remove('is-open');
+    filterOverlay.classList.remove('is-visible');
+    filterToggle?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('filters-open');
+
+    if (mobileFilterQuery.matches) {
+      filterPanel.setAttribute('aria-hidden', 'true');
+      window.setTimeout(() => {
+        if (!filterPanel.classList.contains('is-open')) filterOverlay.hidden = true;
+      }, 230);
+    } else {
+      filterPanel.setAttribute('aria-hidden', 'false');
+      filterOverlay.hidden = true;
+    }
+
+    if (restoreFocus) {
+      const target = lastFilterTrigger instanceof HTMLElement ? lastFilterTrigger : filterToggle;
+      target?.focus();
+    }
+  }
+
+  function syncFilterPanelMode() {
+    if (!filterPanel || !filterOverlay) return;
+
+    if (mobileFilterQuery.matches) {
+      if (!filterPanel.classList.contains('is-open')) {
+        filterPanel.setAttribute('aria-hidden', 'true');
+        filterToggle?.setAttribute('aria-expanded', 'false');
+        filterOverlay.hidden = true;
+      }
+      return;
+    }
+
+    filterPanel.classList.remove('is-open');
+    filterOverlay.classList.remove('is-visible');
+    filterOverlay.hidden = true;
+    filterPanel.setAttribute('aria-hidden', 'false');
+    filterToggle?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('filters-open');
+  }
+
+  // ---------------------------------------------------------------------
   // Formatting helpers
   // ---------------------------------------------------------------------
 
