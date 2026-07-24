@@ -1496,7 +1496,7 @@ a:focus-visible, button:focus-visible {
    Products Page Hero
 ========================================= */
 .shop-page-hero {
-    padding: 2.25rem 1.25rem 2.5rem;
+    padding: 1.75rem 1.25rem 2rem;
     background-color: var(--colour-white);
     text-align: center;
 }
@@ -1509,7 +1509,7 @@ a:focus-visible, button:focus-visible {
 .shop-page-hero h1 {
     margin: 0 0 1rem;
     font-family: var(--font-heading);
-    font-size: clamp(2.6rem, 6vw, 4.15rem);
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
     font-weight: 400;
     line-height: 1;
     text-transform: uppercase;
@@ -1545,7 +1545,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .shop-page .product-catalogue.section-spacing {
-    padding-top: 1.75rem;
+    padding-top: 1.25rem;
     padding-bottom: 4.5rem;
 }
 
@@ -1556,11 +1556,11 @@ a:focus-visible, button:focus-visible {
     display: grid;
     gap: 1rem;
     max-width: 1500px;
-    margin: 0 auto 2rem;
-    padding: 1.25rem;
-    border: 1px solid var(--colour-border);
+    margin: 0 auto 1.5rem;
+    padding: 1.35rem;
+    border: 1px solid rgba(84, 67, 53, 0.18);
     background-color: var(--colour-white);
-    box-shadow: var(--shadow-light);
+    box-shadow: 0 12px 35px rgba(49, 39, 30, 0.06);
 }
 
 .filter-group {
@@ -1608,6 +1608,24 @@ a:focus-visible, button:focus-visible {
     display: none !important;
 }
 
+.home-type-filter-group.is-revealed,
+.gender-filter-group.is-revealed {
+    animation: reveal-filter 180ms ease both;
+}
+
+@keyframes reveal-filter {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 /* =========================================
    Secondary Button
 ========================================= */
@@ -1635,10 +1653,15 @@ a:focus-visible, button:focus-visible {
 }
 
 .filter-action-group {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.65rem;
     justify-content: flex-end;
+}
+
+.filter-action-group .primary-button,
+.filter-action-group .secondary-button {
+    min-width: 180px;
 }
 
 /* =========================================
@@ -1647,15 +1670,55 @@ a:focus-visible, button:focus-visible {
 .catalogue-summary {
     display: flex;
     max-width: 1500px;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 0.75rem 1rem;
     justify-content: space-between;
-    margin: 0 auto 1.5rem;
+    margin: 0 auto 1.1rem;
 }
 
 .product-results-count {
     margin: 0;
     color: var(--colour-brown);
     font-size: 0.85rem;
+}
+
+.active-filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.active-filter-list:empty {
+    display: none;
+}
+
+.active-filter-chip {
+    display: inline-flex;
+    min-height: 32px;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--colour-border);
+    background-color: var(--colour-white);
+    color: var(--colour-brown);
+    cursor: pointer;
+    font-size: 0.72rem;
+    letter-spacing: 0.03rem;
+    transition:
+        border-color var(--transition),
+        color var(--transition);
+}
+
+.active-filter-chip:hover,
+.active-filter-chip:focus-visible {
+    border-color: var(--colour-gold);
+    color: var(--colour-black);
+}
+
+.active-filter-chip span {
+    font-size: 0.9rem;
+    line-height: 1;
 }
 
 /* =========================================
@@ -1753,16 +1816,20 @@ a:focus-visible, button:focus-visible {
 ========================================= */
 @media (min-width: 768px) {
    .shop-page-hero {
-        padding: 3rem 2rem;
+        padding: 2.25rem 2rem 2.5rem;
     }
+
     .product-controls {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         padding: 1.5rem;
     }
+
     .search-group {
         grid-column: 1 / -1;
     }
+
     .filter-action-group {
+        grid-column: 1 / -1;
         align-self: end;
     }
 }
@@ -1772,21 +1839,25 @@ a:focus-visible, button:focus-visible {
 ========================================= */
 @media (min-width: 1100px) {
    .shop-page-hero {
-        padding: 3.5rem 4rem;
+        padding: 2.75rem 4rem 3rem;
     }
+
     .product-controls {
-        grid-template-columns: minmax(240px, 1.4fr) repeat(3, minmax(180px, 1fr)) minmax(160px, 0.8fr);
+        grid-template-columns:
+            minmax(230px, 1.35fr)
+            repeat(3, minmax(175px, 1fr))
+            minmax(160px, 0.8fr);
         align-items: end;
-        padding: 1.75rem;
+        padding: 1.6rem;
     }
+
     .search-group {
         grid-column: auto;
     }
+
     .filter-action-group {
+        grid-column: 1 / -1;
         align-self: end;
-    }
-    .filter-action-group .secondary-button {
-        width: 100%;
     }
 }
 
@@ -3575,5 +3646,30 @@ a:focus-visible, button:focus-visible {
     .about-values-grid article {
         border-right: 0;
         border-bottom: 1px solid var(--colour-border);
+    }
+}
+
+
+/* =========================================
+   Shop Controls Mobile Refinements
+========================================= */
+@media (max-width: 767px) {
+    .filter-action-group {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .filter-action-group .primary-button,
+    .filter-action-group .secondary-button {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .catalogue-summary {
+        align-items: flex-start;
+    }
+
+    .active-filter-list {
+        width: 100%;
     }
 }

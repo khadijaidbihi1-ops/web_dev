@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const genderFilterGroup = document.querySelector('#gender-filter-group');
   const sortSelect = document.querySelector('#sort-products');
   const resultsCount = document.querySelector('#product-results-count');
+  const activeFilterList = document.querySelector('#active-filter-list');
   const emptyMessage = document.querySelector('#empty-results-message');
   const applyButton = document.querySelector('#apply-filters');
   const resetButton = document.querySelector('#reset-filters');
@@ -147,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isHomeFragrance = typeFilter.value === 'home-fragrance';
 
     homeTypeFilterGroup.hidden = !isHomeFragrance;
+    homeTypeFilterGroup.classList.toggle('is-revealed', isHomeFragrance);
     homeTypeFilterGroup.setAttribute(
       'aria-hidden',
       String(!isHomeFragrance)
@@ -162,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function syncGenderFilter() {
     const isPerfume = typeFilter.value === 'perfume';
     genderFilterGroup.hidden = !isPerfume;
+    genderFilterGroup.classList.toggle('is-revealed', isPerfume);
 
     if (!isPerfume) {
       genderFilter.value = 'all';
@@ -216,6 +219,82 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Creates removable badges for filters currently affecting the catalogue
+  function renderActiveFilters() {
+    const activeFilters = [];
+
+    if (searchInput.value.trim()) {
+      activeFilters.push({
+        label: `Search: ${searchInput.value.trim()}`,
+        clear: () => {
+          searchInput.value = '';
+        }
+      });
+    }
+
+    if (collectionFilter.value !== 'all') {
+      activeFilters.push({
+        label: toTitleCase(collectionFilter.value),
+        clear: () => {
+          collectionFilter.value = 'all';
+        }
+      });
+    }
+
+    if (typeFilter.value !== 'all') {
+      activeFilters.push({
+        label: typeFilter.options[typeFilter.selectedIndex].text,
+        clear: () => {
+          typeFilter.value = 'all';
+          syncHomeTypeFilter();
+          syncGenderFilter();
+        }
+      });
+    }
+
+    if (
+      typeFilter.value === 'home-fragrance'
+      && homeTypeFilter.value !== 'all'
+    ) {
+      activeFilters.push({
+        label: homeTypeFilter.options[homeTypeFilter.selectedIndex].text,
+        clear: () => {
+          homeTypeFilter.value = 'all';
+        }
+      });
+    }
+
+    if (
+      typeFilter.value === 'perfume'
+      && genderFilter.value !== 'all'
+    ) {
+      activeFilters.push({
+        label: genderFilter.options[genderFilter.selectedIndex].text,
+        clear: () => {
+          genderFilter.value = 'all';
+        }
+      });
+    }
+
+    activeFilterList.replaceChildren(
+      ...activeFilters.map(filter => {
+        const button = document.createElement('button');
+
+        button.className = 'active-filter-chip';
+        button.type = 'button';
+        button.innerHTML = `${filter.label}<span aria-hidden="true">×</span>`;
+        button.setAttribute('aria-label', `Remove ${filter.label} filter`);
+
+        button.addEventListener('click', () => {
+          filter.clear();
+          render();
+        });
+
+        return button;
+      })
+    );
+  }
+
   // Filters, sorts, and redraws the product grid based on the current filter values
   function render() {
     const query = searchInput.value.trim().toLowerCase();
@@ -232,6 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     grid.replaceChildren(...sortedProducts.map(createProductCard));
     resultsCount.textContent = `Showing ${sortedProducts.length} ${sortedProducts.length === 1 ? 'product' : 'products'}`;
+    renderActiveFilters();
     emptyMessage.hidden = sortedProducts.length > 0;
   }
 
@@ -280,6 +360,10 @@ document.addEventListener('DOMContentLoaded', () => {
     syncGenderFilter();
     render();
   });
+
+  collectionFilter.addEventListener('change', render);
+  homeTypeFilter.addEventListener('change', render);
+  genderFilter.addEventListener('change', render);
   applyButton.addEventListener('click', render);
   sortSelect.addEventListener('change', render);
 
