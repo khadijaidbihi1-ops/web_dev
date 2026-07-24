@@ -32,10 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const applyButton = document.querySelector('#apply-filters');
   const resetButton = document.querySelector('#reset-filters');
   const emptyResetButton = document.querySelector('#empty-results-reset');
-  const filterDrawer = document.querySelector('#product-filter-drawer');
-  const filterToggle = document.querySelector('#filter-drawer-toggle');
-  const filterClose = document.querySelector('#filter-drawer-close');
-  const filterOverlay = document.querySelector('#filter-drawer-overlay');
+  const toolbarResults = document.querySelector('#toolbar-results');
+  const filterToggle = document.querySelector('#filter-toggle');
+  const filterPanel = document.querySelector('#product-filter-panel');
+  const filterClose = document.querySelector('#filter-close');
+  const filterOverlay = document.querySelector('#filter-overlay');
+  const mobileFilterQuery = window.matchMedia('(max-width: 1023px)');
   let lastFilterTrigger = null;
 
   const searchParams = new URLSearchParams(location.search);
@@ -315,7 +317,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const sortedProducts = sortProducts(filteredProducts);
 
     grid.replaceChildren(...sortedProducts.map(createProductCard));
-    resultsCount.textContent = `${sortedProducts.length} ${sortedProducts.length === 1 ? 'Product' : 'Products'}`;
+    const countLabel = `${sortedProducts.length} ${sortedProducts.length === 1 ? 'Product' : 'Products'}`;
+    resultsCount.textContent = `Showing ${countLabel.toLowerCase()}`;
+    if (toolbarResults) toolbarResults.textContent = countLabel;
     renderActiveFilters();
     emptyMessage.hidden = sortedProducts.length > 0;
   }
@@ -332,54 +336,6 @@ document.addEventListener('DOMContentLoaded', () => {
     syncGenderFilter();
     render();
   }
-
-  // ---------------------------------------------------------------------
-  // Accessible filter drawer (tablet and mobile)
-  // ---------------------------------------------------------------------
-  function getDrawerFocusable() {
-    return filterDrawer ? Array.from(filterDrawer.querySelectorAll('button:not([disabled]), input:not([disabled]), select:not([disabled]), [href], [tabindex]:not([tabindex="-1"])')) : [];
-  }
-
-  function openFilterDrawer() {
-    if (!filterDrawer || window.innerWidth >= 1024) return;
-    closeMobileMenu();
-    lastFilterTrigger = document.activeElement;
-    filterDrawer.classList.add('is-open');
-    filterOverlay.hidden = false;
-    requestAnimationFrame(() => filterOverlay.classList.add('is-visible'));
-    filterDrawer.setAttribute('aria-hidden', 'false');
-    filterToggle?.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('filter-drawer-active');
-    (filterClose || filterDrawer).focus();
-  }
-
-  function closeFilterDrawer() {
-    if (!filterDrawer) return;
-    filterDrawer.classList.remove('is-open');
-    filterOverlay?.classList.remove('is-visible');
-    filterDrawer.setAttribute('aria-hidden', 'true');
-    filterToggle?.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('filter-drawer-active');
-    window.setTimeout(() => { if (filterOverlay) filterOverlay.hidden = true; }, 260);
-    if (lastFilterTrigger && document.contains(lastFilterTrigger)) lastFilterTrigger.focus();
-  }
-
-  filterToggle?.addEventListener('click', openFilterDrawer);
-  filterClose?.addEventListener('click', closeFilterDrawer);
-  filterOverlay?.addEventListener('click', closeFilterDrawer);
-  filterDrawer?.addEventListener('keydown', event => {
-    if (event.key !== 'Tab') return;
-    const focusable = getDrawerFocusable();
-    if (!focusable.length) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-  });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && filterDrawer?.classList.contains('is-open')) closeFilterDrawer();
-  });
-  window.addEventListener('resize', () => { if (window.innerWidth >= 1024) closeFilterDrawer(); });
 
   // ---------------------------------------------------------------------
   // Set initial filter values from the URL, then render
@@ -417,7 +373,10 @@ document.addEventListener('DOMContentLoaded', () => {
   collectionFilter.addEventListener('change', render);
   homeTypeFilter.addEventListener('change', render);
   genderFilter.addEventListener('change', render);
-  applyButton.addEventListener('click', () => { render(); closeFilterDrawer(); });
+  applyButton.addEventListener('click', () => {
+    render();
+    closeFilterPanel();
+  });
   sortSelect.addEventListener('change', render);
 
   searchInput.addEventListener('keydown', event => {
@@ -426,6 +385,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   resetButton.addEventListener('click', resetFilters);
   emptyResetButton?.addEventListener('click', resetFilters);
+
+  filterToggle?.addEventListener('click', openFilterPanel);
+  filterClose?.addEventListener('click', () => closeFilterPanel());
+  filterOverlay?.addEventListener('click', () => closeFilterPanel());
+  mobileFilterQuery.addEventListener?.('change', syncFilterPanelMode);
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && filterPanel?.classList.contains('is-open')) {
+      closeFilterPanel();
+      return;
+    }
+
+    if (event.key === 'Tab' && filterPanel?.classList.contains('is-open')) {
+      const focusable = getFocusableElements();
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
+  syncFilterPanelMode();
 
   // Handles product links and every "Add to Bag" button in the grid
   grid.addEventListener('click', event => {

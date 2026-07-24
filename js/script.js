@@ -16,7 +16,6 @@ function closeMobileMenu() {
   menuToggle.setAttribute('aria-expanded', 'false');
   menuToggle.setAttribute('aria-label', 'Open navigation menu');
   document.body.classList.remove('menu-active');
-  menuToggle.focus({ preventScroll: true });
 }
 
 if (menuToggle && navigationMenu) {
@@ -33,10 +32,6 @@ if (menuToggle && navigationMenu) {
   // Closes the menu after tapping a link inside it
   navigationMenu.addEventListener('click', event => {
     if (event.target.closest('a')) closeMobileMenu();
-  });
-
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && navigationMenu.classList.contains('menu-open')) closeMobileMenu();
   });
 
   // Closes the menu automatically on desktop-sized viewports
