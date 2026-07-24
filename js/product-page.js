@@ -36,6 +36,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const variants = product.variants?.length ? product.variants : [{ label: '', price: product.price }];
   let selectedVariantIndex = 0;
 
+  // Returns to the exact filtered Shop page used before opening the product.
+  const storedShopUrl = sessionStorage.getItem('mehek:lastShopUrl');
+  const continueShoppingUrl = storedShopUrl?.includes('products.html')
+    ? storedShopUrl
+    : 'products.html';
+
+  const addToCartButton = document.querySelector('#add-to-cart');
+  const addedActions = document.createElement('div');
+
+  addedActions.className = 'product-added-actions';
+  addedActions.hidden = true;
+  addedActions.setAttribute('aria-live', 'polite');
+  addedActions.innerHTML = `
+    <p class="product-added-message">
+      <strong>${product.name}</strong> has been added to your bag.
+    </p>
+    <a class="product-continue-shopping" href="${continueShoppingUrl}">
+      Continue Shopping
+    </a>
+    <a class="product-view-bag" href="cart.html">
+      View Bag
+    </a>
+  `;
+
+  addToCartButton.insertAdjacentElement('afterend', addedActions);
+
   // ---------------------------------------------------------------------
   // Page text and images
   // ---------------------------------------------------------------------
@@ -110,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add to cart
   // ---------------------------------------------------------------------
 
-  document.querySelector('#add-to-cart').addEventListener('click', event => {
+  addToCartButton.addEventListener('click', event => {
     let cart = [];
     try {
       cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
@@ -140,6 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     localStorage.setItem('shoppingCart', JSON.stringify(cart));
     document.dispatchEvent(new CustomEvent('cart:updated'));
+
+    // Offer clear next steps without forcing the visitor away from the product
+    addedActions.hidden = false;
 
     // Briefly show "Added to Bag" feedback on the button
     const button = event.currentTarget;

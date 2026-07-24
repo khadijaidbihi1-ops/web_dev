@@ -374,8 +374,17 @@ document.addEventListener('DOMContentLoaded', () => {
   resetButton.addEventListener('click', resetFilters);
   emptyResetButton?.addEventListener('click', resetFilters);
 
-  // One listener for every "Add to Bag" button in the grid
+  // Handles product links and every "Add to Bag" button in the grid
   grid.addEventListener('click', event => {
+    const productLink = event.target.closest(
+      '.product-image-link, .product-name-link'
+    );
+
+    if (productLink) {
+      sessionStorage.setItem('mehek:lastShopUrl', window.location.href);
+      return;
+    }
+
     const button = event.target.closest('.add-cart-button');
     if (!button) return;
 
