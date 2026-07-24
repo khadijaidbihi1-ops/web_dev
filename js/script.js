@@ -239,3 +239,98 @@ if (currentYear) {
 }
 
 updateCartCounter();
+
+/* =========================================
+   Homepage Hero Slider
+========================================= */
+
+const heroSlider = document.querySelector('#hero-slider');
+
+if (heroSlider) {
+  const heroSlides = Array.from(heroSlider.querySelectorAll('.hero-slide'));
+  const heroDots = Array.from(heroSlider.querySelectorAll('.hero-slider-dot'));
+  const previousButton = heroSlider.querySelector('.hero-slider-previous');
+  const nextButton = heroSlider.querySelector('.hero-slider-next');
+
+  let activeSlideIndex = 0;
+  let autoplayTimer;
+  let touchStartX = 0;
+
+  // Shows one slide and updates its matching navigation dot
+  function showHeroSlide(newIndex) {
+    activeSlideIndex = (newIndex + heroSlides.length) % heroSlides.length;
+
+    heroSlides.forEach((slide, index) => {
+      const slideIsActive = index === activeSlideIndex;
+
+      slide.classList.toggle('is-active', slideIsActive);
+      slide.setAttribute('aria-hidden', String(!slideIsActive));
+    });
+
+    heroDots.forEach((dot, index) => {
+      const dotIsActive = index === activeSlideIndex;
+
+      dot.classList.toggle('is-active', dotIsActive);
+      dot.setAttribute('aria-current', String(dotIsActive));
+    });
+  }
+
+  // Restarts automatic slide rotation after manual navigation
+  function restartHeroAutoplay() {
+    window.clearInterval(autoplayTimer);
+
+    autoplayTimer = window.setInterval(() => {
+      showHeroSlide(activeSlideIndex + 1);
+    }, 6000);
+  }
+
+  previousButton.addEventListener('click', () => {
+    showHeroSlide(activeSlideIndex - 1);
+    restartHeroAutoplay();
+  });
+
+  nextButton.addEventListener('click', () => {
+    showHeroSlide(activeSlideIndex + 1);
+    restartHeroAutoplay();
+  });
+
+  heroDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showHeroSlide(index);
+      restartHeroAutoplay();
+    });
+  });
+
+  // Pauses autoplay while the user is interacting with the slider
+  heroSlider.addEventListener('mouseenter', () => {
+    window.clearInterval(autoplayTimer);
+  });
+
+  heroSlider.addEventListener('mouseleave', restartHeroAutoplay);
+
+  heroSlider.addEventListener('focusin', () => {
+    window.clearInterval(autoplayTimer);
+  });
+
+  heroSlider.addEventListener('focusout', event => {
+    if (!heroSlider.contains(event.relatedTarget)) restartHeroAutoplay();
+  });
+
+  // Enables horizontal swipe navigation on touch devices
+  heroSlider.addEventListener('touchstart', event => {
+    touchStartX = event.changedTouches[0].clientX;
+  }, { passive: true });
+
+  heroSlider.addEventListener('touchend', event => {
+    const touchDistance = event.changedTouches[0].clientX - touchStartX;
+
+    if (Math.abs(touchDistance) < 50) return;
+
+    showHeroSlide(activeSlideIndex + (touchDistance < 0 ? 1 : -1));
+    restartHeroAutoplay();
+  }, { passive: true });
+
+  showHeroSlide(0);
+  restartHeroAutoplay();
+}
+

@@ -24,7 +24,7 @@
     <script src="js/script.js" defer></script>
 </head>
 
-<body>
+<body class="home-page">
 
     <!-- Allows keyboard users to skip directly to the main content -->
     <a class="skip-link" href="#main-content">
@@ -139,40 +139,112 @@
     <main id="main-content">
 
         <!-- =========================================
-             Hero Section
+             Homepage Hero Slider
         ========================================== -->
-        <section class="hero-section">
+        <section
+            class="hero-slider"
+            id="hero-slider"
+            aria-label="MEHEK featured collections"
+        >
 
-            <!-- Hero text content -->
-            <div class="hero-content">
-                <p class="hero-eyebrow">
-                    Luxury Fragrance House
-                </p>
-
-                <h1>
-                    Where Heritage
-                    <span>Meets Luxury</span>
-                </h1>
-
-                <p class="hero-description">
-                    Discover refined fragrances inspired by Morocco,
-                    Pakistan, Italy and London.
-                </p>
-
-                <a class="hero-button" href="products.html">
-                    Explore Collection
-                </a>
-            </div>
-
-            <!-- Hero image -->
-            <div class="hero-image-wrapper">
+            <!-- Slide 1: Perfume collection -->
+            <article class="hero-slide is-active" aria-hidden="false">
                 <img
-                    class="hero-image"
+                    class="hero-slide-image"
                     src="media/images/hero/hero-perfume.webp"
                     alt="Luxury MEHEK perfume bottle displayed in a warm, elegant setting"
-                    width="1920"
-                    height="1080"
+                    width="1672"
+                    height="941"
                 >
+
+                <div class="hero-slide-overlay"></div>
+
+                <div class="hero-slide-content">
+                    <p class="hero-eyebrow">
+                        Heritage Collection
+                    </p>
+
+                    <h1>
+                        Where Heritage
+                        <span>Meets Luxury</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Discover refined fragrances inspired by Morocco,
+                        Pakistan, Italy and London.
+                    </p>
+
+                    <a class="hero-button" href="products.html">
+                        Explore Fragrances
+                    </a>
+                </div>
+            </article>
+
+            <!-- Slide 2: Home collection -->
+            <article class="hero-slide" aria-hidden="true">
+                <img
+                    class="hero-slide-image"
+                    src="media/images/hero/hero-home.png"
+                    alt="MEHEK home fragrance collection displayed in an elegant interior"
+                    width="1672"
+                    height="941"
+                >
+
+                <div class="hero-slide-overlay"></div>
+
+                <div class="hero-slide-content">
+                    <p class="hero-eyebrow">
+                        Home Collection
+                    </p>
+
+                    <h2>
+                        The Art of Scent
+                        <span>At Home</span>
+                    </h2>
+
+                    <p class="hero-description">
+                        Transform every room with candles, diffusers and
+                        refined home fragrance rituals.
+                    </p>
+
+                    <a class="hero-button" href="products.html?category=home">
+                        Explore Home Fragrance
+                    </a>
+                </div>
+            </article>
+
+            <!-- Previous and next controls -->
+            <button
+                class="hero-slider-arrow hero-slider-previous"
+                type="button"
+                aria-label="Show previous slide"
+            >
+                <span aria-hidden="true">‹</span>
+            </button>
+
+            <button
+                class="hero-slider-arrow hero-slider-next"
+                type="button"
+                aria-label="Show next slide"
+            >
+                <span aria-hidden="true">›</span>
+            </button>
+
+            <!-- Slide indicators -->
+            <div class="hero-slider-dots" aria-label="Choose hero slide">
+                <button
+                    class="hero-slider-dot is-active"
+                    type="button"
+                    aria-label="Show perfume collection"
+                    aria-current="true"
+                ></button>
+
+                <button
+                    class="hero-slider-dot"
+                    type="button"
+                    aria-label="Show home collection"
+                    aria-current="false"
+                ></button>
             </div>
 
         </section>
