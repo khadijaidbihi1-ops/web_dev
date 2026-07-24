@@ -5,6 +5,7 @@
    another shop script encounters an error. */
 (() => {
   function initFilterDrawer() {
+    if (document.documentElement.dataset.filterDrawerReady === 'true') return;
     const toggle = document.getElementById('filter-toggle');
     const panel = document.getElementById('product-filter-panel');
     const close = document.getElementById('filter-close');
@@ -12,6 +13,7 @@
     const apply = document.getElementById('apply-filters');
 
     if (!toggle || !panel || !overlay) return;
+    document.documentElement.dataset.filterDrawerReady = 'true';
 
     let returnFocus = toggle;
 
