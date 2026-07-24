@@ -145,7 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Shows the home product filter only when browsing Home Fragrance
   function syncHomeTypeFilter() {
     const isHomeFragrance = typeFilter.value === 'home-fragrance';
+
     homeTypeFilterGroup.hidden = !isHomeFragrance;
+    homeTypeFilterGroup.setAttribute(
+      'aria-hidden',
+      String(!isHomeFragrance)
+    );
     homeTypeFilter.disabled = !isHomeFragrance;
 
     if (!isHomeFragrance) {
@@ -273,6 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
   typeFilter.addEventListener('change', () => {
     syncHomeTypeFilter();
     syncGenderFilter();
+    render();
   });
   applyButton.addEventListener('click', render);
   sortSelect.addEventListener('change', render);
