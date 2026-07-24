@@ -280,7 +280,7 @@ if (heroSlider) {
 
     autoplayTimer = window.setInterval(() => {
       showHeroSlide(activeSlideIndex + 1);
-    }, 6000);
+    }, 4000);
   }
 
   previousButton.addEventListener('click', () => {
@@ -445,5 +445,31 @@ if (collectionSlider) {
   );
 
   showCollectionSlide(requestedIndex >= 0 ? requestedIndex : 0, false);
+}
+
+/* =========================================
+   Collections Back to Top Button
+========================================= */
+
+const backToTopButton = document.querySelector('#back-to-top-button');
+
+if (backToTopButton) {
+  // Shows the button after the visitor moves beyond the opening section
+  function updateBackToTopButton() {
+    backToTopButton.hidden = window.scrollY < 500;
+  }
+
+  backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  window.addEventListener('scroll', updateBackToTopButton, {
+    passive: true
+  });
+
+  updateBackToTopButton();
 }
 
