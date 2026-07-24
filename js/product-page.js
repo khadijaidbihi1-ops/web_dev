@@ -36,31 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const variants = product.variants?.length ? product.variants : [{ label: '', price: product.price }];
   let selectedVariantIndex = 0;
 
-  // Returns to the exact filtered Shop page used before opening the product.
+  // Return the visitor to the same filtered Shop view whenever possible.
   const storedShopUrl = sessionStorage.getItem('mehek:lastShopUrl');
-  const continueShoppingUrl = storedShopUrl?.includes('products.html')
-    ? storedShopUrl
-    : 'products.html';
+  const continueShoppingLink = document.querySelector('#continue-shopping-link');
 
-  const addToCartButton = document.querySelector('#add-to-cart');
-  const addedActions = document.createElement('div');
+  if (storedShopUrl?.includes('products.html')) {
+    continueShoppingLink.href = storedShopUrl;
+  }
 
-  addedActions.className = 'product-added-actions';
-  addedActions.hidden = true;
-  addedActions.setAttribute('aria-live', 'polite');
-  addedActions.innerHTML = `
-    <p class="product-added-message">
-      <strong>${product.name}</strong> has been added to your bag.
-    </p>
-    <a class="product-continue-shopping" href="${continueShoppingUrl}">
-      Continue Shopping
-    </a>
-    <a class="product-view-bag" href="cart.html">
-      View Bag
-    </a>
-  `;
-
-  addToCartButton.insertAdjacentElement('afterend', addedActions);
+  const addedMessage = document.querySelector('#product-added-message');
 
   // ---------------------------------------------------------------------
   // Page text and images
@@ -136,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add to cart
   // ---------------------------------------------------------------------
 
-  addToCartButton.addEventListener('click', event => {
+  document.querySelector('#add-to-cart').addEventListener('click', event => {
     let cart = [];
     try {
       cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
@@ -167,12 +151,13 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('shoppingCart', JSON.stringify(cart));
     document.dispatchEvent(new CustomEvent('cart:updated'));
 
-    // Offer clear next steps without forcing the visitor away from the product
-    addedActions.hidden = false;
-
-    // Briefly show "Added to Bag" feedback on the button
+    // Show a restrained confirmation while keeping navigation available.
     const button = event.currentTarget;
     const originalText = button.textContent;
+
+    addedMessage.textContent = `✓ ${product.name} has been added to your bag.`;
+    addedMessage.hidden = false;
+
     button.textContent = 'Added to Bag';
     button.disabled = true;
 

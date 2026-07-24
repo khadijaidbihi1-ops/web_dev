@@ -3125,14 +3125,14 @@ a:focus-visible, button:focus-visible {
 /* Compact editorial introduction */
 .collections-hero {
     display: grid;
-    height: 340px;
-    min-height: 0;
+    height: clamp(520px, 62vh, 680px);
+    min-height: 520px;
     grid-template-columns: minmax(0, 1.1fr) minmax(380px, 0.9fr);
     background-color: var(--colour-cream);
 }
 
 .collections-hero-image {
-    min-height: 0;
+    min-height: 520px;
     overflow: hidden;
 }
 
@@ -3140,6 +3140,7 @@ a:focus-visible, button:focus-visible {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 55%;
 }
 
 .collections-hero-content {
@@ -3534,7 +3535,7 @@ a:focus-visible, button:focus-visible {
     }
 
     .collections-hero-image {
-        min-height: 230px;
+        min-height: 360px;
     }
 
     .collections-hero-content {
@@ -4351,10 +4352,99 @@ a:focus-visible, button:focus-visible {
 }
 
 
-.product-inline-links{
-display:flex;justify-content:space-between;align-items:center;
-margin:.9rem 0 0;font-size:.78rem}
-.product-inline-links a{text-transform:uppercase;letter-spacing:.08rem;color:#222}
-.product-added-actions{display:flex!important;gap:1.2rem;border:0!important;background:none!important;padding:.5rem 0!important;align-items:center}
-.product-added-message{margin:0;font-size:.82rem}
-.product-added-actions a{border:0!important;background:none!important;padding:0!important;min-height:auto!important;font-size:.78rem}
+/* =========================================
+   Product Page — Refined Shopping Actions
+========================================= */
+.product-added-message {
+    margin: 0.85rem 0 0;
+    color: var(--colour-brown);
+    font-size: 0.82rem;
+    line-height: 1.55;
+}
+
+.product-added-message[hidden] {
+    display: none;
+}
+
+.product-shopping-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    margin-top: 0.85rem;
+}
+
+.product-shopping-links a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.15rem 0;
+    color: var(--colour-black);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.09rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.product-shopping-links a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -0.15rem;
+    left: 0;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s ease;
+}
+
+.product-shopping-links a:hover::after,
+.product-shopping-links a:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Neutralise the older boxed actions if cached HTML still contains them. */
+.product-added-actions {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    gap: 0.55rem 1.25rem !important;
+    margin-top: 0.85rem !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+}
+
+.product-added-actions[hidden] {
+    display: none !important;
+}
+
+.product-added-actions .product-added-message {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+.product-added-actions a {
+    min-height: auto !important;
+    padding: 0.15rem 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: var(--colour-black) !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.09rem !important;
+    text-transform: uppercase;
+}
+
+@media (max-width: 520px) {
+    .product-shopping-links {
+        align-items: flex-start;
+    }
+
+    .product-shopping-links a {
+        font-size: 0.66rem;
+        letter-spacing: 0.07rem;
+    }
+}
