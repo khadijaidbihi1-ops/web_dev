@@ -333,3 +333,117 @@ if (heroSlider) {
   restartHeroAutoplay();
 }
 
+/* =========================================
+   Collection Story Slider
+========================================= */
+
+const collectionSlider = document.querySelector('#collection-slider');
+
+if (collectionSlider) {
+  const collectionSlides = Array.from(
+    collectionSlider.querySelectorAll('.collection-slide')
+  );
+  const collectionTabs = Array.from(
+    document.querySelectorAll('.collection-tab')
+  );
+  const collectionDots = Array.from(
+    collectionSlider.querySelectorAll('.collection-slider-dot')
+  );
+  const previousCollectionButton = collectionSlider.querySelector(
+    '.collection-slider-previous'
+  );
+  const nextCollectionButton = collectionSlider.querySelector(
+    '.collection-slider-next'
+  );
+
+  let activeCollectionIndex = 0;
+  let collectionTouchStartX = 0;
+
+  // Changes the visible collection and keeps tabs, dots and URL hash in sync
+  function showCollectionSlide(newIndex, updateHash = true) {
+    const previousIndex = activeCollectionIndex;
+    activeCollectionIndex = (
+      newIndex + collectionSlides.length
+    ) % collectionSlides.length;
+
+    collectionSlides.forEach((slide, index) => {
+      const isActive = index === activeCollectionIndex;
+      const isLeaving = index === previousIndex && index !== activeCollectionIndex;
+
+      slide.classList.toggle('is-active', isActive);
+      slide.classList.toggle('is-leaving', isLeaving);
+      slide.setAttribute('aria-hidden', String(!isActive));
+    });
+
+    collectionTabs.forEach((tab, index) => {
+      const isActive = index === activeCollectionIndex;
+
+      tab.classList.toggle('is-active', isActive);
+      tab.setAttribute('aria-current', String(isActive));
+    });
+
+    collectionDots.forEach((dot, index) => {
+      const isActive = index === activeCollectionIndex;
+
+      dot.classList.toggle('is-active', isActive);
+      dot.setAttribute('aria-current', String(isActive));
+    });
+
+    window.setTimeout(() => {
+      collectionSlides.forEach(slide => {
+        slide.classList.remove('is-leaving');
+      });
+    }, 430);
+
+    if (updateHash) {
+      const activeId = collectionSlides[activeCollectionIndex].id;
+      window.history.replaceState(null, '', `#${activeId}`);
+    }
+  }
+
+  collectionTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+      showCollectionSlide(index);
+    });
+  });
+
+  collectionDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showCollectionSlide(index);
+    });
+  });
+
+  previousCollectionButton.addEventListener('click', () => {
+    showCollectionSlide(activeCollectionIndex - 1);
+  });
+
+  nextCollectionButton.addEventListener('click', () => {
+    showCollectionSlide(activeCollectionIndex + 1);
+  });
+
+  // Enables horizontal swipe navigation on touch devices
+  collectionSlider.addEventListener('touchstart', event => {
+    collectionTouchStartX = event.changedTouches[0].clientX;
+  }, { passive: true });
+
+  collectionSlider.addEventListener('touchend', event => {
+    const touchDistance = (
+      event.changedTouches[0].clientX - collectionTouchStartX
+    );
+
+    if (Math.abs(touchDistance) < 50) return;
+
+    showCollectionSlide(
+      activeCollectionIndex + (touchDistance < 0 ? 1 : -1)
+    );
+  }, { passive: true });
+
+  // Opens the collection requested by a direct link or footer link
+  const requestedCollection = window.location.hash.replace('#', '');
+  const requestedIndex = collectionSlides.findIndex(
+    slide => slide.id === requestedCollection
+  );
+
+  showCollectionSlide(requestedIndex >= 0 ? requestedIndex : 0, false);
+}
+

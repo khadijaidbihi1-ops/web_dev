@@ -65,177 +65,272 @@
         <p class="section-eyebrow">Three places. Three moods. One story.</p>
         <h1 id="collections-page-title">The World of MEHEK</h1>
         <p>Each MEHEK collection is a chapter in a journey shaped by memory, movement and belonging. Heritage looks back to the cultures that formed us. Milano celebrates the elegance in which our vision first learned to take shape. London captures the energy of the city that transformed those influences into something new.</p>
-        <a class="primary-button collections-hero-button" href="#heritage">Explore the stories</a>
+        <a class="primary-button collections-hero-button" href="#collection-slider">Explore the stories</a>
       </div>
     </section>
 
-    <!-- Jump links to each collection section -->
-    <nav class="collection-jump-nav" aria-label="Collection sections">
-      <a href="#heritage">Heritage</a>
-      <a href="#milano">Milano</a>
-      <a href="#london">London</a>
+    <!-- Collection slider navigation -->
+    <nav
+      class="collection-jump-nav"
+      aria-label="Choose a MEHEK collection"
+    >
+      <button
+        class="collection-tab is-active"
+        type="button"
+        data-collection-slide="0"
+        aria-current="true"
+      >
+        Heritage
+      </button>
+
+      <button
+        class="collection-tab"
+        type="button"
+        data-collection-slide="1"
+        aria-current="false"
+      >
+        Milano
+      </button>
+
+      <button
+        class="collection-tab"
+        type="button"
+        data-collection-slide="2"
+        aria-current="false"
+      >
+        London
+      </button>
     </nav>
 
-    <!-- Heritage collection -->
-    <section class="collection-story collection-story-dark reveal" id="heritage" aria-labelledby="heritage-title">
-      <div class="collection-story-image">
-        <img src="media/images/collections/heritage-collection.webp" alt="Heritage Collection inspired by Morocco and Pakistan" width="900" height="1200" loading="lazy">
+    <!-- =========================================
+         Collection Story Slider
+    ========================================== -->
+    <section
+      class="collection-slider"
+      id="collection-slider"
+      aria-label="MEHEK collection stories"
+    >
+
+      <div class="collection-slider-track">
+
+        <!-- Heritage Collection -->
+        <article
+          class="collection-slide collection-slide-dark is-active"
+          id="heritage"
+          aria-hidden="false"
+        >
+          <div class="collection-slide-image">
+            <img
+              src="media/images/collections/heritage-collection.webp"
+              alt="Heritage Collection inspired by Morocco and Pakistan"
+              width="900"
+              height="1200"
+            >
+          </div>
+
+          <div class="collection-slide-content">
+            <p class="collection-number">1 / 3</p>
+            <p class="section-eyebrow">Roots, ritual and memory</p>
+            <h2>Heritage Collection</h2>
+
+            <p class="collection-lead">
+              Heritage is where the story begins: in the warmth of family
+              homes, the depth of old traditions and the scents that remain
+              in memory long after a moment has passed.
+            </p>
+
+            <blockquote class="collection-quote">
+              “Some fragrances are worn. Others become part of your story.”
+            </blockquote>
+
+            <p>
+              Inspired by Morocco and Pakistan, the collection brings together
+              saffron, rose, incense, amber, cedar and oud in compositions that
+              feel warm, intimate and timeless.
+            </p>
+
+            <div class="collection-signature">
+              <div>
+                <span>Atmosphere</span>
+                <strong>Warm · Ceremonial · Enveloping</strong>
+              </div>
+
+              <div>
+                <span>Signature notes</span>
+                <strong>Oud · Saffron · Rose · Amber</strong>
+              </div>
+            </div>
+
+            <a
+              class="collection-story-button"
+              href="products.html?collection=heritage"
+            >
+              Discover Heritage
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Milano Collection -->
+        <article
+          class="collection-slide collection-slide-light"
+          id="milano"
+          aria-hidden="true"
+        >
+          <div class="collection-slide-image">
+            <img
+              src="media/images/collections/milano-collection.webp"
+              alt="Milano Collection inspired by Italian elegance and design"
+              width="900"
+              height="1200"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="collection-slide-content">
+            <p class="collection-number">2 / 3</p>
+            <p class="section-eyebrow">Elegance in every detail</p>
+            <h2>Milano Collection</h2>
+
+            <p class="collection-lead">
+              Milano celebrates refined expression, precise design and the
+              effortless elegance found in thoughtful details.
+            </p>
+
+            <blockquote class="collection-quote">
+              “Elegance lives in the details that never need to announce themselves.”
+            </blockquote>
+
+            <p>
+              Bright bergamot, iris, delicate florals, cashmere woods and clean
+              musk create polished fragrances inspired by tailoring, marble
+              interiors and modern Italian restraint.
+            </p>
+
+            <div class="collection-signature">
+              <div>
+                <span>Atmosphere</span>
+                <strong>Polished · Luminous · Sophisticated</strong>
+              </div>
+
+              <div>
+                <span>Signature notes</span>
+                <strong>Bergamot · Iris · Peony · Musk</strong>
+              </div>
+            </div>
+
+            <a
+              class="collection-story-button"
+              href="products.html?collection=milano"
+            >
+              Discover Milano
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- London Collection -->
+        <article
+          class="collection-slide collection-slide-london"
+          id="london"
+          aria-hidden="true"
+        >
+          <div class="collection-slide-image">
+            <img
+              src="media/images/collections/london-collection.webp"
+              alt="London Collection inspired by contemporary London"
+              width="900"
+              height="1200"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="collection-slide-content">
+            <p class="collection-number">3 / 3</p>
+            <p class="section-eyebrow">Movement, contrast and reinvention</p>
+            <h2>London Collection</h2>
+
+            <p class="collection-lead">
+              London is the collection of transformation: layered, individual
+              and shaped by a city where cultures and identities continually meet.
+            </p>
+
+            <blockquote class="collection-quote">
+              “Every city leaves a scent. London leaves a signature.”
+            </blockquote>
+
+            <p>
+              Blackcurrant, peony, tobacco, woods, amber and musk move between
+              fresh rain, hidden gardens, warm interiors and midnight streets.
+            </p>
+
+            <div class="collection-signature">
+              <div>
+                <span>Atmosphere</span>
+                <strong>Modern · Magnetic · Unexpected</strong>
+              </div>
+
+              <div>
+                <span>Signature notes</span>
+                <strong>Blackcurrant · Peony · Tobacco · Woods</strong>
+              </div>
+            </div>
+
+            <a
+              class="collection-story-button"
+              href="products.html?collection=london"
+            >
+              Discover London
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
       </div>
 
-      <div class="collection-story-content">
-        <p class="collection-number">01</p>
-        <p class="section-eyebrow">Roots, ritual and memory</p>
-        <h2 id="heritage-title">Heritage Collection</h2>
+      <!-- Slider controls -->
+      <button
+        class="collection-slider-arrow collection-slider-previous"
+        type="button"
+        aria-label="Show previous collection"
+      >
+        <span aria-hidden="true">‹</span>
+      </button>
 
-        <p class="collection-lead">Heritage is where the story begins: in the warmth of family homes, the depth of old traditions and the scents that remain in memory long after a moment has passed.</p>
-        <blockquote class="collection-quote">“Some fragrances are worn. Others become part of your story.”</blockquote>
+      <button
+        class="collection-slider-arrow collection-slider-next"
+        type="button"
+        aria-label="Show next collection"
+      >
+        <span aria-hidden="true">›</span>
+      </button>
 
-        <p>Inspired by the cultural richness of Morocco and Pakistan, the collection brings together the atmosphere of two worlds connected by hospitality, craftsmanship and a shared love of fragrance. Saffron, rose, incense, amber, cedar and oud recall carved wooden doors, embroidered fabrics, evening gatherings and the quiet beauty of rituals passed from one generation to the next.</p>
+      <div class="collection-slider-dots" aria-label="Choose a collection">
+        <button
+          class="collection-slider-dot is-active"
+          type="button"
+          data-collection-slide="0"
+          aria-label="Show Heritage Collection"
+          aria-current="true"
+        ></button>
 
-        <p>The compositions are rich without feeling heavy and opulent without losing intimacy. Dark bottles and warm gold details reflect the collection's character: confident, precious and timeless. Heritage is not simply an interpretation of the past. It is a way of carrying that past forward, allowing tradition to become part of a modern identity.</p>
+        <button
+          class="collection-slider-dot"
+          type="button"
+          data-collection-slide="1"
+          aria-label="Show Milano Collection"
+          aria-current="false"
+        ></button>
 
-        <div class="collection-signature">
-          <div>
-            <span>Atmosphere</span>
-            <strong>Warm · Ceremonial · Enveloping</strong>
-          </div>
-          <div>
-            <span>Signature notes</span>
-            <strong>Oud · Saffron · Rose · Amber</strong>
-          </div>
-        </div>
-
-        <div class="collection-featured" id="featured-heritage">
-          <p class="collection-featured-label">Featured from the collection</p>
-          <div class="collection-feature-grid">
-            <a class="collection-feature-card" href="product.html?product=oud-legacy">
-              <img src="media/images/products/oud-legacy.webp" alt="Oud Legacy" width="420" height="420" loading="lazy">
-              <span>Oud Legacy</span>
-            </a>
-            <a class="collection-feature-card" href="product.html?product=velvet-rose">
-              <img src="media/images/products/velvet-rose-notes.ico" alt="Velvet Rose" width="420" height="420" loading="lazy">
-              <span>Velvet Rose</span>
-            </a>
-            <a class="collection-feature-card" href="product.html?product=heritage-hair-mist">
-              <img src="media/images/products/heritage-hair-mist.webp" alt="Heritage Hair Mist" width="420" height="420" loading="lazy">
-              <span>Heritage Hair Mist</span>
-            </a>
-          </div>
-        </div>
-
-        <a class="collection-story-button" href="products.html?collection=heritage">
-          Discover Heritage products
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Milano collection -->
-    <section class="collection-story collection-story-light collection-story-reverse reveal" id="milano" aria-labelledby="milano-title">
-      <div class="collection-story-image">
-        <img src="media/images/collections/milano-collection.webp" alt="Milano Collection inspired by Italian elegance and design" width="900" height="1200" loading="lazy">
+        <button
+          class="collection-slider-dot"
+          type="button"
+          data-collection-slide="2"
+          aria-label="Show London Collection"
+          aria-current="false"
+        ></button>
       </div>
 
-      <div class="collection-story-content">
-        <p class="collection-number">02</p>
-        <p class="section-eyebrow">Elegance in every detail</p>
-        <h2 id="milano-title">Milano Collection</h2>
-
-        <p class="collection-lead">Milano is a tribute to the place where different influences learned to speak the same visual language: refined, expressive and effortlessly composed.</p>
-        <blockquote class="collection-quote">“Elegance lives in the details that never need to announce themselves.”</blockquote>
-
-        <p>The collection draws inspiration from Italian tailoring, luminous interiors, polished stone and the rhythm of a city where heritage and innovation exist side by side. Bright bergamot, delicate florals, iris, cashmere woods and clean musk are arranged with precision, creating fragrances that feel elegant from the first impression to the final trace on the skin.</p>
-
-        <p>White and gold packaging reflects the clarity and restraint of the collection. Every element is considered, but nothing feels overstated. Milano represents the art of making sophistication appear natural: a perfectly cut jacket, a quiet café in the afternoon, light falling across a marble floor. It is modern luxury expressed through balance rather than excess.</p>
-
-        <div class="collection-signature">
-          <div>
-            <span>Atmosphere</span>
-            <strong>Polished · Luminous · Sophisticated</strong>
-          </div>
-          <div>
-            <span>Signature notes</span>
-            <strong>Bergamot · Iris · Peony · Musk</strong>
-          </div>
-        </div>
-
-        <div class="collection-featured" id="featured-milano">
-          <p class="collection-featured-label">Featured from the collection</p>
-          <div class="collection-feature-grid">
-            <a class="collection-feature-card" href="product.html?product=milano-noir">
-              <img src="media/images/products/milano-noir.webp" alt="Milano Noir" width="420" height="420" loading="lazy">
-              <span>Milano Noir</span>
-            </a>
-            <a class="collection-feature-card" href="product.html?product=italian-bergamot">
-              <img src="media/images/products/italian-bergamot.webp" alt="Italian Bergamot" width="420" height="420" loading="lazy">
-              <span>Italian Bergamot</span>
-            </a>
-            <a class="collection-feature-card" href="product.html?product=milano-hair-mist">
-              <img src="media/images/products/milano-hair-mist.webp" alt="Milano Hair Mist" width="420" height="420" loading="lazy">
-              <span>Milano Hair Mist</span>
-            </a>
-          </div>
-        </div>
-
-        <a class="collection-story-button" href="products.html?collection=milano">
-          Discover Milano products
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- London collection -->
-    <section class="collection-story collection-story-london reveal" id="london" aria-labelledby="london-title">
-      <div class="collection-story-image">
-        <img src="media/images/collections/london-collection.webp" alt="London Collection inspired by contemporary London" width="900" height="1200" loading="lazy">
-      </div>
-
-      <div class="collection-story-content">
-        <p class="collection-number">03</p>
-        <p class="section-eyebrow">Movement, contrast and reinvention</p>
-        <h2 id="london-title">London Collection</h2>
-
-        <p class="collection-lead">London is the collection of transformation: a portrait of a city where cultures meet, identities evolve and every street can reveal a different mood.</p>
-        <blockquote class="collection-quote">“Every city leaves a scent. London leaves a signature.”</blockquote>
-
-        <p>Its fragrances move between contrasts. Fresh rain and warm interiors. Hidden gardens and midnight streets. Historic architecture and restless modern energy. Blackcurrant, peony, tobacco, woods, amber and musk create compositions that feel layered and individual, reflecting a city that never asks people to belong in only one way.</p>
-
-        <p>The London collection is confident yet adaptable, designed for lives that move from daylight to evening and from familiar spaces to new possibilities. White bottles with black details mirror the city's graphic contrasts. At its heart is the idea that identity is not fixed: it is created through experience, connection and the freedom to become something entirely your own.</p>
-
-        <div class="collection-signature">
-          <div>
-            <span>Atmosphere</span>
-            <strong>Modern · Magnetic · Unexpected</strong>
-          </div>
-          <div>
-            <span>Signature notes</span>
-            <strong>Blackcurrant · Peony · Tobacco · Woods</strong>
-          </div>
-        </div>
-
-        <div class="collection-featured" id="featured-london">
-          <p class="collection-featured-label">Featured from the collection</p>
-          <div class="collection-feature-grid">
-            <a class="collection-feature-card" href="product.html?product=midnight-london">
-              <img src="media/images/products/midnight.webp" alt="Midnight London" width="420" height="420" loading="lazy">
-              <span>Midnight London</span>
-            </a>
-            <a class="collection-feature-card" href="product.html?product=london-bloom">
-              <img src="media/images/products/london-bloom.webp" alt="London Bloom" width="420" height="420" loading="lazy">
-              <span>London Bloom</span>
-            </a>
-            <a class="collection-feature-card" href="product.html?product=london-hair-mist">
-              <img src="media/images/products/london-hair-mist.webp" alt="London Hair Mist" width="420" height="420" loading="lazy">
-              <span>London Hair Mist</span>
-            </a>
-          </div>
-        </div>
-
-        <a class="collection-story-button" href="products.html?collection=london">
-          Discover London products
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
     </section>
 
     <!-- Closing call to action -->
@@ -247,29 +342,44 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- =========================================
+       Website Footer
+  ========================================== -->
   <footer class="site-footer">
+
     <div class="footer-grid">
+
+      <!-- Brand information -->
       <div class="footer-brand">
-        <a class="brand-logo footer-logo" href="index.html" aria-label="MEHEK homepage">
+        <a
+          class="brand-logo footer-logo"
+          href="index.html"
+          aria-label="MEHEK homepage"
+        >
           <span class="brand-name">MEHEK</span>
           <span class="brand-subtitle">Fragrances</span>
         </a>
-        <p>Timeless scents inspired by heritage, culture and modern luxury.</p>
+
+        <p>
+          Luxury fragrances for body and home.
+        </p>
       </div>
 
+      <!-- Shop links -->
       <div class="footer-column">
         <h2 class="footer-heading">Shop</h2>
+
         <ul>
           <li><a href="products.html">All Products</a></li>
-          <li><a href="products.html?category=perfume">Fragrances</a></li>
-          <li><a href="products.html?category=hair-mist">Hair Mist</a></li>
-          <li><a href="products.html?category=home-fragrance">Home Fragrance</a></li>
+          <li><a href="products.html?type=perfume">Fragrances</a></li>
+          <li><a href="products.html?type=home-fragrance">Home Fragrance</a></li>
         </ul>
       </div>
 
+      <!-- Collection links -->
       <div class="footer-column">
         <h2 class="footer-heading">Collections</h2>
+
         <ul>
           <li><a href="collections.html#heritage">Heritage</a></li>
           <li><a href="collections.html#milano">Milano</a></li>
@@ -277,19 +387,27 @@
         </ul>
       </div>
 
+      <!-- Brand links -->
       <div class="footer-column">
-        <h2 class="footer-heading">Customer Care</h2>
+        <h2 class="footer-heading">MEHEK</h2>
+
         <ul>
+          <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="cart.html">Shopping Bag</a></li>
-          <li><a href="checkout.html">Checkout</a></li>
+          <li><a href="cart.html">Shopping Cart</a></li>
         </ul>
       </div>
+
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 MEHEK. All rights reserved.</p>
+      <p>
+        &copy; <span id="current-year">2026</span> MEHEK Fragrances.
+        Original brand concept and editorial direction by Khadija Idbihi.
+        Visual content created with AI-assisted tools. All rights reserved.
+      </p>
     </div>
+
   </footer>
 
   <script src="js/script.js"></script>
