@@ -3002,15 +3002,25 @@ a:focus-visible, button:focus-visible {
     align-items: center;
     overflow: hidden;
     color: var(--colour-black);
-    background:
-        linear-gradient(90deg, rgba(247, 241, 232, .98) 0%, rgba(247, 241, 232, .92) 35%, rgba(247, 241, 232, .18) 68%, rgba(247, 241, 232, .05) 100%),
-        url('../media/images/contact/contact-hero.png') center right / cover no-repeat;
+    background: var(--colour-ivory);
 }
+
+.contact-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center right;
+}
+
 
 .contact-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, .02), rgba(0, 0, 0, .06));
+    background:
+        linear-gradient(90deg, rgba(247, 241, 232, .98) 0%, rgba(247, 241, 232, .92) 35%, rgba(247, 241, 232, .18) 68%, rgba(247, 241, 232, .05) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, .02), rgba(0, 0, 0, .06));
     pointer-events: none;
 }
 
@@ -3239,7 +3249,11 @@ a:focus-visible, button:focus-visible {
     .contact-hero {
         min-height: 500px;
         align-items: flex-end;
-        background-position: 62% center;
+        background-position: initial;
+    }
+
+    .contact-hero-image {
+        object-position: 62% center;
     }
 
     .contact-hero::after {
