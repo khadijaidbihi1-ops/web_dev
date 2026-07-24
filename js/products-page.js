@@ -32,6 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const applyButton = document.querySelector('#apply-filters');
   const resetButton = document.querySelector('#reset-filters');
   const emptyResetButton = document.querySelector('#empty-results-reset');
+  const filterDrawer = document.querySelector('#product-filter-drawer');
+  const filterToggle = document.querySelector('#filter-drawer-toggle');
+  const filterClose = document.querySelector('#filter-drawer-close');
+  const filterOverlay = document.querySelector('#filter-drawer-overlay');
+  let lastFilterTrigger = null;
 
   const searchParams = new URLSearchParams(location.search);
 
@@ -310,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sortedProducts = sortProducts(filteredProducts);
 
     grid.replaceChildren(...sortedProducts.map(createProductCard));
-    resultsCount.textContent = `Showing ${sortedProducts.length} ${sortedProducts.length === 1 ? 'product' : 'products'}`;
+    resultsCount.textContent = `${sortedProducts.length} ${sortedProducts.length === 1 ? 'Product' : 'Products'}`;
     renderActiveFilters();
     emptyMessage.hidden = sortedProducts.length > 0;
   }
@@ -327,6 +332,54 @@ document.addEventListener('DOMContentLoaded', () => {
     syncGenderFilter();
     render();
   }
+
+  // ---------------------------------------------------------------------
+  // Accessible filter drawer (tablet and mobile)
+  // ---------------------------------------------------------------------
+  function getDrawerFocusable() {
+    return filterDrawer ? Array.from(filterDrawer.querySelectorAll('button:not([disabled]), input:not([disabled]), select:not([disabled]), [href], [tabindex]:not([tabindex="-1"])')) : [];
+  }
+
+  function openFilterDrawer() {
+    if (!filterDrawer || window.innerWidth >= 1024) return;
+    closeMobileMenu();
+    lastFilterTrigger = document.activeElement;
+    filterDrawer.classList.add('is-open');
+    filterOverlay.hidden = false;
+    requestAnimationFrame(() => filterOverlay.classList.add('is-visible'));
+    filterDrawer.setAttribute('aria-hidden', 'false');
+    filterToggle?.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('filter-drawer-active');
+    (filterClose || filterDrawer).focus();
+  }
+
+  function closeFilterDrawer() {
+    if (!filterDrawer) return;
+    filterDrawer.classList.remove('is-open');
+    filterOverlay?.classList.remove('is-visible');
+    filterDrawer.setAttribute('aria-hidden', 'true');
+    filterToggle?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('filter-drawer-active');
+    window.setTimeout(() => { if (filterOverlay) filterOverlay.hidden = true; }, 260);
+    if (lastFilterTrigger && document.contains(lastFilterTrigger)) lastFilterTrigger.focus();
+  }
+
+  filterToggle?.addEventListener('click', openFilterDrawer);
+  filterClose?.addEventListener('click', closeFilterDrawer);
+  filterOverlay?.addEventListener('click', closeFilterDrawer);
+  filterDrawer?.addEventListener('keydown', event => {
+    if (event.key !== 'Tab') return;
+    const focusable = getDrawerFocusable();
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && filterDrawer?.classList.contains('is-open')) closeFilterDrawer();
+  });
+  window.addEventListener('resize', () => { if (window.innerWidth >= 1024) closeFilterDrawer(); });
 
   // ---------------------------------------------------------------------
   // Set initial filter values from the URL, then render
@@ -364,7 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
   collectionFilter.addEventListener('change', render);
   homeTypeFilter.addEventListener('change', render);
   genderFilter.addEventListener('change', render);
-  applyButton.addEventListener('click', render);
+  applyButton.addEventListener('click', () => { render(); closeFilterDrawer(); });
   sortSelect.addEventListener('change', render);
 
   searchInput.addEventListener('keydown', event => {
