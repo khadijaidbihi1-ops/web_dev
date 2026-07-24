@@ -3125,13 +3125,14 @@ a:focus-visible, button:focus-visible {
 /* Compact editorial introduction */
 .collections-hero {
     display: grid;
-    min-height: 430px;
-    grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+    height: 340px;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1.1fr) minmax(380px, 0.9fr);
     background-color: var(--colour-cream);
 }
 
 .collections-hero-image {
-    min-height: 430px;
+    min-height: 0;
     overflow: hidden;
 }
 
@@ -3146,23 +3147,23 @@ a:focus-visible, button:focus-visible {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding: clamp(2.5rem, 5vw, 5rem);
+    padding: clamp(2rem, 4vw, 3.75rem);
 }
 
 .collections-hero-content h1 {
-    max-width: 580px;
-    margin: 0 0 1rem;
+    max-width: 520px;
+    margin: 0 0 0.75rem;
     font-family: var(--font-heading);
-    font-size: clamp(3.2rem, 5vw, 5.4rem);
+    font-size: clamp(2.8rem, 4.3vw, 4.5rem);
     font-weight: 400;
     line-height: 0.94;
 }
 
 .collections-hero-content > p:not(.section-eyebrow) {
-    max-width: 520px;
-    margin: 0 0 1.5rem;
+    max-width: 470px;
+    margin: 0 0 1.1rem;
     color: var(--colour-brown);
-    line-height: 1.75;
+    line-height: 1.65;
 }
 
 .collections-hero-button {
@@ -3527,16 +3528,17 @@ a:focus-visible, button:focus-visible {
 
 @media (max-width: 960px) {
     .collections-hero {
+        height: auto;
         min-height: 0;
         grid-template-columns: 1fr;
     }
 
     .collections-hero-image {
-        min-height: 360px;
+        min-height: 230px;
     }
 
     .collections-hero-content {
-        padding: 3rem 2rem 3.5rem;
+        padding: 2.5rem 2rem 3rem;
     }
 
     .collection-slide {
