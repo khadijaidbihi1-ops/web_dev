@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Constants
   // ---------------------------------------------------------------------
   const HOME_FRAGRANCE_CATEGORIES = ['scented-candle', 'reed-diffuser', 'room-spray'];
-  const VALID_TYPE_FILTERS = ['perfume', 'hair-mist', 'home-fragrance', 'room-spray', 'reed-diffuser', 'scented-candle'];
+  const VALID_TYPE_FILTERS = ['perfume', 'hair-mist', 'home-fragrance'];
+  const VALID_HOME_TYPE_FILTERS = ['scented-candle', 'reed-diffuser', 'room-spray'];
 
   // ---------------------------------------------------------------------
   // DOM elements
@@ -20,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.querySelector('#product-search');
   const typeFilter = document.querySelector('#product-type-filter');
   const collectionFilter = document.querySelector('#collection-filter');
+  const homeTypeFilter = document.querySelector('#home-type-filter');
+  const homeTypeFilterGroup = document.querySelector('#home-type-filter-group');
   const genderFilter = document.querySelector('#gender-filter');
   const genderFilterGroup = document.querySelector('#gender-filter-group');
   const sortSelect = document.querySelector('#sort-products');
@@ -139,6 +142,17 @@ document.addEventListener('DOMContentLoaded', () => {
     return article;
   }
 
+  // Shows the home product filter only when browsing Home Fragrance
+  function syncHomeTypeFilter() {
+    const isHomeFragrance = typeFilter.value === 'home-fragrance';
+    homeTypeFilterGroup.hidden = !isHomeFragrance;
+    homeTypeFilter.disabled = !isHomeFragrance;
+
+    if (!isHomeFragrance) {
+      homeTypeFilter.value = 'all';
+    }
+  }
+
   // Shows the gender filter only when browsing perfumes, and resets it otherwise
   function syncGenderFilter() {
     const isPerfume = typeFilter.value === 'perfume';
@@ -156,6 +170,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (selectedType === 'all') return true;
     if (selectedType === 'home-fragrance') return HOME_FRAGRANCE_CATEGORIES.includes(product.category);
     return product.category === selectedType;
+  }
+
+  // Checks the selected subtype when Home Fragrance is active
+  function matchesHomeTypeFilter(product) {
+    if (typeFilter.value !== 'home-fragrance') return true;
+    if (homeTypeFilter.value === 'all') return true;
+    return product.category === homeTypeFilter.value;
   }
 
   // Checks whether a product matches the current search text
@@ -198,7 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const collectionMatches = collectionFilter.value === 'all' || product.collection === collectionFilter.value;
       const genderMatches = genderFilter.value === 'all' || product.gender === genderFilter.value;
 
-      return matchesTypeFilter(product) && collectionMatches && genderMatches && matchesSearch(product, query);
+      return matchesTypeFilter(product) && matchesHomeTypeFilter(product)
+        && collectionMatches && genderMatches && matchesSearch(product, query);
     });
 
     const sortedProducts = sortProducts(filteredProducts);
@@ -213,8 +235,10 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.value = '';
     typeFilter.value = 'all';
     collectionFilter.value = 'all';
+    homeTypeFilter.value = 'all';
     genderFilter.value = 'all';
     sortSelect.value = 'featured';
+    syncHomeTypeFilter();
     syncGenderFilter();
     render();
   }
@@ -223,11 +247,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Set initial filter values from the URL, then render
   // ---------------------------------------------------------------------
 
-  const initialType = searchParams.get('type') || searchParams.get('category') || 'all';
-  typeFilter.value = VALID_TYPE_FILTERS.includes(initialType) ? initialType : 'all';
+  const requestedType = searchParams.get('type') || searchParams.get('category') || 'all';
+  const requestedHomeType = searchParams.get('home-type') || 'all';
+  const legacyHomeType = VALID_HOME_TYPE_FILTERS.includes(requestedType) ? requestedType : 'all';
+
+  typeFilter.value = legacyHomeType !== 'all'
+    ? 'home-fragrance'
+    : (VALID_TYPE_FILTERS.includes(requestedType) ? requestedType : 'all');
+
+  homeTypeFilter.value = VALID_HOME_TYPE_FILTERS.includes(requestedHomeType)
+    ? requestedHomeType
+    : legacyHomeType;
+
   collectionFilter.value = searchParams.get('collection') || 'all';
   searchInput.value = searchParams.get('search') || '';
 
+  syncHomeTypeFilter();
   syncGenderFilter();
   render();
 
@@ -235,7 +270,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Event listeners
   // ---------------------------------------------------------------------
 
-  typeFilter.addEventListener('change', syncGenderFilter);
+  typeFilter.addEventListener('change', () => {
+    syncHomeTypeFilter();
+    syncGenderFilter();
+  });
   applyButton.addEventListener('click', render);
   sortSelect.addEventListener('change', render);
 
