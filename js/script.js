@@ -239,7 +239,6 @@ if (currentYear) {
 }
 
 updateCartCounter();
-
 /* =========================================
    Homepage Hero Slider
 ========================================= */
