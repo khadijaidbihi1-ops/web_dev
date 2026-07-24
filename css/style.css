@@ -3004,7 +3004,7 @@ a:focus-visible, button:focus-visible {
     color: var(--colour-black);
     background:
         linear-gradient(90deg, rgba(247, 241, 232, .98) 0%, rgba(247, 241, 232, .92) 35%, rgba(247, 241, 232, .18) 68%, rgba(247, 241, 232, .05) 100%),
-        url('../media/images/products/oud-legacy.webp') center right / cover no-repeat;
+        url('../media/images/contact/contact-hero.png') center right / cover no-repeat;
 }
 
 .contact-hero-overlay {
