@@ -11,21 +11,23 @@
   <link rel="stylesheet" href="css/about.css">
 </head>
 <body class="about-page">
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
-
   <header class="site-header" id="site-header">
-    <a class="brand" href="index.html" aria-label="MEHEK home">MEHEK</a>
-    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
-      <span></span><span></span>
-    </button>
-    <nav class="site-nav" aria-label="Main navigation">
+    <a class="brand" href="index.html" aria-label="MEHEK home">
+      <span>MEHEK</span>
+      <small>FRAGRANCES</small>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
-      <a href="about.html" aria-current="page">About</a>
-      <a href="collections.html">Collections</a>
       <a href="products.html">Shop</a>
+      <a href="collections.html">Collections</a>
+      <a href="about.html" aria-current="page">About</a>
       <a href="contact.html">Contact</a>
     </nav>
+
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
+      <span></span><span></span>
+    </button>
   </header>
 
   <main>
@@ -145,7 +147,7 @@
   </main>
 
   <footer class="site-footer">
-    <a class="brand" href="index.html">MEHEK</a>
+    <a class="brand footer-brand" href="index.html"><span>MEHEK</span><small>FRAGRANCES</small></a>
     <p>Born from memory. Made to remain.</p>
     <p>© <span id="year"></span> MEHEK. All rights reserved.</p>
   </footer>
