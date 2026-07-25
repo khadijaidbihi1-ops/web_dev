@@ -1,259 +1,155 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Discover MEHEK, a contemporary fragrance house inspired by heritage, craftsmanship and modern living.">
-  <title>About | MEHEK</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover the story of MEHEK, a fragrance house shaped by Moroccan and Pakistani heritage, Italian refinement and London creativity.">
+  <title>Our Story | MEHEK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/about.css">
 </head>
-<body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+<body class="about-page">
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
 
-  <!-- Header -->
   <header class="site-header" id="site-header">
-    <div class="announcement-bar">
-      <p>Complimentary UK shipping on orders over £100</p>
-    </div>
-
-    <nav class="navbar" aria-label="Main navigation">
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="navigation-menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <a class="brand-logo" href="index.html" aria-label="MEHEK homepage">
-        <span class="brand-name">MEHEK</span><span class="brand-subtitle">Fragrances</span>
-      </a>
-
-      <ul class="navigation-menu" id="navigation-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Shop</a></li>
-        <li><a href="collections.html">Collections</a></li>
-        <li><a href="about.html" class="active-link" aria-current="page">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-      <div class="navigation-actions">
-        <a class="icon-link" href="products.html#product-search" aria-label="Search products">
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22">
-            <circle cx="11" cy="11" r="7"></circle>
-            <line x1="16" y1="16" x2="21" y2="21"></line>
-          </svg>
-        </a>
-        <a class="icon-link cart-link" href="cart.html" aria-label="Open shopping cart">
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22">
-            <path d="M3 4h2l2 11h10l2-8H6"></path>
-            <circle cx="9" cy="19" r="1"></circle>
-            <circle cx="17" cy="19" r="1"></circle>
-          </svg>
-          <span class="cart-count" id="cart-count" aria-live="polite">0</span>
-        </a>
-      </div>
+    <a class="brand" href="index.html" aria-label="MEHEK home">MEHEK</a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="collections.html">Collections</a>
+      <a href="products.html">Shop</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Main content -->
-  <main id="main-content" class="about-page-main">
-
-    <!-- Editorial hero -->
-    <section class="about-hero reveal" aria-labelledby="about-page-title">
-      <div class="about-hero-image">
-        <img
-          src="media/images/about/our-story.webp"
-          alt="MEHEK fragrance bottles arranged in a refined setting"
-          width="1400"
-          height="1100"
-        >
-      </div>
-
-      <div class="about-hero-copy">
-        <p class="section-eyebrow">Our Story</p>
-        <h1 id="about-page-title">Born between cultures.</h1>
-        <p class="about-hero-lead">
-          MEHEK is a fragrance house shaped by Moroccan and Pakistani roots,
-          Italian elegance and the creative energy of London.
-        </p>
+  <main>
+    <section class="about-hero">
+      <img src="media/images/about/hero-about.webp" alt="Historic courtyard covered in flowers overlooking a city at golden hour">
+      <div class="hero-shade"></div>
+      <div class="hero-content reveal">
+        <p class="eyebrow light">The house of MEHEK</p>
+        <h1>A fragrance house<br>born between <em>memories.</em></h1>
+        <p class="hero-intro">From Moroccan and Pakistani heritage,<br>through Italy, to London.</p>
+        <a class="scroll-link" href="#story"><span></span>Scroll to follow our story</a>
       </div>
     </section>
 
-    <!-- Brand story -->
-    <section class="about-origin reveal" aria-labelledby="origin-title">
-      <div class="about-origin-heading">
-        <p class="section-eyebrow">The Story Behind MEHEK</p>
-        <h2 id="origin-title">One identity, shaped across places.</h2>
+    <section class="story-section section" id="story">
+      <div class="story-visual reveal">
+        <img src="media/images/about/our-story-about.webp" alt="Rose petals, oud and ornate brass objects in warm sunlight">
+        <p class="story-script">Some places<br>never leave us.</p>
       </div>
-
-      <div class="about-origin-copy">
-        <p>
-          The story begins with Moroccan and Pakistani heritage: cultures rich
-          in scent, ritual, hospitality and memory. Rose, amber, woods, spice
-          and musk became an emotional language long before MEHEK became a
-          fragrance house.
-        </p>
-        <p>
-          Italy introduced a different sensibility considered design, quiet
-          elegance and attention to detail. London later brought movement,
-          contrast and reinvention, creating the space in which these
-          influences could become one contemporary identity.
-        </p>
-        <p>
-          MEHEK was created to hold all of these places together. Heritage,
-          Milano and London are not separate stories, but chapters of the same
-          world: personal, layered and designed to feel timeless.
-        </p>
+      <div class="story-copy reveal">
+        <p class="eyebrow">Our story</p>
+        <h2>Scent was our language before MEHEK had a name.</h2>
+        <p>It lived in family homes, familiar rituals, rose-filled gardens, polished wood and spices carried through the air.</p>
+        <p>MEHEK was created to preserve those memories and give them a new form: intimate, modern and made to remain.</p>
       </div>
     </section>
 
-    <!-- Brand journey -->
-    <section class="about-journey reveal" aria-labelledby="journey-title">
-      <div class="about-journey-heading">
-        <p class="section-eyebrow">The Journey</p>
-        <h2 id="journey-title">From heritage to fragrance house.</h2>
+    <section class="journey section" aria-labelledby="journey-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Our journey</p>
+        <h2 id="journey-title">Four chapters.<br>One olfactory home.</h2>
       </div>
 
-      <ol class="about-timeline">
-        <li>
-          <span class="about-timeline-year">1993</span>
-          <div>
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="timeline-image"><img src="media/images/about/timeline-morocco-pakistan.webp" alt="Traditional Moroccan courtyard"></div>
+          <div class="timeline-copy">
+            <span class="year">1993</span>
             <h3>Morocco &amp; Pakistan</h3>
-            <p>Roots, family traditions and a first connection to fragrance as memory.</p>
+            <p>Where our story begins. Homes filled with rose, oud and family rituals shaped our earliest memories.</p>
           </div>
-        </li>
-        <li>
-          <span class="about-timeline-year">2003</span>
-          <div>
+        </article>
+
+        <article class="timeline-item reverse reveal">
+          <div class="timeline-image"><img src="media/images/about/timeline-italy.webp" alt="Elegant Milan architecture in warm sunlight"></div>
+          <div class="timeline-copy">
+            <span class="year">2003</span>
             <h3>Italy</h3>
-            <p>An appreciation for refined design, craftsmanship and understated elegance.</p>
+            <p>A new chapter of refinement: architecture, craftsmanship and the timeless beauty of considered design.</p>
           </div>
-        </li>
-        <li>
-          <span class="about-timeline-year">2018</span>
-          <div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-image"><img src="media/images/about/timeline-london.webp" alt="London beside the Thames on a rainy evening"></div>
+          <div class="timeline-copy">
+            <span class="year">2018</span>
             <h3>London</h3>
-            <p>A new chapter defined by contrast, creativity and contemporary identity.</p>
+            <p>A city of contrasts and freedom, where heritage could be reimagined without losing its soul.</p>
           </div>
-        </li>
-        <li>
-          <span class="about-timeline-year">2021</span>
-          <div>
+        </article>
+
+        <article class="timeline-item reverse reveal">
+          <div class="timeline-image"><img src="media/images/about/timeline-mehek-birth.webp" alt="Perfume bottle resting on antique books by candlelight"></div>
+          <div class="timeline-copy">
+            <span class="year">2021</span>
             <h3>MEHEK</h3>
-            <p>The creation of one fragrance house bringing every influence together.</p>
+            <p>Every place we had known became one fragrance house—our memories, shaped into a new beginning.</p>
           </div>
-        </li>
-      </ol>
+        </article>
+      </div>
     </section>
 
-    <!-- Brand statement -->
-    <section class="about-quote reveal" aria-label="MEHEK brand statement">
-      <p class="section-eyebrow">Our Point of View</p>
-      <blockquote>
-        “Fragrance can carry every place we have known and every version of
-        ourselves we are becoming.”
+    <section class="notes-section" aria-labelledby="notes-title">
+      <div class="notes-header section reveal">
+        <p class="eyebrow light">The memories behind the fragrance</p>
+        <h2 id="notes-title">Materials that feel like memories.</h2>
+      </div>
+      <div class="notes-grid">
+        <article class="note-card reveal">
+          <img src="media/images/about/rose.webp" alt="Pink roses covered in morning dew">
+          <div class="note-overlay"><h3>Rose</h3><p>Gardens, celebrations and familiar hands.</p></div>
+        </article>
+        <article class="note-card reveal">
+          <img src="media/images/about/amber.webp" alt="Glowing amber resin">
+          <div class="note-overlay"><h3>Amber</h3><p>The warmth that remains after a room becomes quiet.</p></div>
+        </article>
+        <article class="note-card reveal">
+          <img src="media/images/about/wood.webp" alt="Cedar and oud wood pieces">
+          <div class="note-overlay"><h3>Wood</h3><p>Objects and places made more beautiful by time.</p></div>
+        </article>
+        <article class="note-card reveal">
+          <img src="media/images/about/musk.webp" alt="Ivory silk, soft fibres and incense smoke">
+          <div class="note-overlay"><h3>Musk</h3><p>Something intimate, almost impossible to describe.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="philosophy section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Our philosophy</p>
+        <h2>Created with purpose.</h2>
+      </div>
+      <div class="philosophy-grid">
+        <article class="reveal"><span>01</span><h3>Heritage</h3><p>Tradition is remembered, reinterpreted and carried forward.</p></article>
+        <article class="reveal"><span>02</span><h3>Craftsmanship</h3><p>Every fragrance and detail is designed to belong to the same world.</p></article>
+        <article class="reveal"><span>03</span><h3>Everyday Luxury</h3><p>Luxury can live quietly within the rituals of ordinary life.</p></article>
+      </div>
+    </section>
+
+    <section class="closing-quote">
+      <div class="quote-glow" aria-hidden="true"></div>
+      <blockquote class="reveal">
+        <p>Some memories fade.<br><em>The most beautiful ones become fragrance.</em></p>
+        <cite>— MEHEK</cite>
       </blockquote>
-    </section>
-
-    <!-- Brand values -->
-    <section class="about-values reveal" id="values" aria-labelledby="values-title">
-      <div class="section-heading about-values-heading">
-        <p class="section-eyebrow">Our Philosophy</p>
-        <h2 id="values-title">Created with meaning.</h2>
-        <p class="section-description">
-          Every part of MEHEK is guided by story, intention and the belief that
-          luxury should feel personal.
-        </p>
-      </div>
-
-      <div class="about-values-grid">
-        <article>
-          <span>01</span>
-          <h3>Heritage</h3>
-          <p>We preserve memory while allowing tradition to evolve into something new.</p>
-        </article>
-        <article>
-          <span>02</span>
-          <h3>Craftsmanship</h3>
-          <p>Fragrance, form, colour and detail are considered as one complete experience.</p>
-        </article>
-        <article>
-          <span>03</span>
-          <h3>Everyday Luxury</h3>
-          <p>Beautiful objects and memorable scents should have a place in daily life.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Creative direction -->
-    <section class="about-creative reveal" aria-labelledby="creative-title">
-      <div>
-        <p class="section-eyebrow">Creative Direction</p>
-        <h2 id="creative-title">An original brand world.</h2>
-      </div>
-      <p>
-        MEHEK is an original brand concept created by Khadija Idbihi. The brand
-        identity, product universe and editorial direction were developed as
-        part of this project, with selected visual assets produced using
-        AI-assisted creative tools.
-      </p>
-    </section>
-
-    <!-- Closing call to action -->
-    <section class="about-closing reveal">
-      <p class="section-eyebrow">Discover MEHEK</p>
-      <h2>Explore the chapter that feels like yours.</h2>
-      <div class="about-closing-actions">
-        <a class="primary-button" href="collections.html">Explore Collections</a>
-        <a class="secondary-button" href="products.html">Shop All Products</a>
-      </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a class="brand-logo footer-logo" href="index.html" aria-label="MEHEK homepage">
-          <span class="brand-name">MEHEK</span><span class="brand-subtitle">Fragrances</span>
-        </a>
-        <p>Luxury fragrances for body and home.</p>
-      </div>
-
-      <div class="footer-column">
-        <h2 class="footer-heading">Shop</h2>
-        <ul>
-          <li><a href="products.html">All Products</a></li>
-          <li><a href="products.html?category=perfume">Fragrances</a></li>
-          <li><a href="products.html?category=hair-mist">Hair Mist</a></li>
-          <li><a href="products.html?category=home-fragrance">Home Fragrance</a></li>
-          <li><a href="products.html?type=scented-candle">Candles</a></li>
-          <li><a href="products.html?type=reed-diffuser">Reed Diffusers</a></li>
-          <li><a href="products.html?type=room-spray">Room Sprays</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h2 class="footer-heading">Collections</h2>
-        <ul>
-          <li><a href="collections.html#heritage">Heritage</a></li>
-          <li><a href="collections.html#milano">Milano</a></li>
-          <li><a href="collections.html#london">London</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h2 class="footer-heading">MEHEK</h2>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="cart.html">Shopping Bag</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; <span id="current-year">2026</span> MEHEK Fragrances. All rights reserved.</p>
-    </div>
+    <a class="brand" href="index.html">MEHEK</a>
+    <p>Born from memory. Made to remain.</p>
+    <p>© <span id="year"></span> MEHEK. All rights reserved.</p>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="js/about.js"></script>
 </body>
 </html>
