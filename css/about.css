@@ -193,3 +193,176 @@
   .about-reveal { opacity: 1; transform: none; transition: none; }
   .about-note-card img { transition: none; }
 }
+
+/* =========================================================
+   TIMELINE FIX
+   Strongly scoped to the About page so shared site styles
+   cannot turn the journey into overlapping columns.
+========================================================= */
+.about-page .about-journey {
+  background: #ede6dc;
+  overflow: hidden;
+}
+
+.about-page .about-journey .about-section-heading {
+  max-width: 820px;
+  margin: 0 auto clamp(3.5rem, 7vw, 6rem);
+  text-align: center;
+}
+
+.about-page .about-journey .about-section-heading h2 {
+  color: #17130f;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  line-height: 1.04;
+}
+
+.about-page .about-timeline {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: clamp(4rem, 8vw, 7rem) !important;
+  width: min(100%, 1250px) !important;
+  max-width: 1250px !important;
+  margin: 0 auto !important;
+}
+
+.about-page .about-timeline-item {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr) !important;
+  gap: clamp(2.5rem, 6vw, 6rem) !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.about-page .about-timeline-image,
+.about-page .about-timeline-copy {
+  position: relative !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  inset: auto !important;
+  transform: none;
+}
+
+.about-page .about-timeline-image {
+  overflow: hidden;
+  background: #d8ccbd;
+}
+
+.about-page .about-timeline-image img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: cover !important;
+  margin: 0 !important;
+}
+
+.about-page .about-timeline-copy {
+  max-width: 500px;
+}
+
+.about-page .about-timeline-copy span {
+  display: block;
+  margin: 0 0 1rem;
+  color: #a98550;
+  font-size: .72rem;
+  letter-spacing: .2em;
+}
+
+.about-page .about-timeline-copy h3 {
+  margin: 0 0 1rem !important;
+  color: #17130f !important;
+  font-size: clamp(2.5rem, 4.5vw, 4.2rem) !important;
+  line-height: 1 !important;
+  white-space: normal !important;
+}
+
+.about-page .about-timeline-copy p {
+  max-width: 440px;
+  margin: 0 !important;
+  color: #574d43 !important;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.about-page .about-timeline-reverse .about-timeline-image {
+  order: 2 !important;
+}
+
+.about-page .about-timeline-reverse .about-timeline-copy {
+  order: 1 !important;
+  justify-self: end;
+}
+
+/* Subtle illuminated trail around the normal pointer. */
+.about-page .about-cursor-glow {
+  position: fixed;
+  z-index: 9999;
+  width: 34px;
+  height: 34px;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 224, 166, .72) 0%, rgba(205, 158, 89, .28) 34%, rgba(205, 158, 89, 0) 72%);
+  filter: blur(1px);
+  transition: opacity 180ms ease;
+  mix-blend-mode: screen;
+}
+
+.about-page .about-cursor-glow.is-active {
+  opacity: 1;
+}
+
+.about-page .about-glitter {
+  position: fixed;
+  z-index: 9998;
+  width: 4px;
+  height: 4px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: #f2d49c;
+  box-shadow: 0 0 8px rgba(235, 191, 117, .85);
+  animation: aboutGlitterFade 650ms ease-out forwards;
+}
+
+@keyframes aboutGlitterFade {
+  from { opacity: .9; transform: translate(-50%, -50%) scale(1); }
+  to { opacity: 0; transform: translate(-50%, calc(-50% - 18px)) scale(.15); }
+}
+
+@media (max-width: 900px) {
+  .about-page .about-timeline-item {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+  }
+
+  .about-page .about-timeline-reverse .about-timeline-image,
+  .about-page .about-timeline-reverse .about-timeline-copy {
+    order: initial !important;
+    justify-self: stretch;
+  }
+
+  .about-page .about-timeline-copy {
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-page .about-timeline {
+    gap: 3.5rem !important;
+  }
+
+  .about-page .about-timeline-copy h3 {
+    font-size: clamp(2.25rem, 12vw, 3.35rem) !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .about-page .about-cursor-glow,
+  .about-page .about-glitter {
+    display: none !important;
+  }
+}
