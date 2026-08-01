@@ -138,6 +138,7 @@ function updateCartCounter() {
 function saveShoppingCart() {
   localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
   updateCartCounter();
+  document.dispatchEvent(new CustomEvent('cart:updated'));
 }
 
 /* =========================================
@@ -473,3 +474,138 @@ if (backToTopButton) {
   updateBackToTopButton();
 }
 
+
+/* =========================================
+   MEHEK Wishlist & Newsletter (shared)
+========================================= */
+(() => {
+  const WISHLIST_KEY = 'mehekWishlist';
+
+  function readWishlist() {
+    try {
+      const value = JSON.parse(localStorage.getItem(WISHLIST_KEY));
+      return Array.isArray(value) ? [...new Set(value.map(Number).filter(Number.isFinite))] : [];
+    } catch (error) { return []; }
+  }
+
+  function writeWishlist(ids) {
+    localStorage.setItem(WISHLIST_KEY, JSON.stringify([...new Set(ids.map(Number))]));
+    refreshWishlistUI();
+    document.dispatchEvent(new CustomEvent('wishlist:updated'));
+  }
+
+  function cartProductIds() {
+    try {
+      const cart = JSON.parse(localStorage.getItem('shoppingCart'));
+      return new Set((Array.isArray(cart) ? cart : []).map(item => Number(item.id)));
+    } catch (error) { return new Set(); }
+  }
+
+  function removeCartItemsFromWishlist() {
+    const cartIds = cartProductIds();
+    const before = readWishlist();
+    const after = before.filter(id => !cartIds.has(id));
+    if (after.length !== before.length) writeWishlist(after);
+    else refreshWishlistUI();
+  }
+
+  function refreshWishlistUI() {
+    const wishlist = readWishlist();
+    document.querySelectorAll('.wishlist-count').forEach(counter => {
+      counter.textContent = wishlist.length;
+      counter.hidden = wishlist.length === 0;
+    });
+    document.querySelectorAll('.wishlist-button[data-id]').forEach(button => {
+      const active = wishlist.includes(Number(button.dataset.id));
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+      button.setAttribute('aria-label', active ? 'Remove from wishlist' : 'Add to wishlist');
+      button.title = active ? 'Remove from wishlist' : 'Add to wishlist';
+    });
+  }
+
+  function addWishlistButtons(scope = document) {
+    scope.querySelectorAll('.product-card').forEach(card => {
+      if (card.querySelector('.wishlist-button')) return;
+      const addButton = card.querySelector('.add-cart-button[data-id]');
+      const media = card.querySelector('.product-media');
+      if (!addButton || !media) return;
+      const button = document.createElement('button');
+      button.className = 'wishlist-button';
+      button.type = 'button';
+      button.dataset.id = addButton.dataset.id;
+      button.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path></svg>';
+      media.append(button);
+    });
+    refreshWishlistUI();
+  }
+
+  document.addEventListener('click', event => {
+    const wishlistButton = event.target.closest('.wishlist-button[data-id]');
+    if (wishlistButton) {
+      event.preventDefault();
+      const id = Number(wishlistButton.dataset.id);
+      const ids = readWishlist();
+      writeWishlist(ids.includes(id) ? ids.filter(item => item !== id) : [...ids, id]);
+      return;
+    }
+    if (event.target.closest('.add-cart-button, #add-to-cart, [data-wishlist-add-cart]')) {
+      window.setTimeout(removeCartItemsFromWishlist, 0);
+    }
+  });
+
+  document.addEventListener('cart:updated', removeCartItemsFromWishlist);
+  window.addEventListener('storage', event => {
+    if ([WISHLIST_KEY, 'shoppingCart'].includes(event.key)) removeCartItemsFromWishlist();
+  });
+
+  document.addEventListener('submit', event => {
+    const form = event.target.closest('.newsletter-form');
+    if (!form) return;
+    event.preventDefault();
+    const email = form.querySelector('input[type="email"]');
+    const message = form.querySelector('.newsletter-message');
+    if (!email || !message) return;
+    if (!email.checkValidity()) {
+      message.textContent = 'Please enter a valid email address.';
+      message.className = 'newsletter-message is-error';
+      email.focus();
+      return;
+    }
+    const subscribers = (() => { try { return JSON.parse(localStorage.getItem('mehekNewsletter')) || []; } catch { return []; } })();
+    const normalised = email.value.trim().toLowerCase();
+    if (!subscribers.includes(normalised)) subscribers.push(normalised);
+    localStorage.setItem('mehekNewsletter', JSON.stringify(subscribers));
+    message.textContent = 'Thank you. You are now part of the MEHEK journal.';
+    message.className = 'newsletter-message is-success';
+    form.reset();
+  });
+
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => mutation.addedNodes.forEach(node => {
+      if (node.nodeType === 1) addWishlistButtons(node.matches?.('.product-card') ? node.parentElement : node);
+    }));
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    addWishlistButtons();
+    removeCartItemsFromWishlist();
+    observer.observe(document.body, { childList: true, subtree: true });
+  });
+
+  window.MehekWishlist = { read: readWishlist, write: writeWishlist, removeCartItems: removeCartItemsFromWishlist, refresh: refreshWishlistUI };
+})();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const productAddButton = document.querySelector('#add-to-cart');
+  if (!productAddButton || document.querySelector('.product-detail-wishlist')) return;
+  const id = new URLSearchParams(location.search).get('id');
+  if (!id || !Number.isFinite(Number(id))) return;
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'wishlist-button product-detail-wishlist';
+  button.dataset.id = id;
+  button.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path></svg>';
+  productAddButton.parentElement.insertBefore(button, productAddButton);
+  if (window.MehekWishlist) window.MehekWishlist.refresh();
+});

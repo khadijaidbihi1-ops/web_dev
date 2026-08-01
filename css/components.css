@@ -1,0 +1,144 @@
+/* =========================================================
+   SHARED FOOTER & NEWSLETTER — MOBILE FIRST
+   Used across every page.
+========================================================= */
+.site-footer {
+  padding: 0;
+  background: #151411;
+  color: #fff;
+}
+
+.footer-newsletter {
+  display: grid;
+  gap: 2rem;
+  padding: 3.5rem 1.25rem;
+  border-top: 1px solid #d8cfc3;
+  border-bottom: 1px solid #d8cfc3;
+  background: #eee7dc;
+  color: #191511;
+}
+.newsletter-copy { max-width: 39rem; }
+.newsletter-eyebrow {
+  margin: 0 0 .9rem;
+  color: #8b6a42;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+.footer-newsletter h2 {
+  max-width: 34rem;
+  margin: 0 0 .9rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 9vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+.footer-newsletter .newsletter-copy > p:last-child {
+  max-width: 35rem;
+  margin: 0;
+  color: #62584d;
+  font-size: .95rem;
+  line-height: 1.75;
+}
+.newsletter-form { align-self: end; }
+.newsletter-form > label {
+  display: block;
+  margin-bottom: .6rem;
+  color: #51483f;
+  font-size: .74rem;
+  letter-spacing: .08em;
+}
+.newsletter-controls { display: grid; gap: .75rem; }
+.newsletter-controls input {
+  width: 100%;
+  min-height: 3.5rem;
+  padding: .9rem 1rem;
+  border: 1px solid #9d9183;
+  border-radius: 0;
+  background: rgba(255,255,255,.42);
+  color: #191511;
+  font: inherit;
+  outline: none;
+}
+.newsletter-controls input:focus {
+  border-color: #191511;
+  box-shadow: 0 0 0 2px rgba(25,21,17,.08);
+}
+.newsletter-controls input::placeholder { color: #756b61; }
+.newsletter-controls button {
+  min-height: 3.5rem;
+  padding: .85rem 1.35rem;
+  border: 1px solid #191511;
+  background: #191511;
+  color: #fff;
+  cursor: pointer;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  transition: background .2s ease, color .2s ease;
+}
+.newsletter-controls button:hover,
+.newsletter-controls button:focus-visible { background: transparent; color: #191511; }
+.newsletter-privacy { margin: .8rem 0 0; color: #756b61; font-size: .7rem; line-height: 1.6; }
+.newsletter-privacy a { color: inherit; text-decoration: underline; text-underline-offset: .2rem; }
+.newsletter-message { min-height: 1.2rem; margin: .45rem 0 0; font-size: .78rem; }
+.newsletter-message.is-error { color: #9b2f28; }
+.newsletter-message.is-success { color: #355f3b; }
+
+.footer-main {
+  display: grid;
+  gap: 3rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 3.25rem 1.25rem;
+}
+.footer-brand p {
+  max-width: 25rem;
+  margin: 1.25rem 0 0;
+  color: rgba(255,255,255,.62);
+  font-size: .86rem;
+  line-height: 1.8;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 1.5rem;
+  width: 100%;
+}
+.footer-heading {
+  margin: 0 0 1.15rem;
+  color: #c7a56b;
+  font-size: .67rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.footer-column ul { margin: 0; padding: 0; list-style: none; }
+.footer-column li + li { margin-top: .78rem; }
+.footer-column a { color: rgba(255,255,255,.78); font-size: .84rem; line-height: 1.5; }
+.footer-column a:hover, .footer-column a:focus-visible { color: #fff; }
+.footer-bottom {
+  display: grid;
+  gap: .45rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1.4rem 1.25rem 1.75rem;
+  border-top: 1px solid rgba(255,255,255,.13);
+}
+.footer-bottom p { margin: 0; color: rgba(255,255,255,.52); font-size: .68rem; line-height: 1.65; }
+.footer-credit { max-width: 62rem; }
+
+@media (min-width: 640px) {
+  .newsletter-controls { grid-template-columns: minmax(0,1fr) auto; gap: 0; }
+  .newsletter-controls button { min-width: 12rem; }
+}
+@media (min-width: 768px) {
+  .footer-newsletter { grid-template-columns: minmax(0,1fr) minmax(22rem,.9fr); gap: 4rem; padding: 4.75rem 5vw; align-items: end; }
+  .footer-main { grid-template-columns: minmax(15rem,.65fr) minmax(0,1.35fr); gap: 5rem; padding: 4rem 5vw; }
+  .footer-grid { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 2rem; }
+  .footer-bottom { grid-template-columns: auto minmax(0,1fr); gap: 2rem; padding-inline: 5vw; }
+  .footer-credit { justify-self: end; text-align: right; }
+}

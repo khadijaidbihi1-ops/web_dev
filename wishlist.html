@@ -1,88 +1,66 @@
 <!DOCTYPE html>
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Review the products in your MEHEK shopping bag." name="description"/>
-<title>Shopping Bag | MEHEK</title>
-<link href="css/style.css" rel="stylesheet"/><link href="css/components.css" rel="stylesheet"/>
-</head>
-<body class="cart-page-body">
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<!-- Header -->
-<header class="site-header" id="site-header">
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="Save and manage your favourite MEHEK fragrances" name="description"/><title>Wishlist | MEHEK Fragrances</title><link href="css/style.css" rel="stylesheet"/><link href="css/components.css" rel="stylesheet"/><script defer="" src="js/script.js"></script><script defer="" src="js/products.js"></script><script defer="" src="js/wishlist.js"></script></head><body><a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header" id="site-header">
+<!-- Promotional announcement -->
 <div class="announcement-bar">
 <p>Complimentary UK shipping on orders over £100</p>
 </div>
+<!-- Main navigation -->
 <nav aria-label="Main navigation" class="navbar">
+<!-- Mobile menu button -->
 <button aria-controls="navigation-menu" aria-expanded="false" aria-label="Open navigation menu" class="menu-toggle" id="menu-toggle" type="button">
-<span></span><span></span><span></span>
+<span></span>
+<span></span>
+<span></span>
 </button>
+<!-- Brand logo -->
 <a aria-label="MEHEK homepage" class="brand-logo" href="index.html">
-<span class="brand-name">MEHEK</span><span class="brand-subtitle">Fragrances</span>
+<span class="brand-name">MEHEK</span>
+<span class="brand-subtitle">Fragrances</span>
 </a>
+<!-- Main navigation links -->
 <ul class="navigation-menu" id="navigation-menu">
-<li><a href="index.html">Home</a></li>
-<li><a href="products.html">Shop</a></li>
-<li><a href="collections.html">Collections</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="contact.html">Contact</a></li>
+<li>
+<a href="index.html">
+                        Home
+                    </a>
+</li>
+<li>
+<a href="products.html">Shop</a>
+</li>
+<li>
+<a href="collections.html">Collections</a>
+</li>
+<li>
+<a aria-current="page" class="active-link" href="about.html">About</a>
+</li>
+<li>
+<a href="contact.html">Contact</a>
+</li>
 </ul>
+<!-- Navigation actions -->
 <div class="navigation-actions">
-<a aria-label="Search products" class="icon-link" href="products.html#product-search">
+<!-- Search link -->
+<a aria-label="Search products" class="icon-link" href="products.html">
 <svg aria-hidden="true" height="22" viewbox="0 0 24 24" width="22">
 <circle cx="11" cy="11" r="7"></circle>
 <line x1="16" x2="21" y1="16" y2="21"></line>
 </svg>
 </a>
-<a aria-label="Open wishlist" class="icon-link wishlist-link" href="wishlist.html"><svg aria-hidden="true" height="22" viewbox="0 0 24 24" width="22"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path></svg><span aria-live="polite" class="wishlist-count">0</span></a><a aria-current="page" aria-label="Open shopping cart" class="icon-link cart-link" href="cart.html">
+<!-- Shopping cart link -->
+<a aria-label="Open wishlist" class="icon-link wishlist-link" href="wishlist.html"><svg aria-hidden="true" height="22" viewbox="0 0 24 24" width="22"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path></svg><span aria-live="polite" class="wishlist-count">0</span></a><a aria-label="Open shopping cart" class="icon-link cart-link" href="cart.html">
 <svg aria-hidden="true" height="22" viewbox="0 0 24 24" width="22">
 <path d="M3 4h2l2 11h10l2-8H6"></path>
 <circle cx="9" cy="19" r="1"></circle>
 <circle cx="17" cy="19" r="1"></circle>
 </svg>
-<span aria-live="polite" class="cart-count" id="cart-count">0</span>
+<span aria-live="polite" class="cart-count" id="cart-count">
+                        0
+                    </span>
 </a>
 </div>
 </nav>
-</header>
-<!-- Main content -->
-<main class="cart-page-main" id="main-content">
-<!-- Page heading -->
-<section class="cart-page-heading">
-<p class="eyebrow">Your Selection</p>
-<h1>Shopping Bag <span id="cart-heading-count">(0)</span></h1>
-</section>
-<!-- Cart items and order summary -->
-<section aria-label="Shopping bag" class="cart-layout">
-<div class="cart-products-column">
-<div aria-live="polite" class="cart-items" id="cart-items"></div>
-</div>
-<aside aria-label="Order summary" class="cart-summary" id="cart-summary">
-<h2>Order Summary</h2>
-<div class="summary-row">
-<span>Subtotal</span>
-<strong id="cart-subtotal">£0.00</strong>
-</div>
-<div class="summary-row">
-<span>Shipping</span>
-<strong id="cart-shipping">Free</strong>
-</div>
-<p class="shipping-message" id="shipping-message"></p>
-<div class="summary-row summary-total">
-<span>Estimated Total</span>
-<strong id="cart-total">£0.00</strong>
-</div>
-<a class="btn-primary cart-checkout-button" href="checkout.html" id="checkout-link">Proceed to Checkout</a>
-<a class="cart-continue-link" href="products.html">Continue Shopping</a>
-</aside>
-</section>
-</main>
-<!-- =========================================
-       Website Footer
-  ========================================== -->
-<footer class="site-footer">
+</header><main class="content-page-main" id="main-content"><section class="content-hero"><p class="section-label">Saved for later</p><h1>Your Wishlist</h1><p>Keep the fragrances you love close. Products move out of this list automatically when added to your bag.</p></section><section class="wishlist-section"><div class="product-grid wishlist-grid" id="wishlist-grid"></div><div class="empty-state" hidden="" id="wishlist-empty"><h2>Your wishlist is empty</h2><p>Discover a fragrance and select the heart to save it here.</p><a class="btn-primary" href="products.html">Explore the collection</a></div></section></main><footer class="site-footer">
 <section aria-labelledby="newsletter-title" class="footer-newsletter">
 <div class="newsletter-copy">
 <p class="newsletter-eyebrow">The MEHEK Journal</p>
@@ -146,8 +124,4 @@
 <p>© <span id="current-year">2026</span> MEHEK Fragrances. All rights reserved.</p>
 <p class="footer-credit">Original brand concept and editorial direction by Khadija Idbihi. Visual content created with AI-assisted tools.</p>
 </div>
-</footer>
-<script src="js/cart-page.js"></script>
-<script src="js/script.js"></script>
-</body>
-</html>
+</footer></body></html>

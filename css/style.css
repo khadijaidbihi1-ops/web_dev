@@ -947,12 +947,7 @@ a:focus-visible, button:focus-visible {
     color: var(--colour-white);
 }
 
-.footer-grid {
-    display: grid;
-    gap: 2rem;
-    max-width: 1500px;
-    margin-inline: auto;
-}
+
 
 .footer-logo {
     align-items: flex-start;
@@ -960,58 +955,21 @@ a:focus-visible, button:focus-visible {
     color: var(--colour-white);
 }
 
-.footer-brand p {
-    max-width: 320px;
-    margin: 1.25rem 0 0;
-    color: var(--colour-border);
-    font-size: 0.9rem;
-    line-height: 1.8;
-}
 
-.footer-heading {
-    margin: 0 0 1rem;
-    color: var(--colour-gold);
-    font-family: var(--font-body);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.14rem;
-    text-transform: uppercase;
-}
 
-.footer-column ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
 
-.footer-column li + li {
-    margin-top: 0.75rem;
-}
 
-.footer-column a {
-    color: var(--colour-border);
-    font-size: 0.88rem;
-    transition: color var(--transition);
-}
 
-.footer-column a:hover, .footer-column a:focus-visible {
-    color: var(--colour-gold);
-}
 
-.footer-bottom {
-    max-width: 1500px;
-    margin: 2.25rem auto 0;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    text-align: center;
-}
 
-.footer-bottom p {
-    margin: 0;
-    color: var(--colour-border);
-    font-size: 0.75rem;
-    line-height: 1.7;
-}
+
+
+
+
+
+
+
+
 
 /* =========================================
    Tablet Layout
@@ -1046,9 +1004,7 @@ a:focus-visible, button:focus-visible {
     .our-story-image-wrapper, .our-story-image {
         min-height: 560px;
     }
-    .footer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+    
 }
 
 /* =========================================
@@ -1124,12 +1080,8 @@ a:focus-visible, button:focus-visible {
     .site-footer {
         padding: 4rem 4rem 2rem;
     }
-    .footer-grid {
-        grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
-    }
-    .footer-bottom {
-        text-align: left;
-    }
+    
+    
 }
 
 
@@ -2821,7 +2773,7 @@ a:focus-visible, button:focus-visible {
     .about-values-grid article:nth-child(2) {
         border-right: 0;
     }
-    .about-values-grid article:nth-child(-n+2) {
+    .about-values-grid article:nth-child(-n/**/+2) {
         border-bottom: 1px solid var(--colour-border, #ded8cf);
     }
     .about-collection-card div {
@@ -3257,7 +3209,7 @@ a:focus-visible, button:focus-visible {
     }
 
     .contact-hero::after {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
         background: linear-gradient(180deg, rgba(247, 241, 232, .08) 15%, rgba(247, 241, 232, .93) 72%, #f7f1e8 100%);
@@ -5215,3 +5167,79 @@ a:focus-visible, button:focus-visible {
         width: min(92vw, 370px);
     }
 }
+
+/* =========================================================
+   WISHLIST, NEWSLETTER, FAQ & POLICY — MOBILE FIRST
+========================================================= */
+.wishlist-link { position: relative; }
+.wishlist-count {
+  position: absolute; top: -0.45rem; right: -0.5rem; min-width: 1.05rem; height: 1.05rem;
+  border-radius: 999px; display: grid; place-items: center; padding: 0 0.2rem;
+  background: #1d1a17; color: #fff; font-size: 0.65rem; line-height: 1;
+}
+.wishlist-button {
+  position: absolute; z-index: 3; top: 0.75rem; right: 0.75rem; width: 2.5rem; height: 2.5rem;
+  display: grid; place-items: center; border: 1px solid rgba(29,26,23,.16); border-radius: 50%;
+  background: rgba(255,255,255,.92); color: #1d1a17; cursor: pointer; transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+.wishlist-button:hover { transform: translateY(-2px); }
+.wishlist-button svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.wishlist-button.is-active { background: #1d1a17; color: #fff; }
+.wishlist-button.is-active svg { fill: currentColor; }
+.product-media { position: relative; }
+
+
+
+
+
+
+
+
+
+
+
+
+.visually-hidden { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
+
+.content-page-main { background: #f7f3ed; min-height: 65vh; }
+.content-hero { padding: 4.5rem 1.25rem 2.5rem; text-align: center; }
+.content-hero h1 { margin: .2rem 0 1rem; font-family: Georgia, serif; font-size: clamp(2.4rem, 12vw, 4.8rem); font-weight: 400; }
+.content-hero > p:last-child { max-width: 42rem; margin-inline: auto; color: #655f58; line-height: 1.7; }
+.wishlist-section, .faq-section, .policy-article { padding: 0 1.25rem 4.5rem; max-width: 1180px; margin: 0 auto; }
+.wishlist-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+.empty-state { padding: 3rem 1.5rem; text-align: center; border: 1px solid #d9d1c7; background: #fff; }
+.empty-state h2 { font-family: Georgia, serif; font-weight: 400; }
+
+.faq-section { display: grid; gap: 2rem; }
+
+
+
+
+
+
+
+
+
+
+
+
+.policy-article { max-width: 820px; }
+.policy-article section { padding: 1.4rem 0; border-top: 1px solid #d6cec4; }
+.policy-article h2 { margin: 0 0 .65rem; font-family: Georgia, serif; font-weight: 400; font-size: 1.55rem; }
+.policy-article p { margin: 0; color: #5f5952; line-height: 1.8; }
+
+@media (min-width: 640px) {
+  
+  .wishlist-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (min-width: 768px) {
+  
+  .faq-section { grid-template-columns: minmax(0, 1fr) 18rem; }
+  .content-hero { padding-top: 6rem; }
+}
+@media (min-width: 1024px) {
+  .wishlist-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+.product-detail-wishlist { position: static; width: 100%; height: 3rem; border-radius: 0; margin-bottom: .75rem; }
+.product-detail-wishlist::after { content: " Add to Wishlist"; margin-left: .5rem; text-transform: uppercase; letter-spacing: .08em; font-size: .75rem; }
+.product-detail-wishlist.is-active::after { content: " Saved to Wishlist"; }
