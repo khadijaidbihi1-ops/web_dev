@@ -33,7 +33,7 @@ window.products = [
     type: 'Eau de Parfum',
     gender: 'women',
     price: 140,
-    images: ['media/images/products/velvet-rose-notes.webp', 'media/images/products/oud-velvet-rose.webp'],
+    images: ['media/images/oud-velvet-rose.webp', 'velvet-rose-notes.webp'],
     description: 'A soft yet expressive rose fragrance layered with pink pepper, amber and a smooth veil of musk.',
     notes: { top: 'Pink pepper, bergamot', heart: 'Damask rose, jasmine', base: 'Amber, musk, cedarwood' },
     occasion: 'Day or evening · Date night · Elegant occasions · Spring/Autumn',
