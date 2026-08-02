@@ -1,200 +1,270 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Contact MEHEK Fragrances for product advice, order support, delivery information and customer care." name="description"/>
-<title>Contact | MEHEK</title>
-<link href="css/style.css?v=contact-redesign-2" rel="stylesheet"/><link href="css/components.css" rel="stylesheet"/><link as="image" href="media/images/contact/contact-hero-768.webp" imagesizes="100vw" imagesrcset="media/images/contact/contact-hero-480.webp 480w, media/images/contact/contact-hero-768.webp 768w, media/images/contact/contact-hero-1200.webp 1200w, media/images/contact/contact-hero-1717.webp 1717w" rel="preload" type="image/webp"/>
-<link href="css/mobile-refinements.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact MEHEK Fragrances for product advice, order support, delivery information and customer care.">
+  <title>Contact | MEHEK</title>
+
+  <!-- Stylesheets: base styles, shared components, mobile tweaks -->
+  <link rel="stylesheet" href="css/style.css?v=contact-redesign-2">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/mobile-refinements.css">
+
+  <!-- Preload the hero image (responsive srcset) so it renders as fast as possible -->
+  <link rel="preload" as="image" type="image/webp" href="media/images/contact/contact-hero-768.webp" imagesrcset="media/images/contact/contact-hero-480.webp 480w, media/images/contact/contact-hero-768.webp 768w, media/images/contact/contact-hero-1200.webp 1200w, media/images/contact/contact-hero-1717.webp 1717w" imagesizes="100vw">
 </head>
 <body class="contact-page">
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<!-- Header -->
-<header class="site-header" id="site-header">
-<div class="announcement-bar">
-<p>Complimentary UK shipping on orders over £100</p>
-</div>
-<nav aria-label="Main navigation" class="navbar">
-<button aria-controls="navigation-menu" aria-expanded="false" aria-label="Open navigation menu" class="menu-toggle" id="menu-toggle" type="button">
-<span></span><span></span><span></span>
-</button>
-<a aria-label="MEHEK homepage" class="brand-logo" href="index.html">
-<span class="brand-name">MEHEK</span><span class="brand-subtitle">Fragrances</span>
-</a>
-<ul class="navigation-menu" id="navigation-menu">
-<li><a href="index.html">Home</a></li>
-<li><a href="products.html">Shop</a></li>
-<li><a href="collections.html">Collections</a></li>
-<li><a href="about.html">About</a></li>
-<li><a aria-current="page" class="active-link" href="contact.html">Contact</a></li>
-</ul>
-<div class="navigation-actions">
-<a aria-label="Search products" class="icon-link" href="products.html#product-search">
-<svg aria-hidden="true" height="22" viewbox="0 0 24 24" width="22">
-<circle cx="11" cy="11" r="7"></circle>
-<line x1="16" x2="21" y1="16" y2="21"></line>
-</svg>
-</a>
-<a aria-label="Open wishlist" class="icon-link wishlist-link" href="wishlist.html"><svg aria-hidden="true" height="22" viewbox="0 0 24 24" width="22"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path></svg><span aria-live="polite" class="wishlist-count">0</span></a><a aria-label="Open shopping cart" class="icon-link cart-link" href="cart.html">
-<svg aria-hidden="true" height="22" viewbox="0 0 24 24" width="22">
-<path d="M3 4h2l2 11h10l2-8H6"></path>
-<circle cx="9" cy="19" r="1"></circle>
-<circle cx="17" cy="19" r="1"></circle>
-</svg>
-<span aria-live="polite" class="cart-count" id="cart-count">0</span>
-</a>
-</div>
-</nav>
-</header>
-<!-- Main content -->
-<main id="main-content">
-<!-- Contact hero -->
-<section aria-labelledby="contact-title" class="contact-hero">
-<picture class="contact-hero-picture"><img alt="MEHEK perfume arranged with warm fabric, stone and botanical details" class="contact-hero-image" decoding="async" fetchpriority="high" height="916" sizes="100vw" src="media/images/contact/contact-hero-1200.webp" srcset="media/images/contact/contact-hero-480.webp 480w, media/images/contact/contact-hero-768.webp 768w, media/images/contact/contact-hero-1200.webp 1200w, media/images/contact/contact-hero-1717.webp 1717w" width="1717"/></picture>
-<div class="contact-hero-overlay"></div>
-<div class="contact-hero-content">
-<p class="section-eyebrow">Contact</p>
-<h1 id="contact-title">We’d love to<br/>hear from you.</h1>
-<p>Whether you are looking for fragrance advice, customer support or information about an order, our team is here to help.</p>
-</div>
-</section>
-<!-- Contact information -->
-<section aria-label="Customer care information" class="contact-info-strip">
-<article class="contact-info-card">
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 5h18v14H3z"></path><path d="m3 6 9 7 9-7"></path></svg>
-<h2>Email</h2>
-<a href="mailto:support@mehekfragrances.com">support@mehekfragrances.com</a>
-</article>
-<article class="contact-info-card">
-<svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
-<h2>Customer Care</h2>
-<p>Monday–Friday<br/>9:00–17:00 (GMT)</p>
-</article>
-<article class="contact-info-card">
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
-<h2>Location</h2>
-<p>London<br/>United Kingdom</p>
-</article>
-</section>
-<!-- Contact form -->
-<section aria-labelledby="contact-form-title" class="contact-form-section section-spacing">
-<div class="contact-form-column">
-<p class="section-eyebrow">Get in touch</p>
-<h2 id="contact-form-title">Send us a message</h2>
-<form class="contact-form" id="contact-form" novalidate="">
-<div class="contact-form-grid">
-<div class="form-row">
-<label for="contact-name">Your name</label>
-<input aria-describedby="name-error" autocomplete="name" id="contact-name" name="name" required=""/>
-<small aria-live="polite" class="field-error" id="name-error" role="status"></small>
-</div>
-<div class="form-row">
-<label for="contact-email">Email address</label>
-<input aria-describedby="email-error" autocomplete="email" id="contact-email" name="email" required="" type="email"/>
-<small aria-live="polite" class="field-error" id="email-error" role="status"></small>
-</div>
-</div>
-<div class="form-row">
-<label for="contact-subject">Subject</label>
-<select aria-describedby="subject-error" id="contact-subject" name="subject" required="">
-<option value="">Choose a subject</option>
-<option>Product advice</option>
-<option>Order enquiry</option>
-<option>Delivery</option>
-<option>Other</option>
-</select>
-<small aria-live="polite" class="field-error" id="subject-error" role="status"></small>
-</div>
-<div class="form-row">
-<label for="contact-message">Your message</label>
-<textarea aria-describedby="message-error" id="contact-message" minlength="10" name="message" required="" rows="7"></textarea>
-<small aria-live="polite" class="field-error" id="message-error" role="status"></small>
-</div>
-<button class="btn-primary contact-submit" type="submit">Send Message</button>
-<p class="contact-response-note">We aim to reply within 1–2 working days.</p>
-<p class="form-success" hidden="" id="form-success" role="status">Thank you. Your message has been received.</p>
-</form>
-</div>
-<figure class="contact-editorial-image">
-<img alt="MEHEK fragrance book and perfume arranged in warm natural light" decoding="async" height="1122" loading="lazy" sizes="(max-width: 900px) calc(100vw - 2rem), 42vw" src="media/images/contact/book-768.webp" srcset="media/images/contact/book-480.webp 480w, media/images/contact/book-768.webp 768w, media/images/contact/book-1200.webp 1200w, media/images/contact/book-1402.webp 1402w" width="1402"/>
-</figure>
-</section>
-<section aria-label="MEHEK brand statement" class="contact-signature">
-<span aria-hidden="true" class="contact-signature-mark">✦</span>
-<p>Crafted with heritage. Designed for modern living.</p>
-</section>
-</main>
-<!-- =========================================
+
+  <!-- Lets keyboard/screen-reader users jump straight to the content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+
+    <!-- Promotional announcement -->
+    <div class="announcement-bar">
+      <p>Complimentary UK shipping on orders over £100</p>
+    </div>
+
+    <!-- Main navigation -->
+    <nav class="navbar" aria-label="Main navigation">
+
+      <!-- Mobile menu button -->
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="navigation-menu" aria-expanded="false" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Brand logo -->
+      <a href="index.html" class="brand-logo" aria-label="MEHEK homepage">
+        <span class="brand-name">MEHEK</span>
+        <span class="brand-subtitle">Fragrances</span>
+      </a>
+
+      <!-- Main navigation links -->
+      <ul class="navigation-menu" id="navigation-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active-link" aria-current="page">Contact</a></li>
+      </ul>
+
+      <!-- Navigation actions -->
+      <div class="navigation-actions">
+
+        <!-- Search link -->
+        <a href="products.html#product-search" class="icon-link" aria-label="Search products">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16" y1="16" x2="21" y2="21"></line>
+          </svg>
+        </a>
+
+        <!-- Wishlist link -->
+        <a href="wishlist.html" class="icon-link wishlist-link" aria-label="Open wishlist">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path>
+          </svg>
+          <span class="wishlist-count" aria-live="polite">0</span>
+        </a>
+
+        <!-- Shopping cart link -->
+        <a href="cart.html" class="icon-link cart-link" aria-label="Open shopping cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 4h2l2 11h10l2-8H6"></path>
+            <circle cx="9" cy="19" r="1"></circle>
+            <circle cx="17" cy="19" r="1"></circle>
+          </svg>
+          <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+        </a>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main id="main-content">
+
+    <!-- Contact hero -->
+    <section class="contact-hero" aria-labelledby="contact-title">
+      <picture class="contact-hero-picture">
+        <img class="contact-hero-image" src="media/images/contact/contact-hero-1200.webp" srcset="media/images/contact/contact-hero-480.webp 480w, media/images/contact/contact-hero-768.webp 768w, media/images/contact/contact-hero-1200.webp 1200w, media/images/contact/contact-hero-1717.webp 1717w" sizes="100vw" alt="MEHEK perfume arranged with warm fabric, stone and botanical details" width="1717" height="916" fetchpriority="high" decoding="async">
+      </picture>
+      <div class="contact-hero-overlay"></div>
+      <div class="contact-hero-content">
+        <p class="section-eyebrow">Contact</p>
+        <h1 id="contact-title">We’d love to<br>hear from you.</h1>
+        <p>Whether you are looking for fragrance advice, customer support or information about an order, our team is here to help.</p>
+      </div>
+    </section>
+
+    <!-- Contact information -->
+    <section class="contact-info-strip" aria-label="Customer care information">
+      <article class="contact-info-card">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 5h18v14H3z"></path>
+          <path d="m3 6 9 7 9-7"></path>
+        </svg>
+        <h2>Email</h2>
+        <a href="mailto:support@mehekfragrances.com">support@mehekfragrances.com</a>
+      </article>
+      <article class="contact-info-card">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M12 7v5l3 2"></path>
+        </svg>
+        <h2>Customer Care</h2>
+        <p>Monday–Friday<br>9:00–17:00 (GMT)</p>
+      </article>
+      <article class="contact-info-card">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+          <circle cx="12" cy="10" r="2.5"></circle>
+        </svg>
+        <h2>Location</h2>
+        <p>London<br>United Kingdom</p>
+      </article>
+    </section>
+
+    <!-- Contact form -->
+    <section class="contact-form-section section-spacing" aria-labelledby="contact-form-title">
+
+      <div class="contact-form-column">
+        <p class="section-eyebrow">Get in touch</p>
+        <h2 id="contact-form-title">Send us a message</h2>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="contact-form-grid">
+            <div class="form-row">
+              <label for="contact-name">Your name</label>
+              <input id="contact-name" name="name" autocomplete="name" aria-describedby="name-error" required>
+              <small class="field-error" id="name-error" role="status" aria-live="polite"></small>
+            </div>
+            <div class="form-row">
+              <label for="contact-email">Email address</label>
+              <input type="email" id="contact-email" name="email" autocomplete="email" aria-describedby="email-error" required>
+              <small class="field-error" id="email-error" role="status" aria-live="polite"></small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="contact-subject">Subject</label>
+            <select id="contact-subject" name="subject" aria-describedby="subject-error" required>
+              <option value="">Choose a subject</option>
+              <option>Product advice</option>
+              <option>Order enquiry</option>
+              <option>Delivery</option>
+              <option>Other</option>
+            </select>
+            <small class="field-error" id="subject-error" role="status" aria-live="polite"></small>
+          </div>
+
+          <div class="form-row">
+            <label for="contact-message">Your message</label>
+            <textarea id="contact-message" name="message" rows="7" minlength="10" aria-describedby="message-error" required></textarea>
+            <small class="field-error" id="message-error" role="status" aria-live="polite"></small>
+          </div>
+
+          <button type="submit" class="btn-primary contact-submit">Send Message</button>
+          <p class="contact-response-note">We aim to reply within 1–2 working days.</p>
+          <p class="form-success" id="form-success" role="status" hidden>Thank you. Your message has been received.</p>
+        </form>
+      </div>
+
+      <figure class="contact-editorial-image">
+        <img src="media/images/contact/book-768.webp" srcset="media/images/contact/book-480.webp 480w, media/images/contact/book-768.webp 768w, media/images/contact/book-1200.webp 1200w, media/images/contact/book-1402.webp 1402w" sizes="(max-width: 900px) calc(100vw - 2rem), 42vw" alt="MEHEK fragrance book and perfume arranged in warm natural light" width="1402" height="1122" loading="lazy" decoding="async">
+      </figure>
+    </section>
+
+    <!-- Brand signature strip -->
+    <section class="contact-signature" aria-label="MEHEK brand statement">
+      <span class="contact-signature-mark" aria-hidden="true">✦</span>
+      <p>Crafted with heritage. Designed for modern living.</p>
+    </section>
+
+  </main>
+
+  <!-- =========================================
        Website Footer
   ========================================== -->
-<footer class="site-footer">
-<section aria-labelledby="newsletter-title" class="footer-newsletter">
-<div class="newsletter-copy">
-<p class="newsletter-eyebrow">The MEHEK Journal</p>
-<h2 id="newsletter-title">A quiet note from MEHEK.</h2>
-<p>Discover new collections, fragrance rituals and private invitations, delivered occasionally.</p>
-</div>
-<form class="newsletter-form" novalidate="">
-<label for="newsletter-email">Email address</label>
-<div class="newsletter-controls">
-<input autocomplete="email" id="newsletter-email" name="email" placeholder="Enter your email address" required="" type="email"/>
-<button type="submit">Join the journal</button>
-</div>
-<p class="newsletter-privacy">By subscribing, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
-<p aria-live="polite" class="newsletter-message" role="status"></p>
-</form>
-</section>
-<div class="footer-main">
-<div class="footer-brand">
-<a aria-label="MEHEK homepage" class="brand-logo footer-logo" href="index.html">
-<span class="brand-name">MEHEK</span>
-<span class="brand-subtitle">Fragrances</span>
-</a>
-<p>Luxury fragrances for body and home, inspired by heritage, memory and place.</p>
-</div>
-<div class="footer-grid">
-<div class="footer-column">
-<h2 class="footer-heading">Help &amp; Contact</h2>
-<ul>
-<li><a href="faq.html">FAQs</a></li>
-<li><a href="returns-policy.html">Returns Policy</a></li>
-<li><a href="shipping-policy.html">Delivery</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h2 class="footer-heading">Privacy and Terms</h2>
-<ul>
-<li><a href="privacy-policy.html">Privacy Policy</a></li>
-<li><a href="terms.html">Terms &amp; Conditions</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h2 class="footer-heading">Social</h2>
-<ul>
-<li><a href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">Instagram</a></li>
-<li><a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">Facebook</a></li>
-<li><a href="https://www.pinterest.com/" rel="noopener noreferrer" target="_blank">Pinterest</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h2 class="footer-heading">Visit &amp; Explore</h2>
-<ul>
-<li><a href="about.html">Our Story</a></li>
-<li><a href="products.html">Shop</a></li>
-<li><a href="collections.html">Collections</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© <span id="current-year">2026</span> MEHEK Fragrances. All rights reserved.</p>
-<p class="footer-credit">Original brand concept and editorial direction by Khadija Idbihi. Visual content created with AI-assisted tools.</p>
-</div>
-</footer>
-<script defer="" src="js/script.js"></script>
-<script defer="" src="js/contact.js"></script>
+  <footer class="site-footer">
+
+    <!-- Newsletter signup -->
+    <section class="footer-newsletter" aria-labelledby="newsletter-title">
+      <div class="newsletter-copy">
+        <p class="newsletter-eyebrow">The MEHEK Journal</p>
+        <h2 id="newsletter-title">A quiet note from MEHEK.</h2>
+        <p>Discover new collections, fragrance rituals and private invitations, delivered occasionally.</p>
+      </div>
+      <form class="newsletter-form" novalidate>
+        <label for="newsletter-email">Email address</label>
+        <div class="newsletter-controls">
+          <input type="email" id="newsletter-email" name="email" placeholder="Enter your email address" autocomplete="email" required>
+          <button type="submit">Join the journal</button>
+        </div>
+        <p class="newsletter-privacy">By subscribing, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+        <p class="newsletter-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <div class="footer-main">
+
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo footer-logo" aria-label="MEHEK homepage">
+          <span class="brand-name">MEHEK</span>
+          <span class="brand-subtitle">Fragrances</span>
+        </a>
+        <p>Luxury fragrances for body and home, inspired by heritage, memory and place.</p>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h2 class="footer-heading">Help &amp; Contact</h2>
+          <ul>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="returns-policy.html">Returns Policy</a></li>
+            <li><a href="shipping-policy.html">Delivery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h2 class="footer-heading">Privacy and Terms</h2>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h2 class="footer-heading">Social</h2>
+          <ul>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h2 class="footer-heading">Visit &amp; Explore</h2>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="collections.html">Collections</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="current-year">2026</span> MEHEK Fragrances. All rights reserved.</p>
+      <p class="footer-credit">Original brand concept and editorial direction by Khadija Idbihi. Visual content created with AI-assisted tools.</p>
+    </div>
+
+  </footer>
+
+  <script src="js/script.js" defer></script>
+  <script src="js/contact.js" defer></script>
 </body>
 </html>

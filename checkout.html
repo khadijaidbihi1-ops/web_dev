@@ -1,226 +1,288 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Complete your MEHEK order securely." name="description"/>
-<title>Checkout | MEHEK</title>
-<link href="css/style.css" rel="stylesheet"/><link href="css/components.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Complete your MEHEK order securely.">
+  <title>Checkout | MEHEK</title>
+
+  <!-- Stylesheets: base styles, shared components -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<!-- Header -->
-<header class="site-header" id="site-header">
-<div class="announcement-bar">
-<p>Complimentary UK shipping on orders over £100</p>
-</div>
-<nav aria-label="Main navigation" class="navbar">
-<button aria-controls="navigation-menu" aria-expanded="false" aria-label="Open navigation menu" class="menu-toggle" id="menu-toggle" type="button">
-<span></span><span></span><span></span>
-</button>
-<a aria-label="MEHEK homepage" class="brand-logo" href="index.html">
-<span class="brand-name">MEHEK</span><span class="brand-subtitle">Fragrances</span>
-</a>
-<ul class="navigation-menu" id="navigation-menu">
-<li><a href="index.html">Home</a></li>
-<li><a href="products.html">Shop</a></li>
-<li><a href="collections.html">Collections</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-<div class="navigation-actions">
-<a aria-label="Search products" class="icon-link" href="products.html#product-search">
-<svg aria-hidden="true" height="22" viewbox="0 0 24 24" width="22">
-<circle cx="11" cy="11" r="7"></circle>
-<line x1="16" x2="21" y1="16" y2="21"></line>
-</svg>
-</a>
-<a aria-label="Open wishlist" class="icon-link wishlist-link" href="wishlist.html"><svg aria-hidden="true" height="22" viewbox="0 0 24 24" width="22"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path></svg><span aria-live="polite" class="wishlist-count">0</span></a><a aria-label="Open shopping cart" class="icon-link cart-link" href="cart.html">
-<svg aria-hidden="true" height="22" viewbox="0 0 24 24" width="22">
-<path d="M3 4h2l2 11h10l2-8H6"></path>
-<circle cx="9" cy="19" r="1"></circle>
-<circle cx="17" cy="19" r="1"></circle>
-</svg>
-<span aria-live="polite" class="cart-count" id="cart-count">0</span>
-</a>
-</div>
-</nav>
-</header>
-<!-- Main content -->
-<main class="checkout-page-main" id="main-content">
-<!-- Page heading -->
-<section class="checkout-heading">
-<p class="eyebrow">Secure Checkout</p>
-<h1>Complete Your Order</h1>
-</section>
-<!-- Shown when the cart is empty -->
-<div class="checkout-empty" hidden="" id="checkout-empty">
-<p class="eyebrow">Your Bag Is Empty</p>
-<h2>There is nothing to check out yet.</h2>
-<a class="btn-primary" href="products.html">Explore the Collection</a>
-</div>
-<!-- Checkout form and order summary -->
-<section aria-label="Checkout" class="checkout-layout" id="checkout-content">
-<form class="checkout-form" id="checkout-form">
-<fieldset>
-<legend>Contact Information</legend>
-<div class="checkout-field checkout-field-full">
-<label for="email">Email address</label>
-<input autocomplete="email" id="email" name="email" required="" type="email"/>
-</div>
-<div class="checkout-field checkout-field-full">
-<label for="phone">Phone number</label>
-<input autocomplete="tel" id="phone" name="phone" required="" type="tel"/>
-</div>
-</fieldset>
-<fieldset>
-<legend>Shipping Address</legend>
-<div class="checkout-fields-grid">
-<div class="checkout-field">
-<label for="first-name">First name</label>
-<input autocomplete="given-name" id="first-name" name="firstName" required="" type="text"/>
-</div>
-<div class="checkout-field">
-<label for="last-name">Last name</label>
-<input autocomplete="family-name" id="last-name" name="lastName" required="" type="text"/>
-</div>
-<div class="checkout-field checkout-field-full">
-<label for="address">Address</label>
-<input autocomplete="street-address" id="address" name="address" required="" type="text"/>
-</div>
-<div class="checkout-field">
-<label for="city">City</label>
-<input autocomplete="address-level2" id="city" name="city" required="" type="text"/>
-</div>
-<div class="checkout-field">
-<label for="postcode">Postcode</label>
-<input autocomplete="postal-code" id="postcode" name="postcode" required="" type="text"/>
-</div>
-</div>
-</fieldset>
-<fieldset>
-<legend>Payment Details</legend>
-<p class="checkout-demo-note">Demonstration checkout — no real payment will be processed.</p>
-<div class="checkout-field checkout-field-full">
-<label for="card-name">Name on card</label>
-<input autocomplete="cc-name" id="card-name" name="cardName" required="" type="text"/>
-</div>
-<div class="checkout-field checkout-field-full">
-<label for="card-number">Card number</label>
-<input autocomplete="cc-number" id="card-number" inputmode="numeric" maxlength="19" name="cardNumber" pattern="[0-9 ]{15,19}" required="" type="text"/>
-</div>
-<div class="checkout-fields-grid">
-<div class="checkout-field">
-<label for="expiry">Expiry date</label>
-<input autocomplete="cc-exp" id="expiry" inputmode="numeric" maxlength="5" name="expiry" pattern="(0[1-9]|1[0-2])/[0-9]{2}" placeholder="MM/YY" required="" type="text"/>
-</div>
-<div class="checkout-field">
-<label for="security-code">Security code</label>
-<input autocomplete="cc-csc" id="security-code" inputmode="numeric" maxlength="4" name="securityCode" pattern="[0-9]{3,4}" required="" type="text"/>
-</div>
-</div>
-</fieldset>
-<button class="btn-primary checkout-submit" type="submit">Complete Order</button>
-<p class="checkout-privacy">By completing your order, you agree to our terms and privacy policy.</p>
-</form>
-<aside aria-label="Order summary" class="checkout-summary">
-<h2>Order Summary</h2>
-<div class="checkout-summary-items" id="checkout-items"></div>
-<div class="checkout-summary-totals">
-<div class="summary-row">
-<span>Subtotal</span>
-<strong id="checkout-subtotal">£0.00</strong>
-</div>
-<div class="summary-row">
-<span>Shipping</span>
-<strong id="checkout-shipping">£0.00</strong>
-</div>
-<p class="shipping-message" id="checkout-shipping-message"></p>
-<div class="summary-row summary-total">
-<span>Total</span>
-<strong id="checkout-total">£0.00</strong>
-</div>
-</div>
-<a class="checkout-edit-bag" href="cart.html">Edit Shopping Bag</a>
-</aside>
-</section>
-<!-- Shown after a successful order submission -->
-<section aria-live="polite" class="order-success" hidden="" id="order-success">
-<p class="eyebrow">Order Confirmed</p>
-<h2>Thank you for choosing MEHEK.</h2>
-<p>Your demonstration order has been successfully created.</p>
-<p class="order-reference">Order reference: <strong id="order-reference"></strong></p>
-<a class="btn-primary" href="products.html">Continue Shopping</a>
-</section>
-</main>
-<!-- Footer -->
-<footer class="site-footer">
-<section aria-labelledby="newsletter-title" class="footer-newsletter">
-<div class="newsletter-copy">
-<p class="newsletter-eyebrow">The MEHEK Journal</p>
-<h2 id="newsletter-title">A quiet note from MEHEK.</h2>
-<p>Discover new collections, fragrance rituals and private invitations, delivered occasionally.</p>
-</div>
-<form class="newsletter-form" novalidate="">
-<label for="newsletter-email">Email address</label>
-<div class="newsletter-controls">
-<input autocomplete="email" id="newsletter-email" name="email" placeholder="Enter your email address" required="" type="email"/>
-<button type="submit">Join the journal</button>
-</div>
-<p class="newsletter-privacy">By subscribing, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
-<p aria-live="polite" class="newsletter-message" role="status"></p>
-</form>
-</section>
-<div class="footer-main">
-<div class="footer-brand">
-<a aria-label="MEHEK homepage" class="brand-logo footer-logo" href="index.html">
-<span class="brand-name">MEHEK</span>
-<span class="brand-subtitle">Fragrances</span>
-</a>
-<p>Luxury fragrances for body and home, inspired by heritage, memory and place.</p>
-</div>
-<div class="footer-grid">
-<div class="footer-column">
-<h2 class="footer-heading">Help &amp; Contact</h2>
-<ul>
-<li><a href="faq.html">FAQs</a></li>
-<li><a href="returns-policy.html">Returns Policy</a></li>
-<li><a href="shipping-policy.html">Delivery</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h2 class="footer-heading">Privacy and Terms</h2>
-<ul>
-<li><a href="privacy-policy.html">Privacy Policy</a></li>
-<li><a href="terms.html">Terms &amp; Conditions</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h2 class="footer-heading">Social</h2>
-<ul>
-<li><a href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">Instagram</a></li>
-<li><a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">Facebook</a></li>
-<li><a href="https://www.pinterest.com/" rel="noopener noreferrer" target="_blank">Pinterest</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h2 class="footer-heading">Visit &amp; Explore</h2>
-<ul>
-<li><a href="about.html">Our Story</a></li>
-<li><a href="products.html">Shop</a></li>
-<li><a href="collections.html">Collections</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© <span id="current-year">2026</span> MEHEK Fragrances. All rights reserved.</p>
-<p class="footer-credit">Original brand concept and editorial direction by Khadija Idbihi. Visual content created with AI-assisted tools.</p>
-</div>
-</footer>
-<script src="js/checkout.js"></script>
-<script src="js/script.js"></script>
+
+  <!-- Lets keyboard/screen-reader users jump straight to the content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+
+    <!-- Promotional announcement -->
+    <div class="announcement-bar">
+      <p>Complimentary UK shipping on orders over £100</p>
+    </div>
+
+    <!-- Main navigation -->
+    <nav class="navbar" aria-label="Main navigation">
+
+      <!-- Mobile menu button -->
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="navigation-menu" aria-expanded="false" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Brand logo -->
+      <a href="index.html" class="brand-logo" aria-label="MEHEK homepage">
+        <span class="brand-name">MEHEK</span>
+        <span class="brand-subtitle">Fragrances</span>
+      </a>
+
+      <!-- Main navigation links -->
+      <ul class="navigation-menu" id="navigation-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Navigation actions -->
+      <div class="navigation-actions">
+
+        <!-- Search link -->
+        <a href="products.html#product-search" class="icon-link" aria-label="Search products">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16" y1="16" x2="21" y2="21"></line>
+          </svg>
+        </a>
+
+        <!-- Wishlist link -->
+        <a href="wishlist.html" class="icon-link wishlist-link" aria-label="Open wishlist">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path>
+          </svg>
+          <span class="wishlist-count" aria-live="polite">0</span>
+        </a>
+
+        <!-- Shopping cart link -->
+        <a href="cart.html" class="icon-link cart-link" aria-label="Open shopping cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 4h2l2 11h10l2-8H6"></path>
+            <circle cx="9" cy="19" r="1"></circle>
+            <circle cx="17" cy="19" r="1"></circle>
+          </svg>
+          <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+        </a>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main class="checkout-page-main" id="main-content">
+
+    <!-- Page heading -->
+    <section class="checkout-heading">
+      <p class="eyebrow">Secure Checkout</p>
+      <h1>Complete Your Order</h1>
+    </section>
+
+    <!-- Shown when the cart is empty -->
+    <div class="checkout-empty" id="checkout-empty" hidden>
+      <p class="eyebrow">Your Bag Is Empty</p>
+      <h2>There is nothing to check out yet.</h2>
+      <a href="products.html" class="btn-primary">Explore the Collection</a>
+    </div>
+
+    <!-- Checkout form and order summary -->
+    <section class="checkout-layout" id="checkout-content" aria-label="Checkout">
+
+      <form class="checkout-form" id="checkout-form">
+
+        <fieldset>
+          <legend>Contact Information</legend>
+          <div class="checkout-field checkout-field-full">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="checkout-field checkout-field-full">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Shipping Address</legend>
+          <div class="checkout-fields-grid">
+            <div class="checkout-field">
+              <label for="first-name">First name</label>
+              <input type="text" id="first-name" name="firstName" autocomplete="given-name" required>
+            </div>
+            <div class="checkout-field">
+              <label for="last-name">Last name</label>
+              <input type="text" id="last-name" name="lastName" autocomplete="family-name" required>
+            </div>
+            <div class="checkout-field checkout-field-full">
+              <label for="address">Address</label>
+              <input type="text" id="address" name="address" autocomplete="street-address" required>
+            </div>
+            <div class="checkout-field">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" autocomplete="address-level2" required>
+            </div>
+            <div class="checkout-field">
+              <label for="postcode">Postcode</label>
+              <input type="text" id="postcode" name="postcode" autocomplete="postal-code" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Payment Details</legend>
+          <p class="checkout-demo-note">Demonstration checkout — no real payment will be processed.</p>
+          <div class="checkout-field checkout-field-full">
+            <label for="card-name">Name on card</label>
+            <input type="text" id="card-name" name="cardName" autocomplete="cc-name" required>
+          </div>
+          <div class="checkout-field checkout-field-full">
+            <label for="card-number">Card number</label>
+            <input type="text" id="card-number" name="cardNumber" autocomplete="cc-number" inputmode="numeric" maxlength="19" pattern="[0-9 ]{15,19}" required>
+          </div>
+          <div class="checkout-fields-grid">
+            <div class="checkout-field">
+              <label for="expiry">Expiry date</label>
+              <input type="text" id="expiry" name="expiry" autocomplete="cc-exp" inputmode="numeric" maxlength="5" pattern="(0[1-9]|1[0-2])/[0-9]{2}" placeholder="MM/YY" required>
+            </div>
+            <div class="checkout-field">
+              <label for="security-code">Security code</label>
+              <input type="text" id="security-code" name="securityCode" autocomplete="cc-csc" inputmode="numeric" maxlength="4" pattern="[0-9]{3,4}" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn-primary checkout-submit">Complete Order</button>
+        <p class="checkout-privacy">By completing your order, you agree to our terms and privacy policy.</p>
+      </form>
+
+      <aside class="checkout-summary" aria-label="Order summary">
+        <h2>Order Summary</h2>
+
+        <!-- Order line items get rendered here dynamically -->
+        <div class="checkout-summary-items" id="checkout-items"></div>
+
+        <div class="checkout-summary-totals">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="checkout-subtotal">£0.00</strong>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <strong id="checkout-shipping">£0.00</strong>
+          </div>
+          <p class="shipping-message" id="checkout-shipping-message"></p>
+          <div class="summary-row summary-total">
+            <span>Total</span>
+            <strong id="checkout-total">£0.00</strong>
+          </div>
+        </div>
+
+        <a href="cart.html" class="checkout-edit-bag">Edit Shopping Bag</a>
+      </aside>
+
+    </section>
+
+    <!-- Shown after a successful order submission -->
+    <section class="order-success" id="order-success" hidden aria-live="polite">
+      <p class="eyebrow">Order Confirmed</p>
+      <h2>Thank you for choosing MEHEK.</h2>
+      <p>Your demonstration order has been successfully created.</p>
+      <p class="order-reference">Order reference: <strong id="order-reference"></strong></p>
+      <a href="products.html" class="btn-primary">Continue Shopping</a>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+
+    <!-- Newsletter signup -->
+    <section class="footer-newsletter" aria-labelledby="newsletter-title">
+      <div class="newsletter-copy">
+        <p class="newsletter-eyebrow">The MEHEK Journal</p>
+        <h2 id="newsletter-title">A quiet note from MEHEK.</h2>
+        <p>Discover new collections, fragrance rituals and private invitations, delivered occasionally.</p>
+      </div>
+      <form class="newsletter-form" novalidate>
+        <label for="newsletter-email">Email address</label>
+        <div class="newsletter-controls">
+          <input type="email" id="newsletter-email" name="email" placeholder="Enter your email address" autocomplete="email" required>
+          <button type="submit">Join the journal</button>
+        </div>
+        <p class="newsletter-privacy">By subscribing, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+        <p class="newsletter-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <div class="footer-main">
+
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo footer-logo" aria-label="MEHEK homepage">
+          <span class="brand-name">MEHEK</span>
+          <span class="brand-subtitle">Fragrances</span>
+        </a>
+        <p>Luxury fragrances for body and home, inspired by heritage, memory and place.</p>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h2 class="footer-heading">Help &amp; Contact</h2>
+          <ul>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="returns-policy.html">Returns Policy</a></li>
+            <li><a href="shipping-policy.html">Delivery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h2 class="footer-heading">Privacy and Terms</h2>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h2 class="footer-heading">Social</h2>
+          <ul>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h2 class="footer-heading">Visit &amp; Explore</h2>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="collections.html">Collections</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="current-year">2026</span> MEHEK Fragrances. All rights reserved.</p>
+      <p class="footer-credit">Original brand concept and editorial direction by Khadija Idbihi. Visual content created with AI-assisted tools.</p>
+    </div>
+
+  </footer>
+
+  <!-- Scripts loaded at the end of body so the DOM is ready before they run -->
+  <script src="js/checkout.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
+
