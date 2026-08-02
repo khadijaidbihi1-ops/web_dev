@@ -1,0 +1,386 @@
+/* Mobile page refinements */
+
+@media (max-width: 767px) {
+  /* Contact: show the form before secondary details */
+  .contact-page main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-page .contact-hero {
+    order: 1;
+    min-height: 330px;
+  }
+
+  .contact-page .contact-hero-content {
+    padding: 10rem 1.25rem 1.75rem;
+  }
+
+  .contact-page .contact-hero h1 {
+    margin: .4rem 0 .75rem;
+    font-size: clamp(2.45rem, 11vw, 3.35rem);
+  }
+
+  .contact-page .contact-hero p:last-child {
+    max-width: 21rem;
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+
+  .contact-page .contact-form-section {
+    order: 2;
+    width: 100%;
+    padding: 1.75rem 1rem 2.25rem;
+    gap: 1.75rem;
+  }
+
+  .contact-page .contact-form-column h2 {
+    margin: .3rem 0 1.25rem;
+    font-size: 2.15rem;
+  }
+
+  .contact-page .contact-form .form-row {
+    margin-bottom: .7rem;
+  }
+
+  .contact-page .contact-form textarea {
+    min-height: 130px;
+  }
+
+  .contact-page .contact-editorial-image {
+    order: 2;
+    max-height: 230px;
+  }
+
+  .contact-page .contact-editorial-image img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+  }
+
+  .contact-page .contact-info-strip {
+    order: 3;
+    width: calc(100% - 2rem);
+    margin: 0 auto 2rem;
+  }
+
+  .contact-page .contact-info-card {
+    padding: 1.2rem 1rem;
+  }
+
+  .contact-page .contact-info-card svg {
+    width: 25px;
+    height: 25px;
+    margin-bottom: .55rem;
+  }
+
+  .contact-page .contact-info-card h2 {
+    margin-bottom: .35rem;
+  }
+
+  .contact-page .contact-signature {
+    order: 4;
+    padding: 2.25rem 1rem;
+  }
+
+  /* Cart: place the order summary first and reduce item height */
+  .cart-page-main {
+    padding: 1.5rem 1rem 4.5rem;
+  }
+
+  .cart-page-heading {
+    padding-bottom: 1rem;
+  }
+
+  .cart-page-heading .eyebrow {
+    margin-bottom: .35rem;
+  }
+
+  .cart-page-heading h1 {
+    font-size: 2.45rem;
+  }
+
+  .cart-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .cart-summary {
+    order: -1;
+    position: sticky;
+    top: 6.8rem;
+    z-index: 5;
+    width: 100%;
+    padding: 1rem;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(20, 17, 13, .08);
+  }
+
+  .cart-summary h2,
+  .cart-summary .summary-row:not(.summary-total),
+  .cart-summary #shipping-message,
+  .cart-summary .cart-continue-link {
+    display: none;
+  }
+
+  .cart-summary .summary-total {
+    margin: 0 0 .75rem;
+    padding: 0;
+    border: 0;
+  }
+
+  .cart-checkout-button {
+    min-height: 46px;
+  }
+
+  .cart-item {
+    position: relative;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: .9rem;
+    padding: 1.1rem 0;
+  }
+
+  .cart-item-image {
+    width: 82px;
+  }
+
+  .cart-item-image img {
+    padding: .45rem;
+  }
+
+  .cart-item-details {
+    grid-column: 2;
+    padding-top: 0;
+    padding-right: 4.25rem;
+  }
+
+  .cart-item-collection {
+    margin-bottom: .25rem;
+    font-size: .58rem;
+  }
+
+  .cart-item-details h2 {
+    font-size: 1.2rem;
+  }
+
+  .cart-item-meta {
+    margin: .3rem 0 .65rem;
+    font-size: .7rem;
+  }
+
+  .cart-item-price {
+    position: absolute;
+    top: 1.1rem;
+    right: 0;
+    font-size: .9rem;
+  }
+
+  .cart-item-actions {
+    flex-direction: row;
+    align-items: center;
+    gap: .8rem;
+  }
+
+  .quantity-control {
+    min-height: 38px;
+  }
+
+  .quantity-control button {
+    width: 36px;
+    min-height: 36px;
+  }
+
+  .cart-remove-button {
+    min-height: 38px;
+  }
+
+  /* Wishlist: show saved products sooner */
+  .wishlist-page .content-hero,
+  body:not(.wishlist-page) .content-page-main .content-hero:first-child {
+    padding: 2rem 1rem 1.25rem;
+  }
+
+  .wishlist-page .content-hero h1 {
+    margin: .15rem 0 .55rem;
+    font-size: 2.45rem;
+  }
+
+  .wishlist-page .content-hero > p:last-child {
+    max-width: 21rem;
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+
+  .wishlist-page .wishlist-section {
+    padding: 0 1rem 3rem;
+  }
+
+  .wishlist-page .wishlist-grid {
+    gap: 1.15rem;
+  }
+
+  .wishlist-page .wishlist-product-card .product-media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .wishlist-page .wishlist-product-card .product-image {
+    object-fit: cover;
+  }
+
+  .wishlist-page .wishlist-product-card .product-content {
+    padding-top: .85rem;
+  }
+
+  .wishlist-page .wishlist-product-card h2 {
+    margin: .2rem 0;
+    font-size: 1.35rem;
+  }
+
+  .wishlist-page .wishlist-product-card .add-cart-button {
+    width: 100%;
+    min-height: 46px;
+    margin-top: .65rem;
+  }
+
+  /* FAQ: bring the questions into the first screen */
+  .faq-hero {
+    padding: 2rem 1rem 1.35rem;
+  }
+
+  .faq-hero .section-label {
+    margin-bottom: .35rem;
+  }
+
+  .faq-hero h1 {
+    margin: 0 0 .65rem;
+    font-size: 2.45rem;
+  }
+
+  .faq-hero p:last-child {
+    max-width: 21rem;
+    margin: 0 auto;
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+
+  .faq-category-nav {
+    gap: .25rem;
+    padding: .35rem .65rem;
+  }
+
+  .faq-category-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: .5rem .65rem;
+  }
+
+  .faq-content {
+    gap: 2rem;
+    padding: 1.5rem 1rem 3.5rem;
+  }
+
+  .faq-groups {
+    gap: 2.5rem;
+  }
+
+  .faq-group-heading {
+    margin-bottom: .75rem;
+  }
+
+  .faq-group-heading h2 {
+    font-size: 1.8rem;
+  }
+
+  .faq-item summary {
+    padding: 1rem 0;
+    font-size: .94rem;
+  }
+
+  .faq-item > div {
+    padding-bottom: 1.1rem;
+    line-height: 1.65;
+  }
+
+  .faq-help {
+    padding: 1.4rem;
+  }
+
+  /* Policy pages: compact heading and content spacing */
+  .policy-page .content-hero,
+  .content-page-main .policy-hero {
+    padding: 2rem 1rem 1.2rem;
+    text-align: left;
+  }
+
+  .policy-hero .section-label {
+    margin-bottom: .35rem;
+    font-size: .68rem;
+  }
+
+  .policy-hero h1 {
+    margin: 0 0 .45rem;
+    font-size: 2.35rem;
+    line-height: 1.05;
+  }
+
+  .policy-hero > p:last-child {
+    margin: 0;
+    font-size: .82rem;
+  }
+
+  .policy-article {
+    padding: 0 1rem 3rem;
+  }
+
+  .policy-article section {
+    padding: 1rem 0;
+  }
+
+  .policy-article h2 {
+    margin-bottom: .4rem;
+    font-size: 1.3rem;
+  }
+
+  .policy-article p {
+    font-size: .92rem;
+    line-height: 1.65;
+  }
+
+  /* About: shorter fragrance material cards */
+  .about-notes {
+    padding-top: 3.5rem;
+  }
+
+  .about-notes-heading {
+    padding-inline: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-notes-grid {
+    gap: .75rem;
+    padding-inline: 1rem;
+  }
+
+  .about-note-card {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .about-note-card div {
+    padding: 1rem;
+  }
+
+  .about-note-card h3 {
+    margin-bottom: .25rem;
+    font-size: 1.65rem;
+  }
+
+  .about-note-card p {
+    max-width: 16rem;
+    font-size: .86rem;
+    line-height: 1.4;
+  }
+}

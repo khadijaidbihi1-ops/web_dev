@@ -4,9 +4,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="MEHEK luxury fragrances and home scents." name="description"/>
+<meta content="Contact MEHEK Fragrances for product advice, order support, delivery information and customer care." name="description"/>
 <title>Contact | MEHEK</title>
-<link href="css/style.css?v=contact-redesign-2" rel="stylesheet"/><link href="css/components.css" rel="stylesheet"/>
+<link href="css/style.css?v=contact-redesign-2" rel="stylesheet"/><link href="css/components.css" rel="stylesheet"/><link as="image" href="media/images/contact/contact-hero-768.webp" imagesizes="100vw" imagesrcset="media/images/contact/contact-hero-480.webp 480w, media/images/contact/contact-hero-768.webp 768w, media/images/contact/contact-hero-1200.webp 1200w, media/images/contact/contact-hero-1717.webp 1717w" rel="preload" type="image/webp"/>
+<link href="css/mobile-refinements.css" rel="stylesheet"/>
 </head>
 <body class="contact-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -51,7 +52,7 @@
 <main id="main-content">
 <!-- Contact hero -->
 <section aria-labelledby="contact-title" class="contact-hero">
-<img alt="MEHEK perfume arranged with warm fabric, stone and botanical details" class="contact-hero-image" src="media/images/contact/contact-hero.png?v=2"/>
+<picture class="contact-hero-picture"><img alt="MEHEK perfume arranged with warm fabric, stone and botanical details" class="contact-hero-image" decoding="async" fetchpriority="high" height="916" sizes="100vw" src="media/images/contact/contact-hero-1200.webp" srcset="media/images/contact/contact-hero-480.webp 480w, media/images/contact/contact-hero-768.webp 768w, media/images/contact/contact-hero-1200.webp 1200w, media/images/contact/contact-hero-1717.webp 1717w" width="1717"/></picture>
 <div class="contact-hero-overlay"></div>
 <div class="contact-hero-content">
 <p class="section-eyebrow">Contact</p>
@@ -86,30 +87,30 @@
 <div class="contact-form-grid">
 <div class="form-row">
 <label for="contact-name">Your name</label>
-<input autocomplete="name" id="contact-name" name="name" required=""/>
-<small class="field-error" id="name-error"></small>
+<input aria-describedby="name-error" autocomplete="name" id="contact-name" name="name" required=""/>
+<small aria-live="polite" class="field-error" id="name-error" role="status"></small>
 </div>
 <div class="form-row">
 <label for="contact-email">Email address</label>
-<input autocomplete="email" id="contact-email" name="email" required="" type="email"/>
-<small class="field-error" id="email-error"></small>
+<input aria-describedby="email-error" autocomplete="email" id="contact-email" name="email" required="" type="email"/>
+<small aria-live="polite" class="field-error" id="email-error" role="status"></small>
 </div>
 </div>
 <div class="form-row">
 <label for="contact-subject">Subject</label>
-<select id="contact-subject" name="subject" required="">
+<select aria-describedby="subject-error" id="contact-subject" name="subject" required="">
 <option value="">Choose a subject</option>
 <option>Product advice</option>
 <option>Order enquiry</option>
 <option>Delivery</option>
 <option>Other</option>
 </select>
-<small class="field-error" id="subject-error"></small>
+<small aria-live="polite" class="field-error" id="subject-error" role="status"></small>
 </div>
 <div class="form-row">
 <label for="contact-message">Your message</label>
-<textarea id="contact-message" minlength="10" name="message" required="" rows="7"></textarea>
-<small class="field-error" id="message-error"></small>
+<textarea aria-describedby="message-error" id="contact-message" minlength="10" name="message" required="" rows="7"></textarea>
+<small aria-live="polite" class="field-error" id="message-error" role="status"></small>
 </div>
 <button class="btn-primary contact-submit" type="submit">Send Message</button>
 <p class="contact-response-note">We aim to reply within 1–2 working days.</p>
@@ -117,7 +118,7 @@
 </form>
 </div>
 <figure class="contact-editorial-image">
-<img alt="MEHEK fragrance book and perfume arranged in warm natural light" src="media/images/contact/book.png"/>
+<img alt="MEHEK fragrance book and perfume arranged in warm natural light" decoding="async" height="1122" loading="lazy" sizes="(max-width: 900px) calc(100vw - 2rem), 42vw" src="media/images/contact/book-768.webp" srcset="media/images/contact/book-480.webp 480w, media/images/contact/book-768.webp 768w, media/images/contact/book-1200.webp 1200w, media/images/contact/book-1402.webp 1402w" width="1402"/>
 </figure>
 </section>
 <section aria-label="MEHEK brand statement" class="contact-signature">
@@ -193,7 +194,7 @@
 <p class="footer-credit">Original brand concept and editorial direction by Khadija Idbihi. Visual content created with AI-assisted tools.</p>
 </div>
 </footer>
-<script src="js/script.js"></script>
-<script src="js/contact.js"></script>
+<script defer="" src="js/script.js"></script>
+<script defer="" src="js/contact.js"></script>
 </body>
 </html>
