@@ -7,6 +7,7 @@
 <meta content="Discover the stories, inspirations and olfactory worlds behind the Heritage, Milano and London collections by MEHEK." name="description"/>
 <title>Our Collections | MEHEK</title>
 <link href="css/style.css" rel="stylesheet"/><link href="css/components.css" rel="stylesheet"/>
+<link as="image" href="media/images/collections/world-of-mehek-hero.webp" rel="preload" type="image/webp"/>
 </head>
 <body class="collections-page-body">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -53,7 +54,7 @@
 <!-- Intro -->
 <section aria-labelledby="collections-page-title" class="collections-hero reveal">
 <div class="collections-hero-image">
-<img alt="MEHEK luxury fragrance collection" height="1000" src="media/images/collections/world-of-mehek-hero.png" width="1600"/>
+<img alt="MEHEK luxury fragrance collection" decoding="async" fetchpriority="high" height="1000" src="media/images/collections/world-of-mehek-hero.webp" width="1600"/>
 </div>
 <div class="collections-hero-content">
 <p class="section-eyebrow">Three places. Three moods. One story.</p>
@@ -66,26 +67,26 @@
 </div>
 </section>
 <!-- Collection slider navigation -->
-<nav aria-label="Choose a MEHEK collection" class="collection-jump-nav">
-<button aria-current="true" class="collection-tab is-active" data-collection-slide="0" role="tab" type="button">
+<div aria-label="Choose a MEHEK collection" class="collection-jump-nav" role="tablist">
+<button aria-controls="heritage" aria-selected="true" class="collection-tab is-active" data-collection-slide="0" id="heritage-tab" role="tab" tabindex="0" type="button">
         Heritage
       </button>
-<button aria-current="false" class="collection-tab" data-collection-slide="1" role="tab" type="button">
+<button aria-controls="milano" aria-selected="false" class="collection-tab" data-collection-slide="1" id="milano-tab" role="tab" tabindex="-1" type="button">
         Milano
       </button>
-<button aria-current="false" class="collection-tab" data-collection-slide="2" role="tab" type="button">
+<button aria-controls="london" aria-selected="false" class="collection-tab" data-collection-slide="2" id="london-tab" role="tab" tabindex="-1" type="button">
         London
       </button>
-</nav>
+</div>
 <!-- =========================================
          Collection Story Slider
     ========================================== -->
 <section aria-label="MEHEK collection stories" class="collection-slider" id="collection-slider">
 <div class="collection-slider-track">
 <!-- Heritage Collection -->
-<article aria-hidden="false" class="collection-slide collection-slide-dark is-active" id="heritage">
+<article aria-hidden="false" aria-labelledby="heritage-tab" class="collection-slide collection-slide-dark is-active" id="heritage" role="tabpanel" tabindex="0">
 <div class="collection-slide-image">
-<img alt="Heritage Collection inspired by Morocco and Pakistan" height="1200" src="media/images/collections/heritage-collection.webp" width="900"/>
+<img alt="Heritage Collection inspired by Morocco and Pakistan" decoding="async" height="1200" src="media/images/collections/heritage-collection.webp" width="900"/>
 </div>
 <div class="collection-slide-content">
 <p class="collection-number">1 / 3</p>
@@ -121,9 +122,9 @@
 </div>
 </article>
 <!-- Milano Collection -->
-<article aria-hidden="true" class="collection-slide collection-slide-light" id="milano">
+<article aria-hidden="true" aria-labelledby="milano-tab" class="collection-slide collection-slide-light" id="milano" role="tabpanel" tabindex="0">
 <div class="collection-slide-image">
-<img alt="Milano Collection inspired by Italian elegance and design" height="1200" loading="lazy" src="media/images/collections/milano-collection.webp" width="900"/>
+<img alt="Milano Collection inspired by Italian elegance and design" decoding="async" height="1200" loading="lazy" src="media/images/collections/milano-collection.webp" width="900"/>
 </div>
 <div class="collection-slide-content">
 <p class="collection-number">2 / 3</p>
@@ -158,9 +159,9 @@
 </div>
 </article>
 <!-- London Collection -->
-<article aria-hidden="true" class="collection-slide collection-slide-london" id="london">
+<article aria-hidden="true" aria-labelledby="london-tab" class="collection-slide collection-slide-london" id="london" role="tabpanel" tabindex="0">
 <div class="collection-slide-image">
-<img alt="London Collection inspired by contemporary London" height="1200" loading="lazy" src="media/images/collections/london-collection.webp" width="900"/>
+<img alt="London Collection inspired by contemporary London" decoding="async" height="1200" loading="lazy" src="media/images/collections/london-collection.webp" width="900"/>
 </div>
 <div class="collection-slide-content">
 <p class="collection-number">3 / 3</p>
@@ -202,9 +203,9 @@
 <span aria-hidden="true">›</span>
 </button>
 <div aria-label="Choose a collection" class="collection-slider-dots">
-<button aria-current="true" aria-label="Show Heritage Collection" class="collection-slider-dot is-active" data-collection-slide="0" type="button"></button>
-<button aria-current="false" aria-label="Show Milano Collection" class="collection-slider-dot" data-collection-slide="1" type="button"></button>
-<button aria-current="false" aria-label="Show London Collection" class="collection-slider-dot" data-collection-slide="2" type="button"></button>
+<button aria-label="Show Heritage Collection" aria-pressed="true" class="collection-slider-dot is-active" data-collection-slide="0" type="button"></button>
+<button aria-label="Show Milano Collection" aria-pressed="false" class="collection-slider-dot" data-collection-slide="1" type="button"></button>
+<button aria-label="Show London Collection" aria-pressed="false" class="collection-slider-dot" data-collection-slide="2" type="button"></button>
 </div>
 </section>
 <!-- Closing call to action -->
@@ -287,6 +288,6 @@
 <p class="footer-credit">Original brand concept and editorial direction by Khadija Idbihi. Visual content created with AI-assisted tools.</p>
 </div>
 </footer>
-<script src="js/script.js"></script>
+<script defer src="js/script.js"></script>
 </body>
 </html>

@@ -380,14 +380,15 @@ if (collectionSlider) {
       const isActive = index === activeCollectionIndex;
 
       tab.classList.toggle('is-active', isActive);
-      tab.setAttribute('aria-current', String(isActive));
+      tab.setAttribute('aria-selected', String(isActive));
+      tab.setAttribute('tabindex', isActive ? '0' : '-1');
     });
 
     collectionDots.forEach((dot, index) => {
       const isActive = index === activeCollectionIndex;
 
       dot.classList.toggle('is-active', isActive);
-      dot.setAttribute('aria-current', String(isActive));
+      dot.setAttribute('aria-pressed', String(isActive));
     });
 
     window.setTimeout(() => {
@@ -405,6 +406,29 @@ if (collectionSlider) {
   collectionTabs.forEach((tab, index) => {
     tab.addEventListener('click', () => {
       showCollectionSlide(index);
+    });
+  });
+
+  // Allows keyboard navigation between collection tabs
+  collectionTabs.forEach((tab, index) => {
+    tab.addEventListener('keydown', event => {
+      let nextIndex = index;
+
+      if (event.key === 'ArrowRight') {
+        nextIndex = (index + 1) % collectionTabs.length;
+      } else if (event.key === 'ArrowLeft') {
+        nextIndex = (index - 1 + collectionTabs.length) % collectionTabs.length;
+      } else if (event.key === 'Home') {
+        nextIndex = 0;
+      } else if (event.key === 'End') {
+        nextIndex = collectionTabs.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      showCollectionSlide(nextIndex);
+      collectionTabs[nextIndex].focus();
     });
   });
 
