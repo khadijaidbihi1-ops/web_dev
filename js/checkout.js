@@ -191,13 +191,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Empty the cart and show the success screen
     localStorage.removeItem(STORAGE_KEY);
     cart = [];
-    content.hidden = true;
-    successState.hidden = false;
+        successState.hidden = false;
     orderReference.textContent = reference;
     updateCartBadge();
     successState.scrollIntoView({
     behavior: 'smooth',
-    block: 'start'
+    block: 'center'
 });
   });
 
