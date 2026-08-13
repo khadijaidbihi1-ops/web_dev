@@ -195,7 +195,10 @@ document.addEventListener('DOMContentLoaded', () => {
     successState.hidden = false;
     orderReference.textContent = reference;
     updateCartBadge();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    successState.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+});
   });
 
   // ---------------------------------------------------------------------
